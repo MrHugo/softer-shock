@@ -1,45 +1,43 @@
 
 /* Menu */
 
-.dropdown:hover .dropdown-menu {
+header .dropdown:hover .dropdown-menu {
     display: block;
 }
 
-.navbar {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+header .navbar {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.42);
 }
 
-.navbar .navbar-logo {
-    height: 100px;
+header .navbar .navbar-logo {
+    height: 110px;
     width: auto;
 }
 
-#menu-container {
+header .navbar, .navbar-header {
     background-color: #fff;
+    margin-bottom: 1px;
 }
 
-#menu-container a, #menu-container ul li ul li a {
+header #menu-container a, header #menu-container ul li ul li a {
     display: block;
-    padding: 40px 70px;
+    padding: 50px 85px;
 }
 
-#menu-container ul li {
-    font: bold 12px/18px sans-serif;
+header #menu-container ul li {
+    font: bold medium sans-serif;
 }
 
-#menu-container ul li a {
+header #menu-container ul li a {
     color: #000;
 }
 
-#menu-container ul li:hover a {
+header #menu-container ul li:hover a.menu-item {
     background: #2a6ebb;
-}
-
-#menu-container ul li:hover a.menu-item {
     color: #fff;
 }
 
-#menu-container ul li ul {
+header #menu-container ul li ul {
     padding: 0;
     background: #2a6ebb;
     border-width: 0;
@@ -48,14 +46,44 @@
     box-shadow: none;
 }
 
-#menu-container ul li ul li {
-    background: #2a6ebb;    
+header #menu-container ul li ul li {
+    background: #2a6ebb;
 }
 
-#menu-container ul li ul li:hover a {
+header #menu-container ul li ul li a {
+    color: #fff;
+}
+
+header #menu-container ul li ul li:hover a {
     background: #ffa438;
 }
 
-#menu-container ul li ul li:hover a {
+header #menu-container ul li ul li:hover a {
     color: #fff;
+}
+
+header .header-picture-holder {
+    position: relative;
+}
+
+header .header-picture {
+    position: relative;
+    width: 100vw;
+    z-index: -1;
+    margin-top: -5%;
+}
+
+header .header-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 5% 2%;
+    color: #fff;
+    background: rgba(10, 150, 180, 0.8);
+    bottom: 25%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    text-align: center;
 }
