@@ -6,6 +6,7 @@ header .dropdown:hover .dropdown-menu {
 }
 
 header .navbar {
+    z-index: 100;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.42);
 }
 
@@ -70,12 +71,14 @@ header .header-picture-holder, header .header-logo-holder {
 }
 
 header .header-picture-holder {
+    height: 100%;
     width: 100%;
-    height: 94vh;
-    background-image: url('../pictures/full-team-compressed.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin-top: -100px;
+}
+
+header .header-picture-holder .header-picture {
+    width: 100%;
+    z-index: -1;
 }
 
 header .white-picture-layer {
@@ -88,12 +91,8 @@ header .white-picture-layer {
     height: 100%;
 }
 
-header .header-picture {
-    position: relative;
-    width: 100%;
-    z-index: -1;
-    margin-top: -5%;
-
+header .header-text-concept {
+    font-size: 28px;
 }
 
 header .header-text {
@@ -106,7 +105,7 @@ header .header-text {
     padding: 2% 5%;
     color: #fff;
     background: rgba(10, 150, 180, 0.8);
-    bottom: 25%;
+    bottom: 30%;
     left: 0;
     width: 100%;
     margin: 0;
