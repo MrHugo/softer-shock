@@ -8,17 +8,14 @@
 
     <script type="text/javascript" src="JSmol.min.js"></script>
     <script type="text/javascript">
-    jmol_isReady = function(applet) {
-	     document.title = (applet._id + " - Jmol " + Jmol.___JmolVersion)
-	     Jmol._getElement(applet, "appletdiv").style.border="1px solid blue"
-      }
+
     var Info = {
       color: "#FFFFFF",
       height: 300,
       width: 300,
       use: "HTML5",
       j2sPath: "j2s",
-      src: "final.mol",
+      script: "load final.casp.pdb; select all; cpk off; wireframe off; cartoon on; color group; set antialiasDisplay ON",
       disableInitialConsole: true
     };
 
@@ -58,7 +55,7 @@
 
         <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="card-block">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              test 1
           </div>
         </div>
       </div>
