@@ -9,17 +9,19 @@
     <script type="text/javascript" src="JSmol.min.js"></script>
     <script type="text/javascript">
 
-    var Info = {
-      color: "#FFFFFF",
-      height: 300,
-      width: 300,
+    var AmilcpDsbox = {
+      addSelectionOptions: false,
+      color: "#000000",
+      debug: false,
+      deferApplet: false,
+      width: 400,
+      height: 400,
       use: "HTML5",
       j2sPath: "j2s",
       script: "load final.casp.pdb; select all; cpk off; wireframe off; cartoon on; color group; set antialiasDisplay ON",
       disableInitialConsole: true
     };
 
-    Jmol.getApplet("myJmol", Info);
     </script>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -55,7 +57,8 @@
 
         <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="card-block">
-              test 1
+              AmilcpDsbox
+              <script>Jmol.getApplet("myJmol", AmilcpDsbox);</script>
           </div>
         </div>
       </div>
