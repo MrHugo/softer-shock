@@ -6,18 +6,44 @@
     <link rel="stylesheet" href="./softer-shock/src/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="D:\github\softer-shock\src\css\template.css">
 
+    <script type="text/javascript" src="JSmol.min.js"></script>
+    <script type="text/javascript">
+    var Info = {
+      color: "#FFFFFF",
+      height: 300,
+      width: 300,
+      script: "load final.mol",
+      use: "HTML5",
+      j2sPath: "j2s",
+      jarPath: "java",
+      jarFile: "JmolAppletSigned0.jar",
+      isSigned: true,
+      serverURL: "php/jsmol.php",
+      disableInitialConsole: true
+    };
+
+    Jmol.getApplet("myJmol", Info);
+    </script>
     <script src="D:\github\softer-shock\src\js\jquery.min.js"></script>
     <script src="D:\github\softer-shock\src\js\bootstrap.min.js"></script>
     <style type="text/css">
-      p {
-        color: purple;
-        background-color: white;
-        margin-left: 20px;}
+      a {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 40px;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        border-radius: 12px;}
+
     </style>
     <title>Placement of the Downstream box for AmilCP</title>
   </head>
   <body>
-    <div class="jumbotron text-center">
       <h1>Placement of the Downstream box for AmilCP</h1>
     </div>
       <div id="accordion" role="tablist" aria-multiselectable="true">
@@ -25,14 +51,14 @@
           <div class="card-header" role="tab" id="headingOne">
             <h5 class="mb-0">
               <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
+                Phyre2 Results
               </a>
             </h5>
         </div>
 
         <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="card-block">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
           </div>
         </div>
       </div>
@@ -40,7 +66,7 @@
       <div class="card-header" role="tab" id="headingTwo">
         <h5 class="mb-0">
           <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Collapsible Group Item #2
+              RaptorX Results
           </a>
         </h5>
       </div>
@@ -54,7 +80,7 @@
       <div class="card-header" role="tab" id="headingThree">
         <h5 class="mb-0">
           <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Collapsible Group Item #3
+            SparkX Results
           </a>
         </h5>
       </div>
@@ -64,6 +90,6 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
   </body>
 </html>
