@@ -22,11 +22,11 @@ header .navbar, .navbar-header {
 
 header #menu-container a, header #menu-container ul li ul li a {
     display: block;
-    padding: 50px 85px;
+    padding: 50px 50px;
 }
 
 header #menu-container ul li {
-    font: bold medium sans-serif;
+    font: bold 14px sans-serif;
 }
 
 header #menu-container ul li a {
@@ -101,7 +101,7 @@ header .header-text {
     align-items: center;
     position: absolute;
     z-index: 2;
-    font-size: 22px;
+    font-size: 18px;
     padding: 2% 5%;
     color: #fff;
     background: rgba(10, 150, 180, 0.8);
