@@ -27,6 +27,7 @@ img {
 
 .name {
 	font-weight: bold;
+	font-size: 28px;
 	margin-bottom: 10px;
 }
 
@@ -36,7 +37,11 @@ img {
 	list-style-position: inside;
 }
 
-.first-point, .description {
+.first-point {
+	margin-top: 45px;
+}
+
+.description {
 	margin-top: 20px;
 }
 
