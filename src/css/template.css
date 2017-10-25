@@ -25,6 +25,15 @@ header #menu-container a, header #menu-container ul li ul li a {
     padding: 50px 50px;
 }
 
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+  header #menu-container a, header #menu-container ul li ul li a {
+      display: block;
+      padding: 25px 25px;
+  }
+}
+
 header #menu-container ul li {
     font: bold 14px sans-serif;
 }
