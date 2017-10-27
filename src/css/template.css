@@ -17,13 +17,15 @@ Bleu: #0495c4;
 
 @font-face {
   font-family: 'BebasNeue-Bold';
+  src: url('./fonts/BebasNeue-Bold.woff2') format('woff2');
 }
 
-src: url('./fonts/BebasNeue-Bold.woff2') format('woff2');
 /* Background */
 
 body {
   background-color: #f7f2e9;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Menu */
@@ -146,12 +148,22 @@ header .header-logo {
 
 /* Random */
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: "BebasNeue-Bold", Helvetica, Arial, sans-serif;
 }
 
 p {
   font-family: "RobotoSlab-Light", Helvetica, Arial, sans-serif;
+}
+
+img {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.marged {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
 }
 
 .centered {
@@ -160,10 +172,18 @@ p {
   margin: auto;
 }
 
+.blue-text {
+  color: #0495c4;
+}
+
+.orange-text {
+  color: #f59d36;
+}
+
 .colored-container {
   display: bock;
   width: 86%;
-  margin: 15px auto;
+  margin: 30px auto;
   color: #f7f2e9;
   background-color: #f59d36; /* Orange */
   padding: 15px 15px;
@@ -172,4 +192,3 @@ p {
 .colored-container p {
   font-size: 20px;
 }
-
