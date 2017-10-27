@@ -1,3 +1,30 @@
+/* Colors
+
+Orange: #f59d36;
+Beige: #f7f2e9;
+Bleu: #0495c4;
+
+*/
+
+
+/* Fonts */
+
+
+@font-face {
+  font-family: 'RobotoSlab-Light';
+  src: url('./fonts/RobotoSlab-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'BebasNeue-Bold';
+}
+
+src: url('./fonts/BebasNeue-Bold.woff2') format('woff2');
+/* Background */
+
+body {
+  background-color: #f7f2e9;
+}
 
 /* Menu */
 
@@ -7,7 +34,8 @@ header .dropdown:hover .dropdown-menu {
 
 header .navbar {
     z-index: 100;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.42);
+    border-bottom: solid 1px #f59d36;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.42); */
 }
 
 header .navbar .navbar-logo {
@@ -23,14 +51,18 @@ header .navbar, .navbar-header {
 header #menu-container a, header #menu-container ul li ul li a {
     display: block;
     padding: 50px 50px;
+    font-size: 12px;
 }
 
 @media
 (-webkit-min-device-pixel-ratio: 2),
 (min-resolution: 192dpi) {
   header #menu-container a, header #menu-container ul li ul li a {
-      display: block;
       padding: 25px 25px;
+  }
+
+  header .navbar .navbar-logo {
+      height: 75px;
   }
 }
 
@@ -104,23 +136,6 @@ header .header-text-concept {
     font-size: 28px;
 }
 
-header .header-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 2;
-    font-size: 18px;
-    padding: 2% 5%;
-    color: #fff;
-    background: rgba(10, 150, 180, 0.8);
-    bottom: 30%;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    text-align: justify;
-}
-
 header .header-logo {
     position: absolute;
     z-index: 2;
@@ -128,3 +143,33 @@ header .header-logo {
     left: calc(50% - 5%);
     width: 10%;
 }
+
+/* Random */
+
+h1, h2, h3 {
+  font-family: "BebasNeue-Bold", Helvetica, Arial, sans-serif;
+}
+
+p {
+  font-family: "RobotoSlab-Light", Helvetica, Arial, sans-serif;
+}
+
+.centered {
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+.colored-container {
+  display: bock;
+  width: 86%;
+  margin: 15px auto;
+  color: #f7f2e9;
+  background-color: #f59d36; /* Orange */
+  padding: 15px 15px;
+}
+
+.colored-container p {
+  font-size: 20px;
+}
+
