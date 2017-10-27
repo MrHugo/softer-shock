@@ -31,13 +31,15 @@ Bleu: #0495c4;
 
 @font-face {
   font-family: 'BebasNeue-Bold';
+  src: url('./fonts/BebasNeue-Bold.woff2') format('woff2');
 }
 
-src: url('./fonts/BebasNeue-Bold.woff2') format('woff2');
 /* Background */
 
 body {
   background-color: #f7f2e9;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Menu */
@@ -160,12 +162,17 @@ header .header-logo {
 
 /* Random */
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: "BebasNeue-Bold", Helvetica, Arial, sans-serif;
 }
 
 p {
   font-family: "RobotoSlab-Light", Helvetica, Arial, sans-serif;
+}
+
+.marged {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
 }
 
 .centered {
@@ -179,7 +186,7 @@ p {
   width: 86%;
   margin: 15px auto;
   color: #f7f2e9;
-  background-color: #f59d36; /* Orange */
+  background-color: #f59d36;
   padding: 15px 15px;
 }
 
@@ -254,12 +261,13 @@ this.activeTarget=b,this.clear();var c=this.selector+'[data-target="'+b+'"],'+th
                 <li><a href="#">OVERVIEW</a></li>
                 <li><a href="#">PUBLIC OUTREACH</a></li>
                 <li><a href="#">SOCIETY, LAW, & GMOs</a></li>
+                <li><a href="#">PERSPECTIVES</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ENTREPRENEURSHIP<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="./Entrepreneurship/Fundraising_and_com.html">Fundraising and Communication</a></li>
+                <li><a href="./Entrepreneurship/Fundraising_and_com.html">Fundraising & Communication</a></li>
                 <li><a href="./Entrepreneurship/Market Study.html">Market Study</a></li>
                 <li><a href="./Entrepreneurship/Sponsors">Sponsors</a></li>
               </ul>
