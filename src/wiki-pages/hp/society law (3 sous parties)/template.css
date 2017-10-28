@@ -1,0 +1,121 @@
+
+/* Menu */
+
+header .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+header .navbar {
+    z-index: 100;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.42);
+}
+
+header .navbar .navbar-logo {
+    height: 110px;
+    width: auto;
+}
+
+header .navbar, .navbar-header {
+    background-color: #fff;
+    margin-bottom: 0;
+}
+
+header #menu-container a, header #menu-container ul li ul li a {
+    display: block;
+    padding: 50px 85px;
+}
+
+header #menu-container ul li {
+    font: bold medium sans-serif;
+}
+
+header #menu-container ul li a {
+    color: #000;
+    text-align: center;
+}
+
+header #menu-container ul li:hover a.menu-item {
+    background: #2a6ebb;
+    color: #fff;
+}
+
+header #menu-container ul li ul {
+    padding: 0;
+    background: #2a6ebb;
+    border-width: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+header #menu-container ul li ul li {
+    background: #2a6ebb;
+}
+
+header #menu-container ul li ul li a {
+    color: #fff;
+    text-align: center;
+}
+
+header #menu-container ul li ul li:hover a {
+    background: #ffa438;
+}
+
+header #menu-container ul li ul li:hover a {
+    color: #fff;
+}
+
+header .header-picture-holder, header .header-logo-holder {
+    position: relative;
+    width: 100%;
+}
+
+header .header-picture-holder {
+    height: 100%;
+    width: 100%;
+    margin-top: -100px;
+}
+
+header .header-picture-holder .header-picture {
+    width: 100%;
+    z-index: -1;
+}
+
+header .white-picture-layer {
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+header .header-text-concept {
+    font-size: 28px;
+}
+
+header .header-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    font-size: 22px;
+    padding: 2% 5%;
+    color: #fff;
+    background: rgba(10, 150, 180, 0.8);
+    bottom: 30%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    text-align: justify;
+}
+
+header .header-logo {
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+    left: calc(50% - 5%);
+    width: 10%;
+}
