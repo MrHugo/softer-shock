@@ -38,6 +38,25 @@
   word-wrap: break-word;
 }
 
+.adn-left, .adn-right, .lol {
+  display: block;
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  width: 15px;
+  z-index: -1;
+  background: url('http://2017.igem.org/wiki/images/c/c1/Ionis-paris-adn.svg') repeat-y;
+}
+
+.adn-left {
+  left: 12%;
+}
+
+.adn-right {
+  right: 11%;
+  filter: hue-rotate(145deg) brightness(78%);
+}
+
 </style>
 
 <body>
@@ -49,6 +68,8 @@
   <div class="parallax-bandeau marged" style="background-position: 70% 0; background-image: url('http://2017.igem.org/wiki/images/thumb/a/a0/Ionis-paris-modeling-banniere.png/800px-Ionis-paris-modeling-banniere.png')"></div>
 
   <div class="igem-container">
+    <div class="adn-left"></div>
+    <div class="adn-right"></div>
     <div class="row">
       <div class="col-md-12">
         <div class="colored-container">
