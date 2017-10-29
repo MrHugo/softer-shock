@@ -31,6 +31,13 @@
   padding: 40px 300px;
 }
 
+.wrap {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
 </style>
 
 <body>
@@ -41,111 +48,179 @@
   </h1>
   <div class="parallax-bandeau marged" style="background-position: 70% 0; background-image: url('http://2017.igem.org/wiki/images/thumb/a/a0/Ionis-paris-modeling-banniere.png/800px-Ionis-paris-modeling-banniere.png')"></div>
 
-  <div class="container-fluid">
+  <div class="igem-container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Introduction</h3>
-        <p>
-          In this project we want to produce a bacterium expressing amilCP only at low temperature. The majority of the 5’ regulatory sequence, the cspA 5’UTR, is upstream of the start codon. However, a small but important sequence motif, called the DS box, is present after the start codon, and is translated as part of the target protein. Therefore, it is important to consider the structure and function of the target protein, particularly the N-terminal region, in order to correctly place the DS box insertion so that it does not alter the structure or function.
-          However, there is no experimental structure for amilCP. Therefore, we use a computational approach, homology modeling, to create a model of amilCP and identify a safe insertion site in the sequence that would not alter the structure.
-          Our version of the DS box RNA sequence is 15 nucleotides long (as opposed to the 14 nucleotide version reported in YAMANAKA<sup>1</sup>); we added an extra nucleotide at the 3’ end of this motif so as to not introduce a frame shift error in amilCP.
-        </p>
-
-        <h3>Materials and Methods</h3>
+        <div class="colored-container">
+          <h2>Introduction</h2>
+          <p>
+            In this project we want to produce a bacterium expressing amilCP only at low temperature.
+          </p>
+          <p>
+            The majority of the 5’ regulatory sequence, the cspA 5’UTR, is upstream of the start codon.
+          </p>
+          <p>
+            However, a small but important sequence motif, called the DS box, is present after the start
+            codon, and is translated as part of the target protein. Therefore, it is important to
+            consider the structure and function of the target protein, particularly the N-terminal region,
+            in order to correctly place the DS box insertion so that it does not alter the structure or function.
+            However, there is no experimental structure for amilCP. Therefore, we use a computational approach,
+            homology modeling, to create a model of amilCP and identify a safe insertion site in the sequence
+            that would not alter the structure.
+          </p>
+          <p>
+            Our version of the DS box RNA sequence is 15 nucleotides long (as opposed to the 14 nucleotide
+            version reported in YAMANAKA<sup>1</sup>); we added an extra nucleotide at the 3’ end of this motif
+            so as to not introduce a frame shift error in amilCP.
+          </p>
+        </div>
+        <h2>Materials and Methods</h2>
+        <hr>
         <p>
           We used the Phyre2 homology modeling server<sup>2</sup> to find templates, generate alignments, and create 3D models. Phyre2 use the hidden Markov model. This model is trustworthy up to 15% identity between the protein to model and the chosen template.
         </p>
+        <br>
         <h4 style="text-decoration: underline;">Modeling parameters</h4>
         <p>
-          We submitted the amilCP sequence(<a href="http://parts.igem.org/Part:BBa_K592009" target="_blank">Part:BBa_K592009</a>) to the Phyre2 server for all steps of homology modeling, from template search to model generation.<br></br>
-          MSVIAKQMTYKVYMSGTVNGHYFEVEGDGKGKPYEGEQTVKLTVTKGGPLPFAWDILSPQCQYGSIPFTKYPEDIPDYVKQSFPEGYTWERIMNFEDGAVCTVSNDSSIQGNCFIYHVKFSGLNFPPNGPVMQKKTQGWEPNTERLFARDGMLLGNNFMALKLEGGGHYLCEFKTTYKAKK
-          PVKMPGYHYVDRKLDVTNHNKDYTSVEQCEISIARKPVVA
+          We submitted the amilCP sequence (<u><a href="http://parts.igem.org/Part:BBa_K592009" target="_blank">Part:BBa_K592009</a></u>)
+          to the Phyre2 server for all steps of homology modeling, from template search to model generation.
         </p>
-        <h3>Results</h3>
-
-        <h4 style="text-decoration: underline;">Homology modelling of wild-type AmilCP by Phyre2</h4>
+        <p class="wrap marged">MSVIAKQMTYKVYMSGTVNGHYFEVEGDGKGKPYEGEQTVKLTVTKGGPLPFAWDILSPQCQYGSIPFTKYPEDIPDYVKQSFPEGYTWERIMNFEDGAVCTVSNDSSIQGNCFIYHVKFSGLNFPPNGPVMQKKTQGWEPNTERLFARDGMLLGNNFMALKLEGGGHYLCEFKTTYKAKKPVKMPGYHYVDRKLDVTNHNKDYTSVEQCEISIARKPVVA</p>
+      </p>
+      <h2>Results</h2>
+      <hr>
+      <h4 class="marged"><u>Homology modelling of wild-type AmilCP by Phyre2</u></h4>
+      <p>
+        Phyre2 choose as the best template PDB entry 1mou
+        (<u><a href="http://www.rcsb.org/pdb/explore/explore.do?structureId=1mou" target="_blank">See Protein Data Bank</a></u>)
+        which is a blue chromoprotein from the GFP family found in Montipora efflorescens.</p>
         <p>
-          Phyre2 choose as the best template PDB entry 1mou (<a href="http://www.rcsb.org/pdb/explore/explore.do?structureId=1mou" target="_blank">See Protein Data Bank</a>) which is a blue chromoprotein from the GFP family found in Montipora efflorescens. We have made available all the complete Phyre 2 results :<a href="http://2017.igem.org/wiki/images/5/54/AmilcpWT_results.zip">Download here</a></p>
+          We have made available all the
+          complete Phyre 2 results: <u><a href="http://2017.igem.org/wiki/images/5/54/AmilcpWT_results.zip">Download here</a></u>
+        </p>
+        <p>
+          Phyre2’s best template match was PDB entry 1mou (a coral pocilloporin pigment), calculated to have a sequence
+          identity of 95% to amilCP. This implies that the structure of amilCP will be largely identical.
+        </p>
+        <br>
+      </p>
+      <figure>
+        <img src="http://2017.igem.org/wiki/images/9/97/Ionisparis-modeling-DS_BOX_%2B_amilCP-1.png" width="100%" height="auto" >
+        <figcaption class="centered marged">Figure 1: Best template according to Phyre2 for the amilCP</figcaption>
+      </figure>
+      <br>
+      <p>Phyre2’s resulting model is indeed a GFP-like beta barrel with modified chromophore residue in the middle.</p>
+      <br>
+      <figure>
+        <img src="http://2017.igem.org/wiki/images/0/08/Ionisparis-modeling-DS_BOX_%2B_amilCP-2.png" width="100%">
+        <figcaption class="centered marged">Figure 2: Summary of the amilCP homology modeling simulation given by Phyre2</figcaption>
+        <div class="centered marged">
+          <button class="custom-button">
+            <script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/h6cpeqvnmr1uiw6/AmcilCP_WT.spt?dl=1&link="></script>
+          </button>
+          <p style="font-size: 14px; margin-top: 5px">Note: Please wait few seconds after clicking !</p>
+        </div>
+      </figure>
+      <hr>
+      <h4 class="marged"><u>Model evaluation</u></h4>
+      <p>
+        The very high sequence ID gave us high confidence in the resulting model, even without further optimization
+        or comparative analysis. We were specifically interested in the position of the N-terminus relative to the
+        structure of the rest of the protein, as this would be the general insertion site of the DS Box sequence.
+        In order to evaluate the model quality and obtain a precise geometrical defintion of secondary structure at
+        the residue level we analyzed the resulting model’s Ramachandran plot.
+      </p>
+      <h4 class="marged"><u>Analysis of the DS box’s placement within amilCP protein</u></h4>
+      <p>
+        All the following visualisations have been performed using the BioVia Discovery Studio Visualizer developed
+        by Dassault Systemes.
+      </p>
+      <p>
+        Here we highlight the position of the N-terminus on the 3D structure. AmilCP has a barrel Beta sheet
+        conformation. Based on the Ramachandran plot, we see that the fourth amino acid (isoleucine) is involved in
+        the beta sheet. To avoid the disturbing the protein structure, we must place the DS box before this fourth
+        amino acid.
+      </p>
+      <figure>
+        <img class="marged" src="http://2017.igem.org/wiki/images/9/91/Ionisparis-modeling-DS_BOX_%2B_amilCP-3.png" width="100%">
+        <figcaption class="centered">Figure 3: Ramachandran Plot of the amilCP Wilde-Type.</figcaption>
+      </figure>
+      <hr>
+      <h4 class="marged"><u>Solvent accessibility</u></h4>
+      <div class="row">
+        <div class="col-md-5">
+          <p>
+            Next, we calculated the solvent accessibility of the protein structure, paying particular attention to the
+            N-terminus. This allowed us to assess it’s interaction with the rest of the protein structure. The blue
+            color means that a residue is solvent accessible; green indicates that it is buried in the protein structure.
+            The amilCP model is represented in ribbon on the left and as a space filling model on the right.
+          </p>
+        </div>
+        <div class="col-md-7">
+          <figure>
+            <img src="http://2017.igem.org/wiki/images/8/88/Ionisparis-modeling-DS_BOX_%2B_amilCP-4.png" width="100%">
+            <figcaption class="centered marged">Figure 4: Solvent Accessibility of the amilCP.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <p>
+        From the Ramachandran plot we know that this region is not locked into a beta sheet conformation, and from the
+        solvent accessible surface calculation it appears that it makes little contact with the rest of the protein
+        structure. After consideration we decided to place the DS box after the first two residues.
+      </p>
+      <h4 class="marged"><u>Placement of the DS box</u></h4>
+      <p>
+        Once the DS box insertion site was chosen, Phyre2 was used to create a 3D model of amilCP with the DS box sequence
+        added after the second residue.
+        AmilCp + DS box sequence (DS box in red):
+      </p>
+      <p class="wrap marged">MS<font color="red">MTGIV</font>VIAKQMTYKVYMSGTVNGHYFEVEGDGKGKPYEGEQTVKLTVTKGGPLPFAWDILSPQCQYGFTKYPEDIPDYVKQSFPEGYTWERIMNFEDGAVCTVSNDSSIQGNCFIYHVKFSGLNFPPNGPVMQKKTQGWEPNTERLFARDGMLLGNNFMALKLEGGGHYLCEFKTTYKAKKPVKMPGYHYVDRKLDVTNHNKDYTSVEQCEISIARKPVVA</p>
+      <p>Phyre 2 returned this 3D model. The DS box is highlighted in yellow. The beginning of the protein strand, is clearly not involved in the beta sheets barrel. </p>
+      <figure>
+        <img class="no-shadow" src="http://2017.igem.org/wiki/images/e/ea/Ionisparis-modeling-DS_BOX_%2B_amilCP-5.png">
 
-          Phyre2’s best template match was PDB entry 1mou (a coral pocilloporin pigment), calculated to have a sequence identity of 95% to amilCP. This implies that the structure of amilCP will be largely identical.
+        <figcaption class="centered marged">Figure 5: Location of the DS Box(in yellow) on the amilCP</figcaption>
+        <div class="centered marged">
+          <button class="custom-button">
+            <script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/tebd03o6qdg3j4q/AmcilCP_DsBox.spt?dl=1&link="></script>
+          </button>
+          <p style="font-size: 14px; margin-top: 5px">Note: Please wait few seconds after clicking !</p>
+        </div>
+      </figure>
+      <hr>
+      <p>We have made available all the complete Phyre 2 results :
+        <a href="http://2017.igem.org/wiki/images/f/f5/Ionisparis-modeling-DS_BOX_%2B_amilCP-resultats.zip"><u>Download here</u></a></p>
+        <p>
+          To confirm the viability of this model, a residue interaction analysis was done with the “Bioviva Discovery Studio
+          Visualizer” software, developed by DASSAULT SYSTEMES.
         </p>
         <figure>
-          <img src="http://2017.igem.org/wiki/images/9/97/Ionisparis-modeling-DS_BOX_%2B_amilCP-1.png" width="1600" height="200" >
-          <figcaption class="centered">Figure 1: Best template according to Phyre2 for the amilCP</figcaption>
+          <img class="no-shadow marged" src="http://2017.igem.org/wiki/images/8/8a/Ionisparis-modeling-DS_BOX_%2B_amilCP-6.png" width="100%">
+          <img class="no-shadow" src="http://2017.igem.org/wiki/images/c/c5/Ionisparis-modeling-DS_BOX_%2B_amilCP-7.png" width="100%">
+          <figcaption class="centered marged">Figure 6: Amino Acids contact with the DS Box.</figcaption>
         </figure>
-
-        <p>Phyre2’s resulting model is indeed a GFP-like beta barrel with modified chromophore residue in the middle.</p>
-        <figure>
-          <img src="http://2017.igem.org/wiki/images/0/08/Ionisparis-modeling-DS_BOX_%2B_amilCP-2.png" >
-          <figcaption class="centered">Figure 2: Summary of the amilCP homology modeling simulation given by Phyre2
-          </figcaption>
-
-          <!-- TODO make the button important here-->
-          <div class="">
-            <button class="custom-button">
-              <script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/h6cpeqvnmr1uiw6/AmcilCP_WT.spt?dl=1&link="></script>
-            </button>
-            <p style="font-size: 14px">Note: Please wait few seconds after the click !</p>
-          </div>
-
-        </figure>
-
-        <h4 style="text-decoration: underline;">Model evaluation</h4>
-        <p>The very high sequence ID gave us high confidence in the resulting model, even without further optimization or comparative analysis. We were specifically interested in the position of the N-terminus relative to the structure of the rest of the protein, as this would be the general insertion site of the DS Box sequence. In order to evaluate the model quality and obtain a precise geometrical defintion of secondary structure at the residue level we analyzed the resulting model’s Ramachandran plot.
+        <p>
+          The residues having a possible interaction with the DS box sequence are highlighted in yellow on the 3D model and
+          in black on the sequence.
         </p>
-        <h4 style="text-decoration: underline;">Analysis of the DS box’s placement within amilCP protein</h4>
-        <p>All the following visualisations have been performed using the BioVia Discovery Studio Visualizer developed by Dassault Systemes.
-          Here we highlight the position of the N-terminus on the 3D structure. AmilCP has a barrel Beta sheet conformation. Based on the Ramachandran plot, we see that the fourth amino acid (isoleucine) is involved in the beta sheet. To avoid the disturbing the protein structure, we must place the DS box before this fourth amino acid. </p>
-          <figure>
-            <img src="http://2017.igem.org/wiki/images/9/91/Ionisparis-modeling-DS_BOX_%2B_amilCP-3.png" >
-            <figcaption class="centered">Figure 3: Ramachandran Plot of the amilCP Wilde-Type.</figcaption>
-          </figure>
-
-          <h4 style="text-decoration: underline;">Solvent accessibility</h4>
-          <p>
-            Next, we calculated the solvent accessibility of the protein structure, paying particular attention to the N-terminus. This allowed us to assess it’s interaction with the rest of the protein structure. The blue color means that a residue is solvent accessible; green indicates that it is buried in the protein structure. The amilCP model is represented in ribbon on the left and as a space filling model on the right.
-          </p>
-          <figure>
-            <img src="http://2017.igem.org/wiki/images/8/88/Ionisparis-modeling-DS_BOX_%2B_amilCP-4.png" width="500" height="400">
-            <figcaption class="centered">Figure 4: Solvent Accessibility of the amilCP.</figcaption>
-          </figure>
-          <p>
-            From the Ramachandran plot we know that this region is not locked into a beta sheet conformation, and from the solvent accessible surface calculation it appears that it makes little contact with the rest of the protein structure. After consideration we decided to place the DS box after the first two residues.
-          </p>
-          <h4 style="text-decoration: underline;">Placement of the DS box</h4>
-          <p>
-            Once the DS box insertion site was chosen, Phyre2 was used to create a 3D model of amilCP with the DS box sequence added after the second residue.
-
-            AmilCp + DS box sequence (DS box in red):<br></br>
-            MS<font color="red">MTGIV</font>VIAKQMTYKVYMSGTVNGHYFEVEGDGKGKPYEGEQTVKLTVTKGGPLPFAWDILSPQCQYGFTKYPEDIPDYVKQSFPEGYTWERIMNFEDGAVCTVSNDSSIQGNCFIYHVKFS
-            GLNFPPNGPVMQKKTQGWEPNTERLFARDGMLLGNNFMALKLEGGGHYLCEFKTTYKAKKPVKMPGYHYVDRKLDVTNHNKDYTSVEQCEISIARKPVVA
-          </p>
-          <p>Phyre 2 returned this 3D model. The DS box is highlighted in yellow. The beginning of the protein strand, is clearly not involved in the beta sheets barrel. </p>
-          <figure>
-            <img src="http://2017.igem.org/wiki/images/e/ea/Ionisparis-modeling-DS_BOX_%2B_amilCP-5.png">
-            <figcaption class="centered">Figure 5: Location of the DS Box(in yellow) on the amilCP <script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/tebd03o6qdg3j4q/AmcilCP_DsBox.spt?dl=1&link=Click to play with the molecule!"></script></figcaption>
-          </figure>
-          <p>We have made available all the complete Phyre 2 results :
-            <a href="http://2017.igem.org/wiki/images/f/f5/Ionisparis-modeling-DS_BOX_%2B_amilCP-resultats.zip">Download here</a></p>
-            <p>To confirm the viability of this model, a residue interaction analysis was done with the “Bioviva Discovery Studio Visualizer” software, developed by DASSAULT SYSTEMES.
-            </p>
-            <figure>
-              <img src="http://2017.igem.org/wiki/images/8/8a/Ionisparis-modeling-DS_BOX_%2B_amilCP-6.png" width="500" height="400">
-              <img src="http://2017.igem.org/wiki/images/c/c5/Ionisparis-modeling-DS_BOX_%2B_amilCP-7.png" >
-              <figcaption class="centered">Figure 6: Amino Acids contact with the DS Box.</figcaption>
-            </figure>
-            <p>The residues having a possible interaction with the DS box sequence are highlighted in yellow on the 3D model and in black on the sequence.
-            </p>
-            <p>This shows only two residues in the protein seems to have a probability to interact with the DS box which is less than the wild type beginning of the protein.
-            </p>
-            <h3>Conclusion</h3>
-            <p>
-              Based on the very high (95%) sequence identity between target and template, we have confidence in Phyre2’s homology model. We extended the DS box sequence from 14 to 15 nucleotides in order to avoid a frame shift error and then placed this insert into the coding sequence at a position which is predicted to not interefere with amilCP’s chromogenic structure. This will be verified experimentally by activity assays of our rationally designed construct.
-            </p>
-            <h3><u>References</u></h3>
-            <ol style='margin-top:0cm' start=1 type=1>
-              <li>Yamanaka K, Mitta M, Inouye M. Mutation Analysis of the 5′ Untranslated Region of the Cold Shock cspA mRNA of Escherichia coli. Journal of Bacteriology. 1999;181(20):6284-6291.</li>
-              <li>Kelley LA et al. The Phyre2 web portal for protein modeling, prediction and analysis. Nature Protocols 10, 845-858 (2015)</li>
-
-            </body>
-            </html>
+        <p>
+          This shows only two residues in the protein seems to have a probability to interact with the DS box which is less
+          than the wild type beginning of the protein.
+        </p>
+        <br>
+        <h2>Conclusion</h2>
+        <hr>
+        <p>
+          Based on the very high (95%) sequence identity between target and template, we have confidence in Phyre2’s homology model. We extended the DS box sequence from 14 to 15 nucleotides in order to avoid a frame shift error and then placed this insert into the coding sequence at a position which is predicted to not interefere with amilCP’s chromogenic structure. This will be verified experimentally by activity assays of our rationally designed construct.
+        </p>
+        <br>
+        <hr>
+        <h2><u>References</u></h2>
+        <ol style='margin-top:0cm' start=1 type=1>
+          <li>Yamanaka K, Mitta M, Inouye M. Mutation Analysis of the 5′ Untranslated Region of the Cold Shock cspA mRNA of Escherichia coli. Journal of Bacteriology. 1999;181(20):6284-6291.</li>
+          <li>Kelley LA et al. The Phyre2 web portal for protein modeling, prediction and analysis. Nature Protocols 10, 845-858 (2015)</li>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
