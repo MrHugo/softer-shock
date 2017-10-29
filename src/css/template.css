@@ -41,6 +41,12 @@ body {
   margin-right: 15% !important;
 }
 
+.logo-vigne {
+  width: 75px;
+  height: auto;
+  margin: 0 30px;
+}
+
 /* Menu */
 
 header .dropdown:hover .dropdown-menu {
