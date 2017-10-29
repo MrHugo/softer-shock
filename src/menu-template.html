@@ -23,15 +23,22 @@ Bleu: #0495c4;
 
 /* Fonts */
 
-
 @font-face {
   font-family: 'RobotoSlab-Light';
-  src: url('./fonts/RobotoSlab-Light.woff2') format('woff2');
+  src: url('http://2017.igem.org/wiki/images/d/d1/Ionis-paris-roboto.woff') format('woff');
 }
 
 @font-face {
   font-family: 'BebasNeue-Bold';
-  src: url('./fonts/BebasNeue-Bold.woff2') format('woff2');
+  src: url('http://2017.igem.org/wiki/images/9/9f/Ionis-paris-bebas.woff') format('woff2');
+}
+
+h1, h2, h3, h4 {
+  font-family: "BebasNeue-Bold", Helvetica, Arial, sans-serif;
+}
+
+p, .colored-container, li {
+  font-family: "RobotoSlab-Light", Helvetica, Arial, sans-serif;
 }
 
 /* Background */
@@ -40,8 +47,20 @@ body {
   background-color: #f7f2e9;
   text-align: justify;
   text-justify: inter-word;
-  font-size: 16px;
+  font-size: 18px !important;
 }
+
+.igem-container {
+  margin-left: 15% !important;
+  margin-right: 15% !important;
+}
+
+.logo-vigne {
+  width: 75px;
+  height: auto;
+  margin: 0 30px;
+}
+
 
 /* Menu */
 
@@ -182,14 +201,6 @@ header .header-logo {
 
 .no-shadow {
   box-shadow: 0px 0px !important;
-}
-
-h1, h2, h3, h4 {
-  font-family: "BebasNeue-Bold", Helvetica, Arial, sans-serif;
-}
-
-p, .colored-container {
-  font-family: "RobotoSlab-Light", Helvetica, Arial, sans-serif;
 }
 
 hr {
