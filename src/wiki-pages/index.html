@@ -13,12 +13,19 @@
 
 <style media="screen">
 
+/* Vrac */
+
+hr {
+  opacity: 1 !important;
+  margin: 0 !important;
+}
+
 /* First page */
 
 .first-page {
   width: 100vw;
   height: 100vh;
-  background: url('http://2017.igem.org/wiki/images/thumb/d/d9/Ionis-paris-feuille.png/800px-Ionis-paris-feuille.png') no-repeat center center fixed;
+  background: url('http://2017.igem.org/wiki/images/d/d9/Ionis-paris-feuille.png') no-repeat center center fixed;
   background-size: contain;
 }
 
@@ -40,7 +47,26 @@
 /* Second page */
 
 .softer-shock-gif {
+  width: 100%;
   filter: brightness(102%);
+}
+
+/* Third page */
+
+.grape {
+  display: block;
+  width: 65%;
+  height: auto;
+  margin: auto;
+  padding: 5%;
+}
+
+/* Fourth page */
+
+.arbre {
+  width: 60%;
+  margin-left: 10%;
+  padding: 5%;
 }
 
 </style>
@@ -59,7 +85,15 @@
           </div>
         </div>
         <div class="second-page">
-          <img class="softer-shock-gif" src="http://2017.igem.org/wiki/images/7/7f/Ionis-paris-index-gif.gif" width="100%" loop="infinite">
+          <img class="softer-shock-gif centered" src="http://2017.igem.org/wiki/images/7/7f/Ionis-paris-index-gif.gif">
+        </div>
+        <hr>
+        <div class="third-page centered">
+          <img class="grape" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg">
+        </div>
+        <hr>
+        <div class="fourth-page">
+          <img class="arbre" src="http://2017.igem.org/wiki/images/5/58/Ionis-paris-arbre.png">
         </div>
       </div>
     </div>
