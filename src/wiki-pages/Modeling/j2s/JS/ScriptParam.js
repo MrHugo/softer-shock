@@ -430,8 +430,7 @@ return pt;
 }, "~N");
 Clazz.defineMethod (c$, "optParameterAsString", 
 function (i) {
-if (i >= this.slen) return "";
-return this.paramAsStr (i);
+return (i >= this.slen ? "" : this.paramAsStr (i));
 }, "~N");
 Clazz.defineMethod (c$, "intParameter", 
 function (index) {
@@ -525,6 +524,7 @@ tok = this.tokAt (i);
 if (haveBrace && tok == 1073742338 || haveSquare && tok == 268435521) break;
 switch (tok) {
 case 268435504:
+case 268435616:
 case 1073742332:
 case 1073742338:
 case 4:
@@ -604,8 +604,8 @@ var sv = (this.getToken (i)).getList ();
 var p4 = null;
 if (sv.size () == 0 || (p4 = JS.SV.pt4Value (sv.get (0))) == null) this.invArg ();
 return JU.Quat.newP4 (p4);
-case 1073741863:
-return (this.chk ? null : JU.Quat.newP4 (JU.Escape.uP (this.vwr.getOrientationText (1073741863, null))));
+case 1073741864:
+return (this.chk ? null : JU.Quat.newP4 (JU.Escape.uP (this.vwr.getOrientationText (1073741864, null))));
 default:
 return JU.Quat.newP4 (this.getPoint4f (i));
 }
@@ -750,7 +750,7 @@ return (i < 0 ? 2147483647 : i);
 }, "~S");
 c$.getPartialBondOrderFromFloatEncodedInt = Clazz.defineMethod (c$, "getPartialBondOrderFromFloatEncodedInt", 
 function (bondOrderInteger) {
-return (((Clazz.doubleToInt (bondOrderInteger / 1000000)) % 6) << 5) + ((bondOrderInteger % 1000000) & 0x1F);
+return (((Clazz.doubleToInt (bondOrderInteger / 1000000)) % 7) << 5) + ((bondOrderInteger % 1000000) & 0x1F);
 }, "~N");
 c$.getBondOrderFromString = Clazz.defineMethod (c$, "getBondOrderFromString", 
 function (s) {

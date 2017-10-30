@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/template.css">
+
+    <script type="text/javascript" src="JSmol.min.js"></script>
+    <script type="text/javascript">
+
+Jmol._isAsync = false;
+
+// last update 2/18/2014 2:10:06 PM
+
+var jmolApplet0; // set up in HTML table, below
+
+// logic is set by indicating order of USE -- default is HTML5 for this test page, though
+
+var s = document.location.search;
+
+// Developers: The _debugCode flag is checked in j2s/core/core.z.js,
+// and, if TRUE, skips loading the core methods, forcing those
+// to be read from their individual directories. Set this
+// true if you want to do some code debugging by inserting
+// System.out.println, document.title, or alert commands
+// anywhere in the Java or Jmol code.
+
+Jmol._debugCode = (s.indexOf("debugcode") >= 0);
+
+jmol_isReady = function(applet) {
+	document.title = (applet._id + " - Jmol " + Jmol.___JmolVersion)
+	Jmol._getElement(applet, "appletdiv").style.border="1px solid blue"
+}
+
+var Info = {
+	width: 900,
+	height: 600,
+	debug: false,
+	color: "#000000",
+	addSelectionOptions: false,
+	use: "HTML5",   // JAVA HTML5 WEBGL are all options
+	j2sPath: "./j2s", // this needs to point to where the j2s directory is.
+	script: "set zoomlarge false; load AmcilCP_DsBox.pdb; select all; cpk off; wireframe off; cartoon on; color group; set antialiasDisplay ON",
+	readyFunction: jmol_isReady,
+	disableJ2SLoadMonitor: true,
+  disableInitialConsole: true,
+  allowJavaScript: true
+	//defaultModel: "$dopamine",
+	//console: "none", // default will be jmolApplet0_infodiv, but you can designate another div here or "none"
+}
+
+$(document).ready(function() {
+  $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info))
+})
+var lastPrompt=0;
+</script>
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <title>Placement of the Downstream box for AmilCP</title>
+  </head>
+  <body>
+      <h1>Placement of the Downstream box for AmilCP</h1>
+              <h4>AmilcpDsbox</h4>
+              <div id="appdiv" align = center></div>
+                <a href="javascript:Jmol.loadFile(jmolApplet0,'https://www.dropbox.com/s/nl34zhx8mk0939i/AmcilCP_DsBox.pdb?dl=1&inline=1','select all; cpk off; wireframe off; cartoon on; color group; set antialiasDisplay ON')">load Structures from cluster 6 <br></br> </a>
+                <a href="javascript:Jmol.loadFile(jmolApplet0,' AmcilCP_DsBox.pdb','select all; cpk off; wireframe off; cartoon on; color group; set antialiasDisplay ON')">load AmcilCP_DsBox</a>
+  </body>
+</html>
