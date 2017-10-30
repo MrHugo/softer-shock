@@ -3,15 +3,67 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="./../css/template.css">
+  <link rel="stylesheet" href="../css/template.css">
 
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
 
   <title>Softer Shock - IGEM IONIS 2017</title>
 </head>
-<body>
 
+<style media="screen">
+
+/* First page */
+
+.first-page {
+  width: 100vw;
+  height: 100vh;
+  background: url('http://2017.igem.org/wiki/images/thumb/d/d9/Ionis-paris-feuille.png/800px-Ionis-paris-feuille.png') no-repeat center center fixed;
+  background-size: contain;
+}
+
+.first-page {
+  color: #fff;
+  text-align: center;
+  background-size: cover;
+}
+
+.logo-softer-shock {
+  display: block;
+  width: 180px;
+  text-align: center;
+  margin:auto;
+  padding-top: 20%;
+  margin-bottom: 70px;
+}
+
+/* Second page */
+
+.softer-shock-gif {
+  filter: brightness(102%);
+}
+
+</style>
+
+<body>
+  <div class="index-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="first-page">
+          <img class="logo-softer-shock" src="http://2017.igem.org/wiki/images/thumb/8/89/Ionis-paris-softer-shock-logo.png/300px-Ionis-paris-softer-shock-logo.png" alt="logo softer shock">
+          <div class="header-citation">
+            <h1>
+              <span class="orange-text">Biological thermo-responsive solution,</span>
+              <span class="blue-text">that reduces the plant’s thermal stresses</span>
+            </h1>
+          </div>
+        </div>
+        <div class="second-page">
+          <img class="softer-shock-gif" src="http://2017.igem.org/wiki/images/7/7f/Ionis-paris-index-gif.gif" width="100%" loop="infinite">
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 <script type="text/javascript" src="http://2017.igem.org/Template:Ionis-paris-javascript-template?
