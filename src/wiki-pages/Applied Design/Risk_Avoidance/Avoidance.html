@@ -1,92 +1,121 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="../../../../src/css/template.css">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../../../../src/css/template.css">
 
-    <script src="../../js/jquery.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <style>
-      .TITRE,  {text-align: center;}
-      .overview, .img, {background-image:url("./Preview_Avoidance.jpg"); margin-left:auto; margin-right: auto;}
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
 
-    </style>
-    <title>Risk Avoidance</title>
-  </head>
-  <body>
-    <h1 class="TITRE">Risk avoidance: Biosafety strategies</h1>
-    <p>Biosafety occupies a large part of our project. Indeed, the microorganisms that are contained in our solution Softer Shock are intended to be spread in the environment. Since it is a major concern here in France, we decided first to understand why, but mainly to find the best solution for our case.</br>
-      If engineered microorganisms are highly regulated, it is for many different reason, as their
-      spreading would cause a possible biodiversity imbalance and a species competition because
-      of the bacteria presence in the environment, an increase of antibiotic resistance because of
-      a genetic material transfer or even hygiene issues in the worst case. Also, this regulation
-      primarily exists because of ethical questions, which is the main genetically engineered
-      microorganisms issue. Although our microorganisms do not carry any real toxic compound,
-      we chose to develop the project’s biosafety at its maximum<sup>1,2,4</sup>.</br>
-      To do so, in the biosafety aspects of Softer Shock, we chose to create a <b>four walls fortress</b>,
-      which means a <b>multi-layer strategy</b>.
-    </p>
-    <center>
-      <a>
-        <img class="img" src="./Fortress.jpg" title="Biosafety Fortress"/>
-      </a>
-    </center>
-    <ul>
-      <li>Our first wall is the <b>auxotrophy</b>, and we aim at engineering our bacteria so that they
-        become dependent to a specific component : it is also called nutritional isolation.
-        Here, we chose to make them <b>depend to a 21st amino acid</b>, which is not found in
-        nature. Unless it has an access to this synthetic amino acid, <b>the bacterium dies</b> : it
-        is confined in the area where the amino acid is spread.<sup>2,3,6</sup></li>
-    </ul>
-    <center>
-      <a>
-        <img class="img" src="./Auxotrophy.jpg" title="Synthetic Auxotrophy"/>
-      </a>
-    </center>
-    <ul>
-      <li>Our second wall is composed of a <b>killswitch</b>, to kill bacteria under certain inputs. It permits the avoidance of a microorganisms spreading. We chose to use the <b>protegrin-1</b>, which causes a <b>membrane poration</b> and so the <b>cell death</b>. Once its sequence is included in our bacteria genetic code with an arabinose operon, it would be activated in the presence of <b>arabinose</b>, making it easy for the farmers to kill the bacteria after harvesting<sup>2</sup>.<br></br>
-      We also thought of adding a <b>DNAse coding sequence in our plasmid and an “anti-DNAse”</b> coding sequence in the genomic DNA of our microorganism. If a DNA transfer occurs between a modified and a wild type bacteria, the wild type bacteria which does not contain any anti-DNAse would die<sup>5</sup>.
-      </li>
-    </ul>
-    <center>
-      <a>
-        <img class="img" src="./Killswitch.jpg" title="Killswitch and Horizontal transfer avoidance"/>
-      </a>
-    </center>
-    <ul>
-      <li>For our third wall, we are actively looking for the <sup>most adapted chassis</sup> and we
-        already have some tracks of naturally present bacteria on vine leaves and specific to
-        the leaf environment. However, the perfect chassis does not exist, as if it
-        extremely specific to the grapevines (so little present) a mass spraying could alter the
-        biodiversity and on the contrary, if it is less specific the safety level would be
-        lowered<sup>9,10,11</sup>.</li>
-    </ul>
-    <center>
-      <a>
-        <img class="img" src="./Chassis.jpg" title="Chassis Selection"/>
-      </a>
-    </center>
-    <ul>
-      <li>Our last wall is the <b>physical containment</b>. We decided to use the <b>tunnel sprayer</b>, in
-        order to diffuse our product and to add some <b>adjuvants</b> to facilitate its use. This
-        device is based on a “face to face” model in which each of the product dispenser face
-        each other. It seems to be a good choice because the product that is sprayed on one
-        side and doesn't end up on the plant is harvested by the panel on the other side.
-        Also, it permits the deposit of the spray on both surfaces of leaves. The adjuvants
-        would be a <b>drift limitant</b>, a <b>bounce and shatter minimiser</b> and a <b>sticker and
-        retention aid</b><sup>7,8</sup>.
-    </ul>
-    <center>
-      <a>
-        <img class="img" src="./Physical.png" title="Physical containment"/>
-      </a>
-      <p>Click on the following picture to find out our biosafety strategy report !
-      </p>
-      <a href= "./ionisparis-Applied Design-Risk Avoidance.pdf">
-        <img class="overview" src="./ionisparis-Applied design-Risk avoidance-6.jpg" title="Risk Avoidance: Biosafety Strategies"/>
-      </a>
-    </center>
-  </body>
-</html>
+  <title>Risk Avoidance</title>
+</head>
+
+<style media="screen">
+.bordered {
+  border: 1px solid #000;
+}
+</style>
+
+<h1 class="centered">Risk avoidance: Biosafety strategies</h1>
+<div class="igem-container">
+  <div class="row">
+    <div class="col-md-12">
+      <body>
+        <div class="colored-container">
+          Biosafety occupies a large part of our project. Indeed, the microorganisms that are contained
+          in our solution Softer Shock are intended to be spread in the environment. Since it is a major
+          concern here in France, we decided first to understand why, but mainly to find the best solution for our case.
+        </div>
+        <p>
+          If engineered microorganisms are highly regulated, it is for many different reason, as their
+          spreading would cause a possible biodiversity imbalance and a species competition because
+          of the bacteria presence in the environment, an increase of antibiotic resistance because of
+          a genetic material transfer or even hygiene issues in the worst case. Also, this regulation
+          primarily exists because of ethical questions, which is the main genetically engineered
+          microorganisms issue. Although our microorganisms do not carry any real toxic compound,
+          we chose to develop the project’s biosafety at its maximum<sup>1,2,4</sup>.<br>
+          To do so, in the biosafety aspects of Softer Shock, we chose to create a <span class="blue-text">four walls fortress</span>,
+          which means a <span class="blue-text">multi-layer strategy</span>.
+        </p>
+        <center>
+          <a>
+            <img class="marged" src="http://2017.igem.org/wiki/images/a/a9/Ionisparis-Applied_design-Risk_avoidance-1.jpg" title="Biosafety Fortress" width="70%"/>
+          </a>
+        </center>
+        <ul>
+          <li>Our first wall is the <span class="blue-text">auxotrophy</span>, and we aim at engineering our bacteria so that they
+            become dependent to a specific component : it is also called nutritional isolation.
+            Here, we chose to make them <span class="blue-text">depend to a 21st amino acid</span>, which is not found in
+            nature. Unless it has an access to this synthetic amino acid, <span class="blue-text">the bacterium dies</span> : it
+            is confined in the area where the amino acid is spread.<sup>2,3,6</sup></li>
+          </ul>
+          <center>
+            <a>
+              <img class="marged" src="http://2017.igem.org/wiki/images/thumb/b/b7/Ionisparis-Applied_design-Risk_avoidance-2.jpg/490px-Ionisparis-Applied_design-Risk_avoidance-2.jpg" title="Synthetic Auxotrophy" width="50%"/>
+            </a>
+          </center>
+          <ul>
+            <li>
+              Our second wall is composed of a <span class="blue-text">killswitch</span>, to kill bacteria under certain inputs.
+              It permits the avoidance of a microorganisms spreading. We chose to use the <span class="blue-text">protegrin-1</span>,
+              which causes a <span class="blue-text">membrane poration</span> and so the <span class="blue-text">cell death</span>. Once its sequence is
+              included in our bacteria genetic code with an arabinose operon, it would be activated in the
+              presence of <span class="blue-text">arabinose</span>, making it easy for the farmers to kill the bacteria after
+              harvesting<sup>2</sup>.
+              <br>
+              <br>
+              We also thought of adding a <span class="blue-text">DNAse coding sequence in our plasmid and an “anti-DNAse”</span>
+              coding sequence in the genomic DNA of our microorganism. If a DNA transfer occurs between a
+              modified and a wild type bacteria, the wild type bacteria which does not contain any anti-DNAse
+              would die<sup>5</sup>.
+            </li>
+          </ul>
+          <center>
+            <a>
+              <img class="marged" src="http://2017.igem.org/wiki/images/thumb/d/dd/Ionisparis-Applied_design-Risk_avoidance-3.jpg/800px-Ionisparis-Applied_design-Risk_avoidance-3.jpg" title="Killswitch and Horizontal transfer avoidance" width="100%"/>
+            </a>
+          </center>
+          <ul>
+            <li>For our third wall, we are actively looking for the <sup>most adapted chassis</sup> and we
+              already have some tracks of naturally present bacteria on vine leaves and specific to
+              the leaf environment. However, the perfect chassis does not exist, as if it
+              extremely specific to the grapevines (so little present) a mass spraying could alter the
+              biodiversity and on the contrary, if it is less specific the safety level would be
+              lowered<sup>9,10,11</sup>.
+            </li>
+          </ul>
+          <center>
+            <a>
+              <img class="marged" src="http://2017.igem.org/wiki/images/thumb/a/ad/Ionisparis-Applied_design-Risk_avoidance-4.jpg/800px-Ionisparis-Applied_design-Risk_avoidance-4.jpg" title="Chassis Selection" width="100%"/>
+            </a>
+          </center>
+          <ul>
+            <li>Our last wall is the <span class="blue-text">physical containment</span>. We decided to use the <span class="blue-text">tunnel sprayer</span>, in
+              order to diffuse our product and to add some <span class="blue-text">adjuvants</span> to facilitate its use. This
+              device is based on a “face to face” model in which each of the product dispenser face
+              each other. It seems to be a good choice because the product that is sprayed on one
+              side and doesn't end up on the plant is harvested by the panel on the other side.
+              Also, it permits the deposit of the spray on both surfaces of leaves. The adjuvants
+              would be a <span class="blue-text">drift limitant</span>, a <span class="blue-text">bounce and shatter minimiser</span> and a <span class="blue-text">sticker and
+                retention aid</span><sup>7,8</sup>.
+              </li>
+            </ul>
+            <center>
+              <a>
+                <img class="marged" src="http://2017.igem.org/wiki/images/3/32/Ionisparis-Applied_design-Risk_avoidance-5.png" title="Physical containment" width="42%"/>
+              </a>
+              <hr>
+              <p>
+                Click on the following picture to find out our biosafety strategy report !
+              </p>
+              <a href= "./ionisparis-Applied Design-Risk Avoidance.pdf">
+                <img class="no-shadow bordered" src="http://2017.igem.org/wiki/images/8/82/Ionisparis-Applied_design-Risk_avoidance-6.png" title="Risk Avoidance: Biosafety Strategies"/ width="100%">
+              </a>
+            </center>
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>
