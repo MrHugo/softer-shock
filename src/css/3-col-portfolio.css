@@ -6,6 +6,8 @@
 
 body {
   padding-top: 54px;
+  text-align: left; !important;
+  text-justify: none !important;
 }
 
 @media (min-width: 992px) {
@@ -20,4 +22,8 @@ body {
 
 .pagination {
   margin-bottom: 30px;
+}
+
+img {
+  box-shadow: none !important;
 }
