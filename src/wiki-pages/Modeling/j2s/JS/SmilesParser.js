@@ -518,10 +518,16 @@ if (biopt >= 0) {
 newAtom.isBioResidue = true;
 var resOrName = pattern.substring (index, biopt);
 pattern = pattern.substring (biopt + 1).toUpperCase ();
-if ((biopt = resOrName.indexOf ("#")) >= 0) {
+var len = resOrName.length;
+if ((biopt = resOrName.indexOf ("^")) >= 0) {
+if (biopt == len - 2) {
+ch = resOrName.charAt (len - 1);
+if (ch != '*') newAtom.insCode = ch;
+}resOrName = resOrName.substring (0, biopt);
+}if ((biopt = resOrName.indexOf ("#")) >= 0) {
 JS.SmilesParser.getDigits (resOrName, biopt + 1, ret);
-resOrName = resOrName.substring (0, biopt);
 newAtom.residueNumber = ret[0];
+resOrName = resOrName.substring (0, biopt);
 }if (resOrName.length == 0) resOrName = "*";
 if (resOrName.length > 1) newAtom.residueName = resOrName.toUpperCase ();
  else if (!resOrName.equals ("*")) newAtom.residueChar = resOrName;

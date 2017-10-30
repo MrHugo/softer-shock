@@ -321,7 +321,7 @@ this.applyRotation (this.matrixTemp3.setAA (axisAngle), false, bsAtoms, null, fa
 Clazz.defineMethod (c$, "rotateAxisAngleAtCenter", 
 function (eval, rotCenter, rotAxis, degreesPerSecond, endDegrees, isSpin, bsAtoms) {
 if (rotCenter != null) this.moveRotationCenter (rotCenter, true);
-this.setSpinOff ();
+if (isSpin) this.setSpinOff ();
 this.setNavOn (false);
 if (this.vwr.headless) {
 if (isSpin && endDegrees == 3.4028235E38) return false;
@@ -352,7 +352,7 @@ this.rotateAxisAngle2 (this.axisangleT, bsAtoms);
 }, "~N,JU.BS");
 Clazz.defineMethod (c$, "rotateAboutPointsInternal", 
 function (eval, point1, point2, degreesPerSecond, endDegrees, isClockwise, isSpin, bsAtoms, isGesture, translation, finalPoints, dihedralList, m4) {
-this.setSpinOff ();
+if (isSpin) this.setSpinOff ();
 this.setNavOn (false);
 if (dihedralList == null && (translation == null || translation.length () < 0.001) && (isSpin ? Float.isNaN (degreesPerSecond) || degreesPerSecond == 0 : endDegrees == 0)) return false;
 var axis = null;
@@ -1453,13 +1453,15 @@ Clazz.defineMethod (c$, "setCenterAt",
 function (relativeTo, pt) {
 var pt1 = JU.P3.newP (pt);
 switch (relativeTo) {
+case 1073741826:
+break;
 case 96:
 pt1.add (this.vwr.ms.getAverageAtomPoint ());
 break;
 case 1678381065:
 pt1.add (this.vwr.getBoundBoxCenter ());
 break;
-case 1073741826:
+default:
 pt1.setT (this.rotationCenterDefault);
 break;
 }

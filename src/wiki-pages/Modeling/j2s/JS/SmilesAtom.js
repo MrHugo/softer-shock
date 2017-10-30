@@ -10,6 +10,7 @@ this.index = 0;
 this.referance = null;
 this.residueName = null;
 this.residueChar = null;
+this.insCode = '\0';
 this.isBioAtom = false;
 this.isBioResidue = false;
 this.isBioAtomWild = false;
@@ -467,6 +468,10 @@ Clazz.overrideMethod (c$, "getBioStructureTypeName",
 function () {
 return null;
 });
+Clazz.overrideMethod (c$, "getInsertionCode", 
+function () {
+return this.insCode;
+});
 Clazz.overrideMethod (c$, "getResno", 
 function () {
 return this.residueNumber;
@@ -527,6 +532,25 @@ function (property) {
 if (property === "property_atomclass") return this.atomClass;
 return NaN;
 }, "~S");
+Clazz.overrideMethod (c$, "getMass", 
+function () {
+return this.atomicMass;
+});
+Clazz.overrideMethod (c$, "getCIPChirality", 
+function (doCalculate) {
+return "";
+}, "~B");
+Clazz.overrideMethod (c$, "setCIPChirality", 
+function (c) {
+}, "~N");
+Clazz.overrideMethod (c$, "getCIPChiralityCode", 
+function () {
+return 0;
+});
+Clazz.overrideMethod (c$, "getXYZ", 
+function () {
+return this;
+});
 Clazz.defineStatics (c$,
 "UNBRACKETED_SET", "B, C, N, O, P, S, F, Cl, Br, I, *,");
 });
