@@ -1,91 +1,176 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="../../../../src/css/template.css">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../../../src/css/template.css">
 
-    <script src="../../js/jquery.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <style>
-      .TITRE, .intro, {text-align: center;}
-      .overview, .img, {background-image:url("./A CHANGER"); margin-left:auto; margin-right: auto;}
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
 
-    </style>
-    <title>Description</title>
-  </head>
-  <body>
-    <center>
-    <h1 class="display-3">Description
-    </h1>
-    </center>
-    <h2 class="display-3">Vineyards and climate change</h3>
-    <p class= "txt"> Recently displaced from its leading position among global wine producers with a 12% recession last year, France suffers from climate change and its negative impacts on vineyards. The appearance of extreme temperature events threatens the agricultural economy and farmers have to deal with the current unsatisfactory solutions. Using synthetic biology, we are developing a thermo-adaptive biological product “SofterShock” for protecting grapevines against climatic hazards.</p>
-    <figure class="centered" style = "text-align:center">
-        <img class="overview" src="http://2017.igem.org/wiki/images/f/fd/Ionisparis-project-Description-1.jpg" title="Frozen vineyard" width="350"/>
-        <figcaption>French vineyards exposed to freezing, 2016</figcaption>
-    </figure><br></br>
-    <figure class="centered" style = "text-align:center">
-        <img class="overview" src="http://2017.igem.org/wiki/images/6/69/Ionisparis-project-Description-2.jpg" width="350"/>
-        <figcaption>Vineyards exposed to drought, 2016</figcaption>
-    </figure><br></br>
+  <title>Description</title>
+</head>
 
-    <h2 class="display-3">A thermo-responsive microorganism</h2>
-    <p class= "txt">We are engineering a microorganism to make it express a specific protectant at the plant surface depending on the outside temperatures. Below 15°C, ice-binding proteins will interact with ice crystals to either inhibit their growth (antifreeze proteins) or favoring the nucleation process (ice-nucleation proteins). Despite their opposite functions, both strategies could be of great help to prevent frost damages in their own way and small-scale tests are required to make a final choice. Above 37°C, light-reflecting compounds will limit evapotranspiration by creating a reflective layer. Once applied on crops, our solution will possess a double protection: anti-drought and anti-frost.</p>
-    <center>
-      <img class="overview" src="http://2017.igem.org/wiki/images/f/fc/Ionisparis-project-desciption-3.png" title="Thermo-responsive microorganism" width="750"/>
-    </center>
+<style>
 
-    <p class= "txt">This solution is used as a spray which contains our engineered bacteria. This idea raised some questions such as: which organism should we use ? Which compounds are the best for foliar protection ? How do we ensure biosafety in a limited area but still open environment ? How we can evaluate toxicity ? How should the spray be composed and how can we optimise its application on target ? All these aspects have been discussed in our Applied Design part.
-    </p>
+.parallax-bandeau {
+  border-top: 1px solid #f59d36;
+  border-bottom: 1px solid #f59d36;
+  background-position: -100px 0px;
+}
 
-    <h2 class="display-3">Use of chromoproteins</h2>
-    <p class= "txt">As a proof of concept, the specific compounds will first be chromoproteins (amilCP and mRFP), in order to induce a simple visual response by our plasmid. The bacteria should produce two distinct colors according to the temperatures : red in response to heat and blue in response to cold. Finally, we will test the function of both plasmids together in the same host cell by a double transformation.
+</style>
 
-      Our strategy concerning the Cold Shock response is to use the cold-induced cspA promoter system. The molecular components are the following:
-      <p class= "txt">- The cold shock response sequence itself, which is composed of  an UP element  Promoter, our 5’UTR and a DSBox</p>
-      <p class= "txt">- Chromoprotein (amilCP) : it is the reporter</p>
+<body>
+  <h1 class="centered">Description</h1>
+  <div class="parallax-bandeau marged" style="background-image: url('http://2017.igem.org/wiki/images/f/fc/Ionisparis-project-desciption-3.png')"></div>
+
+  <div class="igem-container">
+    <div class="row">
+      <div class="col-md-12">
+        <center>
+        </center>
+        <h2>Vineyards and climate change</h3>
+          <hr>
+          <p> Recently displaced from its leading position among global wine producers with a 12% recession last year, France suffers from climate change and its negative impacts on vineyards. The appearance of extreme temperature events threatens the agricultural economy and farmers have to deal with the current unsatisfactory solutions. Using synthetic biology, we are developing a thermo-adaptive biological product “SofterShock” for protecting grapevines against climatic hazards.</p>
+          <div class="row">
+            <div class="col-md-6 marged">
+              <figure class="centered">
+                <img class="overview" src="http://2017.igem.org/wiki/images/f/fd/Ionisparis-project-Description-1.jpg" title="Frozen vineyard" width="95%"/>
+                <figcaption class="marged">French vineyards exposed to freezing, 2016</figcaption>
+              </figure>
+            </div>
+            <div class="col-md-6 marged">
+              <figure class="centered">
+                <img class="overview" src="http://2017.igem.org/wiki/images/6/69/Ionisparis-project-Description-2.jpg" width="100%"/>
+                <figcaption class="marged">Vineyards exposed to drought, 2016</figcaption>
+              </figure>
+            </div>
+          </div>
+          <h2>A thermo-responsive microorganism</h2>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <p>We are engineering a microorganism to make it express a specific protectant at the
+                plant surface depending on the outside temperatures. Below 15°C, ice-binding proteins
+                will interact with ice crystals to either inhibit their growth (antifreeze proteins)
+                or favoring the nucleation process (ice-nucleation proteins). Despite their opposite
+                functions, both strategies could be of great help to prevent frost damages in their
+                own way and small-scale tests are required to make a final choice. Above 37°C,
+                light-reflecting compounds will limit evapotranspiration by creating a reflective layer.
+                Once applied on crops, our solution will possess a double protection: anti-drought and anti-frost.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p>This solution is used as a spray which contains our engineered bacteria. This idea
+                raised some questions such as: which organism should we use ? Which compounds are the
+                best for foliar protection ? How do we ensure biosafety in a limited area but still open
+                environment ? How we can evaluate toxicity ? How should the spray be composed and how
+                can we optimise its application on target ? All these aspects have been discussed in our
+                Applied Design part.
+              </p>
+            </div>
+          </div>
+          <img class="centered no-shadow" src="http://2017.igem.org/wiki/images/f/fc/Ionisparis-project-desciption-3.png" title="Thermo-responsive microorganism" width="100%"/>
+        </p>
+        <h2>Use of chromoproteins</h2>
+        <hr>
+        <p>As a proof of concept, the specific compounds will first be chromoproteins (amilCP and mRFP), in order to induce a simple visual response by our plasmid. The bacteria should produce two distinct colors according to the temperatures : red in response to heat and blue in response to cold. Finally, we will test the function of both plasmids together in the same host cell by a double transformation.
+          Our strategy concerning the Cold Shock response is to use the cold-induced cspA promoter system. The molecular components are the following:
+        </p>
+        <p>- The cold shock response sequence itself, which is composed of  an UP element  Promoter, our 5’UTR and a DSBox</p>
+        <p>- Chromoprotein (amilCP) : it is the reporter</p>
 
 
-      Our strategy for the heat is to  use the heat-shock response system in order to express red proteins at high temperatures. The molecular components are the following :
-      <p class= "txt">- pL promoter, also called lambda left promoter, and which is used with cI857. At 30 degrees, the repressors binds to the promoter and prevents its actions. At 42 degrees, the protein cI857 falls off the promoter because of too much molecular vibrations, so the promoter can allow transcription.</p>
-      <p class= "txt">- cI857 regulation system</p>
-      <p class= "txt">- Chromoprotein (mRFP) : it is the reporter</p>
+        Our strategy for the heat is to  use the heat-shock response system in order to express red proteins at high temperatures. The molecular components are the following :
+        <p>- pL promoter, also called lambda left promoter, and which is used with cI857. At 30 degrees, the repressors binds to the promoter and prevents its actions. At 42 degrees, the protein cI857 falls off the promoter because of too much molecular vibrations, so the promoter can allow transcription.</p>
+        <p>- cI857 regulation system</p>
+        <p>- Chromoprotein (mRFP) : it is the reporter</p>
 
-      <h2 class="display-3">Molecular modelling</h2>
-      <p class= "txt">Molecular modeling is a key part of this project. It was used to predictively design regulatory sequence modifications appearing in the coding sequence (the DS Box of the otherwise untranslated cspA 5’UTR). It was also used to characterize the structure of the cspA 5’UTR and propose an explanation for its function in the formation of the ribosomal pre-initiation complex at low temperatures.</p>
+        <h2>Molecular modelling</h2>
+        <hr>
+        <p>Molecular modeling is a key part of this project. It was used to predictively design regulatory sequence modifications appearing in the coding sequence (the DS Box of the otherwise untranslated cspA 5’UTR). It was also used to characterize the structure of the cspA 5’UTR and propose an explanation for its function in the formation of the ribosomal pre-initiation complex at low temperatures.</p>
 
-      <h2 class="display-3">Further applications</h2>
-      <p class= "txt">The interest of a thermo-responsive biological system can expand beyond the vines protection. </p>
-
-      <h4 class="display-3">A novel “biocontrol” approach to global plant protection</h4>
-      <center>
-        <img class="overview" src="http://2017.igem.org/wiki/images/4/40/Ionisparis-project-Description-4.png" title="Beyond vines protection" width="90"/>
-      </center>
-      <p class= "txt">Firstly, other crops could benefit from the Softer Shock technology according to their physiological properties and geographic location. When discussing with Mexican wine-growers, they mentioned the high temperature gaps existing between hot and cold seasons. In this context, having a this dual protective solution could be of great interest for farmers. We can even go further and think about more “futuristic” approaches. Direct genetic modification of plants with a dual thermo-responsive plasmid could allow them to become more resistant to temperatures stresses and brutal climatic changes. Therefore, those plants may be grown in extreme environments where few crops are grown today, and even maybe on other planets !</p>
-
-      <h4 class="display-3">Self-regulation of solutions</h4>
-      <p class= "txt">- Solution thermoregulation can be costly for industrials or scientific researchers. What could be interesting is to create a self-regulating</p>
-      <p class= "txt">- Time temperature for monitoring plant development</p>
-      <p class= "txt">- Cold production</p>
-      <p class= "txt">- The Softer Shock micro-organisms could also be useful in other fields than agriculture.</p>
-
-
-      <h4 class="display-3">Thermo-regulated drug delivery</h4>
-      <center>
-        <img class="overview" src="http://2017.igem.org/wiki/images/c/cc/Ionisparis-project-Description-5.png" title="Self-regulation solutions" width="90"/>
-      </center>
-      <p class= "txt">The interesting thermo-reactiveness activity can find valuable functions in controlled drug delivery. Tumoral or inflammatory microenvironments are characterized by an higher temperature compared to the rest of the body. Encapsulated inside vectors, the micro-organisms could react to temperature increases by releasing a compound to destroy the surface and liberate the active principle locally.</p>
-
-      <h4 class="display-3">Cold chain control</h4>
-      <center>
-      <img class="overview" src="http://2017.igem.org/wiki/images/8/86/Ionisparis-project-Description-6.png" title="Cold-chain control" width="90"/>
-      </center>
-      <p class= "txt">As you may know, all food products subjected to a freezing process should never be frozen again after thawing. It is particularly hard for individuals, but also industrials, to guarantee that this “cold chain” has not been broken. Thanks to the Softer Shock technology, we could elaborate an irreversible system allowing an easy and visual indicator turning to a certain colour as soon as the product has been thawed. The French company Cryolog developed a thermo-sensitive microbiological sticker for the same objective. Improving this technology by optimizing the temperature changes detection could be an interesting research axis for Softer Shock. </p>
-
-    <center>
-    </center>
+        <h2>Further applications</h2>
+        <hr>
+        <div class="colored-container">
+          <p>The interest of a thermo-responsive biological system can expand beyond the vines protection. </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>A novel “biocontrol” approach to global plant protection</h4>
+            <img class="marged" src="http://2017.igem.org/wiki/images/4/40/Ionisparis-project-Description-4.png" title="Beyond vines protection" width="80%"/>
+          </div>
+          <div class="col-md-4" style="margin-top: 60px">
+            <p>
+              Firstly, other crops could benefit from the Softer Shock technology according to their physiological
+              properties and geographic location. When discussing with Mexican wine-growers, they mentioned the high
+              temperature gaps existing between hot and cold seasons. In this context, having a this dual protective
+              solution could be of great interest for farmers.
+            </p>
+          </div>
+          <div class="col-md-4" style="margin-top: 60px">
+            <p>
+              We can even go further and think about more “futuristic”
+              approaches. Direct genetic modification of plants with a dual thermo-responsive plasmid could allow them
+              to become more resistant to temperatures stresses and brutal climatic changes. Therefore, those plants may
+              be grown in extreme environments where few crops are grown today, and even maybe on other planets !
+            </p>
+          </div>
+        </div>
+        <hr>
+        <h4>Self-regulation of solutions</h4>
+        <ul class="marged">
+          <li> Solution thermoregulation can be costly for industrials or scientific researchers. What could be interesting is to create a self-regulating</li>
+          <li> Time temperature for monitoring plant development</li>
+          <li> Cold production</li>
+          <li> The Softer Shock micro-organisms could also be useful in other fields than agriculture.</li>
+        </ul>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Thermo-regulated drug delivery</h4>
+            <img class="overview" src="http://2017.igem.org/wiki/images/c/cc/Ionisparis-project-Description-5.png" title="Self-regulation solutions" width="77%"/>
+          </div>
+          <div class="col-md-4" style="margin-top: 60px">
+            <p>
+              The interesting thermo-reactiveness activity can find valuable functions in controlled drug delivery.
+              Tumoral or inflammatory microenvironments are characterized by an higher temperature compared to the rest of the body.
+            </p>
+          </div>
+          <div class="col-md-4" style="margin-top: 60px">
+            <p>
+              Encapsulated inside vectors, the micro-organisms could react to temperature increases by releasing a compound to
+              destroy the surface and liberate the active principle locally.
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Cold chain control</h4>
+            <img class="overview" src="http://2017.igem.org/wiki/images/8/86/Ionisparis-project-Description-6.png" title="Cold-chain control" width="77%"/>
+          </div>
+          <div class="col-md-4" style="margin-top: 60px">
+            <p>
+              As you may know, all food products subjected to a freezing process should never be frozen again after thawing.
+              It is particularly hard for individuals, but also industrials, to guarantee that this “cold chain” has not been broken.
+              Thanks to the Softer Shock technology, we could elaborate an irreversible system allowing an easy and visual indicator
+            </p>
+          </div>
+          <div class="col-md-4" style="margin-top: 60px">
+            <p>
+              turning to a certain colour as soon as the product has been thawed. The French company Cryolog developed a thermo-sensitive
+              microbiological sticker for the same objective. Improving this technology by optimizing the temperature changes detection
+              could be an interesting research axis for Softer Shock.
+            </p>
+          </div>
+        </div>
+        <center>
+        </center>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
