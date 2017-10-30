@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="../../css/template.css">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/template.css">
 
-    <script src="../../js/jquery.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <style>
-      .TITRE, .intro, {text-align: center;}
-      .overview, {background-image:url("./A CHANGER"); margin-left:auto; margin-right: auto;}
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <title>Definitions</title>
+</head>
 
-    </style>
-    <title>Definitions</title>
-  </head>
-  <body>
-    <!-- Banniere projet : http://2017.igem.org/wiki/images/f/fc/Ionisparis-project-desciption-3.png -->
-    <center>
-    <h1 class="display-3">Definitions</h1>
-  </center>
-    <h2 class="display-3">Biobricks</h2>
-    <p class= "txt">A BioBrick is a DNA sequence which conforms to a standard of assembly by restriction enzymes. A BioBrick can be a promoter, a ribosomal binding site, the desired coding sequence, or a terminator. A part is the assembly of those BioBricks. It is framed with prefix and suffix standardised sequences containing restriction sites for EcoRI, PstI, XbaI and SpeI.<br>
-      These DNA sequences are considered as building blocks and are used to design and assemble larger synthetic biological circuits, which are made from several individual or combinations of parts with defined functions. The circuits would then be incorporated into the cells of microorganisms. Different strains of microorganisms can be modified, but in the iGEM competition, Escherichia coli is the most used !</p>
+<style>
 
-    <h2 class="display-3">Our components </h2>
-    <p class= "txt">Cold shock proteins (Csp) : a wide family of proteins acting as chaperone for DNA and expressed at low temperatures. This family of proteins include the CspA and CspB, each having similar features that permit their expression at low temperatures only. Of these features are a long 5’UTR and a Downstream Box, as well as a promoter, all believed to influence the cold-only induction.</p>
-    <p class= "txt">amilCP : Chromoprotein from Acropora millepora coral, which exhibits a strong blue color. Its absorption maximum is 588nm.</p>
-    <p class= "txt">cI857 : Temperature sensitive repressor of the pL promoter. It is inactivated at 42°C, and so lets the pL promoter accessible for the RNA polymerase. Before this temperature, cI857 is functional and turns off the pL regulated gene expression. </p>
-    <p class= "txt">mRFP : Monomeric Red Fluorescent protein, which have excitation and emission peak at 584nm and 607nm. It is an engineered mutant of red fluorescent protein from Discosoma striata (coral) and allows us to make our bacteria red.</p>
-    <p class= "txt">pL promoter :Lambda phage promoter, originally used to express heterologous protein in E. coli as toxin. As it is a strong promoter, it allows enough production before bacteria die. It is repressed by the cI857 system and is functional at 42°C.</p>
-    <p class= "txt">5’UTR of CspA : This long (159bp) sequence is a master regulator of most of the Cold-shock proteins mRNA and is believed to be very unstable at high temperatures, making the expression of the protein coding sequence it precedes possible at low temperatures only.</p>
-    <p class= "txt">CspA promoter and UP element: The CspA promoter is a strong constitutive promoter active at all temperatures. It is supplemented by an Up element that is believed to enhance the promoter strength at low temperatures (although this point is still discussed).</p>
+.parallax-bandeau {
+  border-top: 1px solid #f59d36;
+  border-bottom: 1px solid #f59d36;
+  background-position: -100px 0px;
+}
 
-    <center>
-    </center>
-    </div>
-  </body>
-</html>
+</style>
+
+<body>
+  <h1 class="centered">
+    <img class="logo-vigne" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg"></img>
+    Definitions
+    <img class="logo-vigne" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg"></img>
+  </h1>
+  <div class="parallax-bandeau marged" style="background-image: url('http://2017.igem.org/wiki/images/f/fc/Ionisparis-project-desciption-3.png')"></div>
+
+  <div class="igem-container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Biobricks</h2>
+        <hr>
+        <p>
+          A BioBrick is a DNA sequence which conforms to a standard of assembly by restriction enzymes. A BioBrick can be a promoter, a ribosomal binding site, the desired coding sequence, or a terminator. A part is the assembly of those BioBricks. It is framed with prefix and suffix standardised sequences containing restriction sites for EcoRI, PstI, XbaI and SpeI.<br>
+          These DNA sequences are considered as building blocks and are used to design and assemble larger synthetic biological circuits, which are made from several individual or combinations of parts with defined functions. The circuits would then be incorporated into the cells of microorganisms. Different strains of microorganisms can be modified, but in the iGEM competition, Escherichia coli is the most used !
+        </p>
+        <h2>Our components </h2>
+        <hr>
+        <p>Cold shock proteins (Csp) : a wide family of proteins acting as chaperone for DNA and expressed at low temperatures. This family of proteins include the CspA and CspB, each having similar features that permit their expression at low temperatures only. Of these features are a long 5’UTR and a Downstream Box, as well as a promoter, all believed to influence the cold-only induction.</p>
+        <p>amilCP : Chromoprotein from Acropora millepora coral, which exhibits a strong blue color. Its absorption maximum is 588nm.</p>
+        <p>cI857 : Temperature sensitive repressor of the pL promoter. It is inactivated at 42°C, and so lets the pL promoter accessible for the RNA polymerase. Before this temperature, cI857 is functional and turns off the pL regulated gene expression. </p>
+        <p>mRFP : Monomeric Red Fluorescent protein, which have excitation and emission peak at 584nm and 607nm. It is an engineered mutant of red fluorescent protein from Discosoma striata (coral) and allows us to make our bacteria red.</p>
+        <p>pL promoter :Lambda phage promoter, originally used to express heterologous protein in E. coli as toxin. As it is a strong promoter, it allows enough production before bacteria die. It is repressed by the cI857 system and is functional at 42°C.</p>
+        <p>5’UTR of CspA : This long (159bp) sequence is a master regulator of most of the Cold-shock proteins mRNA and is believed to be very unstable at high temperatures, making the expression of the protein coding sequence it precedes possible at low temperatures only.</p>
+        <p>CspA promoter and UP element: The CspA promoter is a strong constitutive promoter active at all temperatures. It is supplemented by an Up element that is believed to enhance the promoter strength at low temperatures (although this point is still discussed).</p>
+
+        <center>
+        </center>
+      </div>
+    </body>
+    </html>

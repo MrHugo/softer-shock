@@ -2,392 +2,484 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="./bootstrap.min.css">
-  <link rel="stylesheet" href="./template.css">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/template.css">
+
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
   <title>Structure-function characterization of the cspA 5'UTR through molecular modeling</title>
 </head>
+<style media="screen">
+
+.custom-button {
+  width: 300px;
+  height: 100px;
+  box-shadow: 3px 3px 3px grey;
+  padding: 0 !important;
+  border: none;
+  border-radius: 6px;
+  background-image: url('http://2017.igem.org/wiki/images/c/c0/Ionis-paris-modelling-button-amilCP.png');
+  background-size: 105%;
+  background-position: -10px -5px;
+  background-repeat: no-repeat;
+}
+
+.custom-button a {
+  width: 1px;
+  height: 1px;
+  padding: 40px 300px;
+}
+
+.wrap {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.adn-left, .adn-right, .lol {
+  display: block;
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  width: 15px;
+  z-index: -1;
+  background: url('http://2017.igem.org/wiki/images/c/c1/Ionis-paris-adn.svg') repeat-y;
+}
+
+.adn-left {
+  left: 12%;
+}
+
+.adn-right {
+  right: 11%;
+  filter: hue-rotate(145deg) brightness(78%);
+}
+
+</style>
 <body>
-<div class="marged">
-  <div class="container-fluid">
+  <h1 class="centered">
+    <img class="logo-vigne" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg"></img>
+    Structure-function characterization of the cspA 5'UTR through molecular modeling
+    <img class="logo-vigne" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg"></img>
+  </h1>
+  <div class="parallax-bandeau marged" style="background-position: 70% 0; background-image: url('http://2017.igem.org/wiki/images/thumb/a/a0/Ionis-paris-modeling-banniere.png/800px-Ionis-paris-modeling-banniere.png')"></div>
+
+  <div class="igem-container">
+    <div class="adn-left"></div>
+    <div class="adn-right"></div>
     <div class="row">
       <div class="col-md-12">
-        <h1 align = center>Structure-function characterization of the cspA 5'UTR through molecular modeling</h1><br></br>
-          <h3>Introduction</h3>
-            <p>In this project we developed a genetic sequence that allows bacteria to produce amilCP when it undergoes cold shock. To achieve this, we chose to use the cspA promoter that is activated during cold shock in several bacteria such as wild type (WT) Escherichia coli. Also, based on the literature we choose to include the UP element of the cspA promoter, the cspA 5’UTR, and the DownStream Box (DSBox) in our final construction. These temperature sensing sequence motifs are upstream of our reporter protein (amilCP), with the exception of the DSBox (see Fig.1). Our bibliographic review indicates that these components are required to see the conditional expression of amilCP only at low temperature<sup>1,2</sup> (under 15°C, approximately).</p><br></br>
-            <figure>
-              <img class = "centered" src="http://2017.igem.org/wiki/images/2/2d/Ionisparis-modeling-RNA_folding_simulation-1.png"></img>
-              <figcaption class = "centered">Figure 1: Schema of sequence 7 construction.</figcaption>
-            </figure>
+        <div class="colored-container">
+          <p><b>Overview</b>:</p>
+          <p>zsqfq</p>
+        </div>
+        <h2>Introduction</h2>
+        <p>In this project we developed a genetic sequence that allows bacteria to produce amilCP when it undergoes cold shock. To achieve this, we chose to use the cspA promoter that is activated during cold shock in several bacteria such as wild type (WT) Escherichia coli. Also, based on the literature we choose to include the UP element of the cspA promoter, the cspA 5’UTR, and the DownStream Box (DSBox) in our final construction. These temperature sensing sequence motifs are upstream of our reporter protein (amilCP), with the exception of the DSBox (see Fig.1). Our bibliographic review indicates that these components are required to see the conditional expression of amilCP only at low temperature<sup>1,2</sup> (under 15°C, approximately).</p>
+        <br>
+        <figure>
+          <img class = "centered" src="http://2017.igem.org/wiki/images/2/2d/Ionisparis-modeling-RNA_folding_simulation-1.png" width="100%" height="auto">
+          <figcaption class = "centered marged">Figure 1: Schema of sequence 7 construction.</figcaption>
+        </figure>
+
+        <br>
+
+
+        <p>We found in the bibliography that the current main hypothesis that could explain the expression of the cold shock protein family is the structure of the mRNA. At 37°C their mRNA is quickly degraded. As the temperature decreases the mRNA assumes a different structure. This leads to the stabilization of the mRNA structure at low temperatures.
+          <br>
+
+          There were no experimental structures solved for the cspA 5’UTR, nor for any close sequence homologs. Therefore, we used a computational method, SimRNA<sup>3</sup>, in order to generate 3D models of this region of the cspA mRNA.
+          <br>
+
+          Our results suggest that several short distinct sequence motifs classically identified as important for ribosome binding actually participate together in the formation of a secondary structure motif that is recognized in a generally non base-pair specific manner by ribosomal accessory proteins in the formation of the pre-initiation complex at low temperatures.
+          <br></p>
+          <h2>Materials and Methods</h2>
+          <h3 style = "text-decoration: underline;">Software</h3>
+          <p>SimRNA models RNA with a coarse grained 3D model subjected to a statistical potential derived from a set of experimentally determined RNA structures, and  uses a Monte Carlo method for conformational sampling.
             <br>
-            </br>
 
-            <p>We found in the bibliography that the current main hypothesis that could explain the expression of the cold shock protein family is the structure of the mRNA. At 37°C their mRNA is quickly degraded. As the temperature decreases the mRNA assumes a different structure. This leads to the stabilization of the mRNA structure at low temperatures.<br></br>
+            For our first simulations we decided to try the isotemperature method. It was supposed to show the folding of RNA at a fixed temperature. Unfortunately, initial results were quite variable in their final structures. The simulations begin with RNA in a planar circle conformation. At each iteration of the Monte Carlo procedure, it calculates the lowest energy conformation for the RNA. The problem is that the simulation can get stuck in a local energy minimum, and as the simulation runs it becomes unable to escape it. Thus, we can’t see if there is another local minimum deeper than the one where our simulation was stuck. This is why we decided to switch to the Replica Exchange Monte Carlo (REMC) protocol for our simulations.
+            <br>
 
-              There were no experimental structures solved for the cspA 5’UTR, nor for any close sequence homologs. Therefore, we used a computational method, SimRNA<sup>3</sup>, in order to generate 3D models of this region of the cspA mRNA.<br></br>
+            Replica-Exchange Monte Carlo is a technique for enhancing the conformational sampling of systems by Monte Carlo methods. It requires the creation of several replica simulations of the same system, with each replica running at a different simulated temperature. Conformations that are close in energy are exchanged periodically between each replica, allowing the detection and exploration of the principal local minima on the system’s potential energy surface. This corresponds to the discovery of new conformations separated from initial conditions by energy barriers.
+            <h3 style = "text-decoration: underline;">Simulation parameters</h3>
 
-              Our results suggest that several short distinct sequence motifs classically identified as important for ribosome binding actually participate together in the formation of a secondary structure motif that is recognized in a generally non base-pair specific manner by ribosomal accessory proteins in the formation of the pre-initiation complex at low temperatures.<br></br></p>
-          <h3>Materials and Methods</h3>
-            <h4 style = "text-decoration: underline;">Software</h4>
-              <p>SimRNA models RNA with a coarse grained 3D model subjected to a statistical potential derived from a set of experimentally determined RNA structures, and  uses a Monte Carlo method for conformational sampling. <br></br>
-
-                For our first simulations we decided to try the isotemperature method. It was supposed to show the folding of RNA at a fixed temperature. Unfortunately, initial results were quite variable in their final structures. The simulations begin with RNA in a planar circle conformation. At each iteration of the Monte Carlo procedure, it calculates the lowest energy conformation for the RNA. The problem is that the simulation can get stuck in a local energy minimum, and as the simulation runs it becomes unable to escape it. Thus, we can’t see if there is another local minimum deeper than the one where our simulation was stuck. This is why we decided to switch to the Replica Exchange Monte Carlo (REMC) protocol for our simulations.<br></br>
-
-                Replica-Exchange Monte Carlo is a technique for enhancing the conformational sampling of systems by Monte Carlo methods. It requires the creation of several replica simulations of the same system, with each replica running at a different simulated temperature. Conformations that are close in energy are exchanged periodically between each replica, allowing the detection and exploration of the principal local minima on the system’s potential energy surface. This corresponds to the discovery of new conformations separated from initial conditions by energy barriers.
-            <h4 style = "text-decoration: underline;">Simulation parameters</h4>
-
-              <p>In our simulations, the cspA 5’UTR sequence comes from the registered part <a
+            <p>In our simulations, the cspA 5’UTR sequence comes from the registered part <a
               href="http://partsregistry.org/Part:BBa_K328001"style='color:#1155CC'>BBa_K328001:</a></p>
 
-              <p class = "centered">ACGGUUUGACGUACAGACCAUUAAAGCAGUGUAGUAAGGCAAGUCCCUUCAAGAGUUAUCGUUGAUACCCCUCGUAGUGCACAUUCUUUAAC
+              <p>ACGGUUUGACGUACAGACCAUUAAAGCAGUGUAGUAAGGCAAGUCCCUUCAAGAGUUAUCGUUGAUACCCCUCGUAGUGCACAUUCUUUAAC
                 GCUUCAAAAUCUGUAAAGCACGCCAUAUCGCCGAAAGGCACACUUAAUUAUUAAAGGUAAUACACUAUGAGUAUGACUGGUAUCGUAAAUGACU</p>
 
-              <p>The REMC
-              simulations were made of eight replicas, running for 16 000 000 steps in total.
-              One frame was recorded every 320 steps, which correspond to a total of 50 000 frames
-              per replica. Each frame is a PDB file of one particular step of the folding
-              process.</p>
+                <p>The REMC
+                  simulations were made of eight replicas, running for 16 000 000 steps in total.
+                  One frame was recorded every 320 steps, which correspond to a total of 50 000 frames
+                  per replica. Each frame is a PDB file of one particular step of the folding
+                  process.</p>
 
-              <p>The initial
-              temperature of the annealing process was set to 1.35 and the final temperature
-              to 0.9, (per the published SimRNA benchmark settings), recalling that these
-              values are dimensionless (they are the Lennard Jones reduced temperature unit).</p>
+                  <p>The initial
+                    temperature of the annealing process was set to 1.35 and the final temperature
+                    to 0.9, (per the published SimRNA benchmark settings), recalling that these
+                    values are dimensionless (they are the Lennard Jones reduced temperature unit).</p>
 
-              <p>Once the simulation
-              is done, SimRNA generates one trajectory file per replica. To obtain the
-              representative structures of the simulation, we have done a clustering analysis.
-              SimRNA has a built in clustering routine. We choose to take the top 1% of the
-              lowest energy structures and separated them with a threshold of 18.7 Ångström
-              (per the published clustering guideline of allowing 0.1 Ångström/nucleotide).</p>
+                    <p>Once the simulation
+                      is done, SimRNA generates one trajectory file per replica. To obtain the
+                      representative structures of the simulation, we have done a clustering analysis.
+                      SimRNA has a built in clustering routine. We choose to take the top 1% of the
+                      lowest energy structures and separated them with a threshold of 18.7 Ångström
+                      (per the published clustering guideline of allowing 0.1 Ångström/nucleotide).</p>
 
-            <h4 style = "text-decoration: underline;">Hardware</h4>
+                      <h3 style = "text-decoration: underline;">Hardware</h3>
 
-              <p>To run our
-              simulation we used a personal gaming computer running Linux 16.04 LTS.</p>
+                      <p>To run our
+                        simulation we used a personal gaming computer running Linux 16.04 LTS.</p>
 
-              <p>Hardware
-              Specifications:</p>
+                        <p>Hardware
+                          Specifications:</p>
 
-              <p style='margin-left:36.0pt;line-height:normal'><u>CPU</u>: Intel Core i7 6700K @ 4.00GHz</p>
+                          <p style='margin-left:36.0pt;line-height:normal'><u>CPU</u>: Intel Core i7 6700K @ 4.00GHz</p>
 
-              <p style='margin-left:36.0pt;line-height:normal'><u>RAM</u>: 16,0 Go Dual-Channel DDR4</p>
+                          <p style='margin-left:36.0pt;line-height:normal'><u>RAM</u>: 16,0 Go Dual-Channel DDR4</p>
 
-              <p style='margin-left:36.0pt;line-height:normal'><u>Motherboard</u>: ASUSTeK COMPUTER INC. Z170 PRO GAMING (LGA1151)</p>
+                          <p style='margin-left:36.0pt;line-height:normal'><u>Motherboard</u>: ASUSTeK COMPUTER INC. Z170 PRO GAMING (LGA1151)</p>
 
-              <p style='margin-left:36.0pt;line-height:normal'><u>Graphics</u>: NVIDIA GeForce GTX 1070 - 8Go</p><br></br>
+                          <p style='margin-left:36.0pt;line-height:normal'><u>Graphics</u>: NVIDIA GeForce GTX 1070 - 8Go</p>
+                          <br>
 
-          <h3>Results</h3>
-              <p>We chose to take
-                the top 1% of the lowest energy structures and separated them with a threshold
-                of 18.7 Ångström (per the published clustering guideline of allowing 0.1
-                Ångström/nucleotide).</p>
-              <figure>
-                <img class = "centered" src="http://2017.igem.org/wiki/images/0/00/Ionisparis-modeling-RNA_folding_simulation-2.png" width="500" height="400"></img>
-                <figcaption class = "centered">Figure 2: Percentage of structures in each cluster.</figcaption><br></br>
-              </figure>
-              <p>For our simulation
-                 we choose to work with the top 6 clusters (out of 25 identified in total) as
-                 they represent more than 90% of the clustered structures, as displayed in the
-                 clustering log file</p>
+                          <h2>Results</h2>
+                          <p>We chose to take
+                            the top 1% of the lowest energy structures and separated them with a threshold
+                            of 18.7 Ångström (per the published clustering guideline of allowing 0.1
+                            Ångström/nucleotide).</p>
+                            <figure>
+                              <img class = "centered" src="http://2017.igem.org/wiki/images/0/00/Ionisparis-modeling-RNA_folding_simulation-2.png" width="100%" height="auto">
+                              <figcaption class = "centered marged">Figure 2: Percentage of structures in each cluster.</figcaption>
+                              <br>
+                            </figure>
+                            <p>For our simulation
+                              we choose to work with the top 6 clusters (out of 25 identified in total) as
+                              they represent more than 90% of the clustered structures, as displayed in the
+                              clustering log file</p>
 
-                 <p><b><u>3D representative structures viewer</u></b>:</p>
-                  <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/u6a24aphotg6m48/Igem_cspA_187_cluster_01.spt?dl=1&&link=CLUSTER 1"></script></li>
-                  <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/ygjc49sebnoj60d/Igem_cspA_187_cluster_02.spt?dl=1&&link=CLUSTER 2"></script></li>
-                  <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/2373u76ru3nzmvh/Igem_cspA_187_cluster_03.spt?dl=1&&link=CLUSTER 3"></script></li>
-                  <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/kbibcotfnjnmb1v/Igem_cspA_187_cluster_04.spt?dl=1&&link=CLUSTER 4"></script></li>
-                  <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/xqf2daqrvc6bugu/Igem_cspA_187_cluster_05.spt?dl=1&&link=CLUSTER 5"></script></li>
-                  <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/agnrjmxn9onwwf2/Igem_cspA_187_cluster_06.spt?dl=1&&link=CLUSTER 6"></script></li>
-              <p>With the REMC
-                   simulation, clustering process, and the use of GROMACS<sup>5</sup> to analyze
-                   the trajectory file we obtained the 3D model of each lowest energy structure of
-                   each cluster and also the energy value.</p>
-              <figure>
-                <img class = "centered" src="http://2017.igem.org/wiki/images/6/66/Ionisparis-modeling-RNA_folding_simulation-3-2.png" width="1000" height="350"></img>
-                <figcaption class = "centered">Figure 3: representative structures of
-                   each cluster with the DS box in yellow.</figcaption><br></br>
-              </figure>
-              <table class=centered border=1 cellspacing=0 cellpadding=0 width=392 style='border-collapse:
-                     collapse;border:none'>
-                <tr>
-                  <td style='border:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>Cluster number</p>
-                  </td>
-                  <td valign=top style='border:solid black 1.0pt;border-left:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>Energy of the lowest energy
-                      structures of each cluster in SimRna energy units</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>1</p>
-                  </td>
-                  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
-                      border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2043</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>2</p>
-                  </td>
-                  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
-                      border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2073</p>
-                  </td>
-                  </tr>
-                  <tr>
-                    <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>3</p>
-                    </td>
-                    <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
-                      border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2048</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>4</p>
-                    </td>
-                    <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
-                      border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2046</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>5</p>
-                    </td>
-                    <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
-                      border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
-                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2034</p>
-                    </td>
-                  </tr>
-                  <tr style='height:24.0pt'>
-                    <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt;
-                      height:24.0pt'>
-                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>6</p>
-                    </td>
-                    <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
-                      border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt;height:24.0pt'>
-                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2032</p>
-                    </td>
-                  </tr>
-                </table>
-                <p class = "centered">Table 1: Energy value of lowest
-                      energy frame of each cluster in SimRNA energy units</p><br></br>
-
-
-
-
-
-
-    </div>
-    </div>
-    </div>
-    </div>
-  </body>
-                <figure>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/7/72/Ionisparis-modeling-RNA_folding_simulation-4.png" width="900" height="600"></img>
-                  <figcaption class = "centered">Figure 4: REMC cloud of the cspA 5’UTR simulation. 40 000 data points were plot with
-                    GNUplot.</figcaption><br></br>
-                </figure>
-                <p>The REMC Cloud is a graph that allow usto sort RNA structures
+                              <p><b><u>3D representative structures viewer</u></b>:</p>
+                              <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/u6a24aphotg6m48/Igem_cspA_187_cluster_01.spt?dl=1&&link=Cluster 1"></script></li>
+                              <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/ygjc49sebnoj60d/Igem_cspA_187_cluster_02.spt?dl=1&&link=Cluster 2"></script></li>
+                              <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/2373u76ru3nzmvh/Igem_cspA_187_cluster_03.spt?dl=1&&link=Cluster 3"></script></li>
+                              <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/kbibcotfnjnmb1v/Igem_cspA_187_cluster_04.spt?dl=1&&link=Cluster 4"></script></li>
+                              <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/xqf2daqrvc6bugu/Igem_cspA_187_cluster_05.spt?dl=1&&link=Cluster 5"></script></li>
+                              <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/agnrjmxn9onwwf2/Igem_cspA_187_cluster_06.spt?dl=1&&link=Cluster 6"></script></li>
+                              <br>
+                              <p>With the REMC
+                                simulation, clustering process, and the use of GROMACS<sup>5</sup> to analyze
+                                the trajectory file we obtained the 3D model of each lowest energy structure of
+                                each cluster and also the energy value.</p>
+                                <figure>
+                                  <img class = "centered" src="http://2017.igem.org/wiki/images/6/66/Ionisparis-modeling-RNA_folding_simulation-3-2.png" width="100%" height="auto">
+                                  <figcaption class = "centered marged">Figure 3: representative structures of
+                                    each cluster with the DS box in yellow.</figcaption>
+                                    <br>
+                                  </figure>
+                                  <table class=centered border=1 cellspacing=0 cellpadding=0 width=392 style='border-collapse:
+                                  collapse;border:none'>
+                                  <tr>
+                                    <td style='border:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>Cluster number</p>
+                                    </td>
+                                    <td valign=top style='border:solid black 1.0pt;border-left:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>Energy of the lowest energy
+                                        structures of each cluster in SimRna energy units</p>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                        <p class=MsoNormal align=center style='text-align:center;line-height:normal'>1</p>
+                                      </td>
+                                      <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+                                      border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2043</p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                      <p class=MsoNormal align=center style='text-align:center;line-height:normal'>2</p>
+                                    </td>
+                                    <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+                                    border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2073</p>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>3</p>
+                                  </td>
+                                  <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+                                  border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                  <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2048</p>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                  <p class=MsoNormal align=center style='text-align:center;line-height:normal'>4</p>
+                                </td>
+                                <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+                                border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2046</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                                <p class=MsoNormal align=center style='text-align:center;line-height:normal'>5</p>
+                              </td>
+                              <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+                              border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt'>
+                              <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2034</p>
+                            </td>
+                          </tr>
+                          <tr style='height:24.0pt'>
+                            <td valign=top style='border:solid black 1.0pt;border-top:none;padding:5.0pt 5.0pt 5.0pt 5.0pt;
+                            height:24.0pt'>
+                            <p class=MsoNormal align=center style='text-align:center;line-height:normal'>6</p>
+                          </td>
+                          <td valign=top style='border-top:none;border-left:none;border-bottom:solid black 1.0pt;
+                          border-right:solid black 1.0pt;padding:5.0pt 5.0pt 5.0pt 5.0pt;height:24.0pt'>
+                          <p class=MsoNormal align=center style='text-align:center;line-height:normal'>-2032</p>
+                        </td>
+                      </tr>
+                    </table>
+                    <figcaption class="centered marged">Table 1: Energy value of lowest
+                      energy frame of each cluster in SimRNA energy units</p>
+                    </figcaption>
+                    <br>
+                    <figure>
+                      <img class="centered" src="http://2017.igem.org/wiki/images/7/72/Ionisparis-modeling-RNA_folding_simulation-4.png" width="100%" height="auto">
+                      <figcaption class = "centered marged">Figure 4: REMC cloud of the cspA 5’UTR simulation. 40 000 data points were plot with
+                        GNUplot.
+                      </figcaption>
+                    </figure>
+                    <p>The REMC Cloud is a graph that allow usto sort RNA structures
                       generated during the simulation according to their energy and their
                       Root-Mean-Square-Deviation (RMSD) from a selected reference structure. This the
                       average distance between the homologous  atoms of different conformations of a
-                      molecule.</p>
-
-
-                <p>This  graph allow us to see the different steps of the
+                      molecule.
+                    </p>
+                    <p>
+                      This  graph allow us to see the different steps of the
                       simulation with 3 dot groups. Group I corresponds
                       to the first RNA structures generated, as the simulation begin with a circular
                       RNA it take a little bit of iterations to find lower energy structures. Group II corresponds to intermediate
                       structures, we can see that at this point RMSD of the structures have also
                       decreased meaning that the RNA is becoming more folded. Finally, Group III corresponds to final structures,
-                      folded into structures of low energy. </p>
-                      <p>Regarding the energy values of each cluster’s
-                          representative structure, they are all in Group III, so this group represents 6
-                          different RNA structures. We can’t characterize the clusters by global energy
-                          or RMSD. To go further in the cluster characterisation we have to study the
-                          conformations and nucleic acid interactions in each structure.</p>
-                <figure>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/c/c2/Ionisparis-modeling-RNA_folding_simulation-5.png" width="900" height="600"></img>
-                  <figcaption class = "centered">Figure 5: Contact map of each cluster.</figcaption><br></br>
-                </figure>
-                <p>The intramolecular contact map, generated with RNAmap2D<sup>6</sup>
-                        allow us to see which nucleic acids are interacting between each others. It
-                        also allow us to rapidly compare different conformations between several RNA
-                        structures. Here, it reveals that the top 6 clusters actually describe 3
-                        possible main folding topologies for the sequence. </p>
+                      folded into structures of low energy.
+                    </p>
+                    <p>
+                      Regarding the energy values of each cluster’s
+                      representative structure, they are all in Group III, so this group represents 6
+                      different RNA structures. We can’t characterize the clusters by global energy
+                      or RMSD. To go further in the cluster characterisation we have to study the
+                      conformations and nucleic acid interactions in each structure.
+                    </p>
+                    <br>
+                    <figure>
+                      <img class = "centered" src="http://2017.igem.org/wiki/images/c/c2/Ionisparis-modeling-RNA_folding_simulation-5.png" width="100%" height="auto"></img>
+                      <figcaption class = "centered marged">Figure 5: Contact map of each cluster.</figcaption>
+                      <br>
+                    </figure>
+                    <p>The intramolecular contact map, generated with RNAmap2D<sup>6</sup>
+                      allow us to see which nucleic acids are interacting between each others. It
+                      also allow us to rapidly compare different conformations between several RNA
+                      structures. Here, it reveals that the top 6 clusters actually describe 3
+                      possible main folding topologies for the sequence. </p>
 
-                <p><u>Possible Similar Clusters</u>:</p>
+                      <p><u>Possible Similar Clusters</u>:</p>
 
-                  <p style='margin-left:36.0pt;line-height:normal'><u>Set 1</u>: clusters 1,3,4,6 (topologically
+                      <p style='margin-left:36.0pt;line-height:normal'><u>Set 1</u>: clusters 1,3,4,6 (topologically
                         similar to each other, despite some differences in 3D)</p>
 
-                  <p style='margin-left:36.0pt;line-height:normal'><u>Set 2</u>: cluster 2</p>
+                        <p style='margin-left:36.0pt;line-height:normal'><u>Set 2</u>: cluster 2</p>
 
-                  <p style='margin-left:36.0pt;line-height:normal'><u>Set 3</u>: cluster 5</p>
+                        <p style='margin-left:36.0pt;line-height:normal'><u>Set 3</u>: cluster 5</p>
 
-                <p> We aim to compare the clusters of the same set and
-                        between sets, in order to see the similarities and differences. We use a “model
-                        vs model contact map” to achieve that goal.</p>
-                <figure>
-                  <figcaption class = "centered" src="http://2017.igem.org/wiki/images/0/00/Ionisparis-modeling-RNA_folding_simulation-6.png" width="900" height="600"></img>
-                  <figcaption class = "centered">Figure 6: Contact map Model vs Model.
-                        On each figure, one cluster is at the left bottom side, and the other at the right
-                        top side. The common nucleic acid interactions are colored in blue and unique
-                        nucleic acid interactions in red.</figcaption><br></br>
-                </figure>
-                <p>We saw that the cluster 1, 3, 4, and 6 have some close
-                        similarities, the fact that they are in different cluster can be explained by
-                        rigid body movements of subdomains and not topologically different folding. The
-                        clusters 2 and 5 are rather unique, compared to each other and to cluster 1.</p>
-                <p>So we can consider that there are 3 main topologies, and
-                          the secondary structure study will be based on those results.</p><br></br>
-                <p>The study of the article “The cspA mRNA Is a Thermosensor
-                            that Modulates Translation of the Cold-Shock Protein CspA.”<sup>4</sup>
-                            indicates that ribosomal protein S1 could be the key to cspA translation.
-                            Ribosomal protein S1 is crucial for ribosome initiation on many mRNAs,
-                            particularly for those with highly structured 5&#8242; regions, and those with
-                            no or weak Shine-Dalgarno sequences.  To compare the three differents secondary
-                            structures from our sets with the wild-type cspA secondary structure from the
-                            article (mapped by RNA footprinting), we have highlighted in green the putative
-                            S1 binding domain (residue 134 to 147), in blue the initiation codon (residue
-                            161 to 163), in red the Shine-Dalgarno sequence (residue 148 to 151) and in
-                            yellow the DSbox sequence as general information.</p>
-                <figure>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/8/84/Ionisparis-modeling-RNA_folding_simulation-7.png" width="600" height="500"></img>
-                  <figcaption class = "centered">Figure 7: Comparison between Cluster 1 and the article’s figure</figcaption><br></br>
-                </figure>
-                <p>The first similarity between the two structures is the
-                              big semi-loop that begin with the first nucleic acid and end with the end of
-                              the mRNA sequence where the reference sequences are located. On both
-                              structures, the S1 binding site and the Shine-Dalgarno sequences are located on
-                              a hairpin. Finally, under the semi-loop, the two structures present a long
-                              branch.</p>
-                <figure>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/5/52/Ionisparis-modeling-RNA_folding_simulation-8.png" width="600" height="500"></img>
-                  <figcaption class = "centered">Figure 8: Comparison between Cluster 2 and the article’s figure</figcaption><br></br>
-                </figure>
-                <p>The cluster 2 presents no real similarities to the
-                                article’s figure. Indeed, we can’t see this big semi-loop and the DS box is not
-                                located on a hairpin as it is on the article’s figure.</p>
-                <figure>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/a/a1/Ionisparis-modeling-RNA_folding_simulation-9.png" width="600" height="500"></img>
-                  <figcaption class = "centered">Figure 9: Comparison between Cluster 5 and the article’s figure</figcaption><br></br>
-                </figure>
-                <p>When we first look at the general structure of the two
-                                  structures we can see a striking resemblance: there is the semi-loop with three
-                                  hairpins and a long branch at the bottom. But when we look at the reference
-                                  sequences locations on the cluster 5, it doesn’t correspond to the reference
-                                  sequences locations on the article’s figure.</p><br></br>
-                <p>The secondary structure analysis shows that the wild-type
-                                  cspA has a secondary structure rather similar to our cspA secondary structure
-                                  from cluster 1. Therefore, the lowest energy structure from the first cluster
-                                  could be a good docking template for the S1 binding protein. This docking is
-                                  presented in the next section.</p>
-            <h3>cspA 5’UTR - S1 domain 3 docking</h3>
-                <p>Based on our previous cspA 5’UTR results, we wished to
-                    study the docking procedure of the csPA 5’UTR on its natural ligand. To do so,
-                    we extensively researched the possible ligand on the ribosome<sup>7</sup>.</p>
-                <p>Our research lead us to consider the ribosomal protein
-                    subunit 1 (S1), and more specifically its domain 3 (d3).</p>
-                <p>Through modeling, we used several modeling servers, step
-                    by step, to obtain a trustworthy docking structure. We used the phyre2<sup>8</sup>
-                    server to have a homology model (based on template selection, followed by
-                    MAFFT-L-INSI<sup>9</sup> (to check the template-target alignment)and I-Tasser<sup>10</sup>
-                    (to generate the final model, based on previous information). All parameters
-                    inputted were defaults, except for manually indicating MAFFT the L-INSI
-                    algorythm.</p>
-                <figure>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/8/8d/Ionisparis-modeling-RNA_folding_simulation-10-11.png" width="700" height="400"></img>
-                  <figcaption class = "centered">Figure 10: S1 modeled protein structure  with (left) and without (right) Sticks</figcaption><br></br>
-                </figure>
-                <p>On this structure, we observed a specific motif with
-                  conserved residues, that we will call “valley” from now onwards. This valley
-                  seemed to be an accessible site, being located on the exterior side of S1_d3,
-                  while having two strands of highly conserved residues bordering it. As such, we
-                  considered it a very likely docking site for our cspA 5’UTR structure.</p>
-                <p>To determine whether this was due solely to the modeling
-                  process, we compared it to a reference sequence found in the PROTEIN DATABASE
-                  (PDB). This sequence, referred as the code 4v9r on the PDB, consisted of S1_d3
-                  bound to single stranded RNA (ssRNA)<sup>12</sup>. We applied the same steps
-                  used for our S1_d3, resulting in the following model.</p>
-                <figure>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/2/28/Ionisparis-modeling-RNA_folding_simulation-12-13.png" width="700" height="400"></img>
-                  <figcaption class = "centered">Figure 11: S1 reference protein structure  with (left) and without (right) Sticks</figcaption><br></br>
-                </figure>
-                <p>On this structure, we also observe the same valley motif
-                  with highly conserved residues, reinforcing our previous hypothesis.</p>
-                <p>From the previous models, we decided to study more
-                    precisely the conservation of residues to determine the best docking site possible
-                    and test our valley hypothesis. This was done using the Consurf web server for
-                    both S1-d3 and 4v9r<sup>13</sup></p>
-                <figure>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/d/d6/Ionisparis-modeling-RNA_folding_simulation-14-15.png" width="700" height="400"></img>
-                  <figcaption class = "centered">Figure 12:  S1 protein residue conservation : S1_d3 (left) and 4v9r (right)</figcaption><br></br>
-                </figure>
-                <p>As we suspected, Consurf reaffirmed the existence of the valley presenting many highly conserved residues (darker coloration). This confirmed our previous hypothesis concerning the docking site. </p>
-                <p>Now that we had the ligand, the receptor and the likely
-                    RNA binding site, we had all we needed to launch an actual docking simulation.
-                    To do so, we used the PatchDock server<sup>13</sup>, setting the receptor as S1_d3, the
-                    ligand as our 5’UTR (SimRNA cluster 1 result) and using default settings (4
-                    REMC, Default complex type).</p>
-                <p>Contrary to what we initially expected, we did not get on
-                    clear docking position (the ssRNA part), but several groups of docking
-                    positions, as shown below.</p>
-                <figure>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/1/16/Ionisparis-modeling-RNA_folding_simulation-16.png" width="700" height="400"></img>
-                  <img class = "centered" src="http://2017.igem.org/wiki/images/4/41/Ionisparis-modeling-RNA_folding_simulation-17.png" width="700" height="400"></img>
-                  <figcaption class = "centered">Figure 13 &amp; 14 : S1 + cspA 5'UTR docking snapshots/results.</figcaption>
-                  <figcaption class = "centered">“Many of the resulting poses show the the
-                    conserved binding site interacting with the RNA. We are still analyzing these
-                    results.”</figcaption><br></br>
-                </figure>
-                <p>Although we obtained several positions, we still notice
-                  that many of them correspond to the conserved binding sites interacting with
-                  the RNA. We are still analyzing these results to determine the most likely
-                  docking structure.</p>
-            <h3>Conclusion</h3>
-                <p>The SimRNA approach offers a good way to obtain a pool of
-                    structures with Replica Exchange Monte Carlo. The clustering allowed the
-                    selection and the discrimination of structures by energy value, and RMSD, and
-                    fold topology. We have isolated 3 structures sets from 6 clusters which
-                    represent more than 90% of the isolated structures from the clustering process,
-                    thanks to the contact maps analysis. Now we work on one defined structure, and
-                    the analysis on the docking protein/RNA is in progress.</p>
-        <p><b><u>References</u></b>:</p>
-        <ol style='margin-top:0cm' start=1 type=1>
-         <li>Yang, L., Zhou, D., Liu, X., Han, H., Zhan, L., Guo, Z., Zhang, L., Qin, C., Wong, H. and Yang, R. (2009).
-             Cold-induced gene expression profiles of Vibrio parahaemolyticus: a
-             time-course analysis. <i>FEMS Microbiology Letters</i>, 291(1), pp.50-58.</li>
-         <li>Xia, B., Ke, H., Jiang, W. and Inouye, M. (2001). The Cold Box Stem-loop Proximal to the 5&#8242;-End of
-             theEscherichia coli cspAGene Stabilizes Its mRNA at Low Temperature. <i>Journal
-             of Biological Chemistry</i>, 277(8), pp.6005-6011.</li>
-         <li>Michal J. Boniecki, Grzegorz Lach, Wayne K. Dawson, Konrad Tomala, Pawel Lukasz,
-             Tomasz Soltysinski, Kristian M. Rother, Janusz M. Bujnicki; SimRNA: a
-             coarse-grained method for RNA folding simulations and 3D structure
-             prediction, <i>Nucleic Acids Research</i>, Volume 44, Issue 7, 20 April
-             2016, Pages e63, <a style='color:#1155CC' href="https://doi.org/10.1093/nar/gkv1479">doi.org/10.1093/nar/gkv1479</a></li>
-         <li>Giuliodori, Anna &amp; Di Pietro, Fabio &amp; Marzi, Stefano &amp; Masquida, Benoît &amp; Wagner, Rolf &amp;
-             Romby, Pascale &amp; Gualerzi, Claudio &amp; L Pon, Cynthia. (2010). The
-             cspA mRNA Is a Thermosensor that Modulates Translation of the Cold-Shock
-             Protein CspA. Molecular cell. 37. 21-33. 10.1016/j.molcel.2009.11.033</li>
-         <li>GROningen MAchine for Chemical Simulations, <a style='color:#1155CC' href="http://www.gromacs.org/">gromacs.org</a></li>
-         <li>Pietal, M. J., Szostak, N.,
-             Rother, K. M., &amp; Bujnicki, J. M. (2012). RNAmap2D–calculation,
-             visualization and analysis of contact and distance maps for RNA and
-             protein-RNA complex structures. BMC bioinformatics, 13(1), 333.</li>
-         <li>Duval, M., Korepanov, A., Fuchsbauer, O., Fechter, P., Haller, A., Fabbretti, A., … Marzi, S. (2013).
-             Escherichia coli Ribosomal Protein S1 Unfolds Structured mRNAs Onto the
-             Ribosome for Active Translation Initiation. PLoS Biology, 11(12),
-             e1001731, <a style='color:#1155CC' href="http://doi.org/10.1371/journal.pbio.1001731">doi.org/10.1371/journal.pbio.1001731</a></li>
-         <li>Protein Homology/analogy Recognition Engine V 2.0, <a style='color:#1155CC' href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre 2</a></li>
-         <li>Multiple alignment program for amino acid or nucleotide sequences, <a style='color:#1155CC' href="https://mafft.cbrc.jp/alignment/server/">mafft.cbrc.jp/alignment/server/</span></a></span></li>
-         <li class=MsoNormalCxSpMiddle style='line-height:normal'>Iterative Threading ASSEmbly
-             Refinement, <a style='color:#1155CC' href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/">I-TASSER/</span></a></li>
-         <li><a  style='color:#1155CC' href="http://www.rcsb.org/pdb/explore.do?structureId=4v9r">Protein 4v9r</a></li>
-         <li><a  style='color:#1155CC' href="http://consurf.tau.ac.il/2016/">ConSurf Server</a></li>
-         <li>PATCHDOCK  Molecular Docking Algorithm Based on Shape Complementarity Principles, <a  style='color:#1155CC' href="http://bioinfo3d.cs.tau.ac.il/PatchDock/index.html">PATCHDOCK</a></li>
-        </ol>
-</html>
+                        <p> We aim to compare the clusters of the same set and
+                          between sets, in order to see the similarities and differences. We use a “model
+                          vs model contact map” to achieve that goal.</p>
+                          <br>
+                          <figure>
+                            <img class = "centered" src="http://2017.igem.org/wiki/images/0/00/Ionisparis-modeling-RNA_folding_simulation-6.png" width="100%" height="auto"></img>
+                            <figcaption class = "centered marged">Figure 6: Contact map Model vs Model.
+                              On each figure, one cluster is at the left bottom side, and the other at the right
+                              top side. The common nucleic acid interactions are colored in blue and unique
+                              nucleic acid interactions in red.</figcaption>
+                              <br>
+                            </figure>
+                            <p>We saw that the cluster 1, 3, 4, and 6 have some close
+                              similarities, the fact that they are in different cluster can be explained by
+                              rigid body movements of subdomains and not topologically different folding. The
+                              clusters 2 and 5 are rather unique, compared to each other and to cluster 1.</p>
+                              <p>So we can consider that there are 3 main topologies, and
+                                the secondary structure study will be based on those results.</p>
+                                <br>
+                                <p>The study of the article “The cspA mRNA Is a Thermosensor
+                                  that Modulates Translation of the Cold-Shock Protein CspA.”<sup>4</sup>
+                                  indicates that ribosomal protein S1 could be the key to cspA translation.
+                                  Ribosomal protein S1 is crucial for ribosome initiation on many mRNAs,
+                                  particularly for those with highly structured 5&#8242; regions, and those with
+                                  no or weak Shine-Dalgarno sequences.  To compare the three differents secondary
+                                  structures from our sets with the wild-type cspA secondary structure from the
+                                  article (mapped by RNA footprinting), we have highlighted in green the putative
+                                  S1 binding domain (residue 134 to 147), in blue the initiation codon (residue
+                                  161 to 163), in red the Shine-Dalgarno sequence (residue 148 to 151) and in
+                                  yellow the DSbox sequence as general information.</p>
+                                  <figure>
+                                    <br>
+                                    <img class = "centered" src="http://2017.igem.org/wiki/images/8/84/Ionisparis-modeling-RNA_folding_simulation-7.png" width="75%" height="auto"></img>
+                                    <figcaption class = "centered marged">Figure 7: Comparison between Cluster 1 and the article’s figure</figcaption>
+                                    <br>
+                                  </figure>
+                                  <p>The first similarity between the two structures is the
+                                    big semi-loop that begin with the first nucleic acid and end with the end of
+                                    the mRNA sequence where the reference sequences are located. On both
+                                    structures, the S1 binding site and the Shine-Dalgarno sequences are located on
+                                    a hairpin. Finally, under the semi-loop, the two structures present a long
+                                    branch.
+                                  </p>
+                                  <br>
+                                  <figure>
+                                    <img class = "centered" src="http://2017.igem.org/wiki/images/5/52/Ionisparis-modeling-RNA_folding_simulation-8.png" width="75%" height="auto"></img>
+                                    <figcaption class = "centered marged">Figure 8: Comparison between Cluster 2 and the article’s figure</figcaption>
+                                    <br>
+                                  </figure>
+                                  <p>The cluster 2 presents no real similarities to the
+                                    article’s figure. Indeed, we can’t see this big semi-loop and the DS box is not
+                                    located on a hairpin as it is on the article’s figure.</p>
+                                    <figure>
+                                      <img class = "centered" src="http://2017.igem.org/wiki/images/a/a1/Ionisparis-modeling-RNA_folding_simulation-9.png" width="75%" height="auto"></img>
+                                      <figcaption class = "centered marged">Figure 9: Comparison between Cluster 5 and the article’s figure</figcaption>
+                                      <br>
+                                    </figure>
+                                    <p>When we first look at the general structure of the two
+                                      structures we can see a striking resemblance: there is the semi-loop with three
+                                      hairpins and a long branch at the bottom. But when we look at the reference
+                                      sequences locations on the cluster 5, it doesn’t correspond to the reference
+                                      sequences locations on the article’s figure.</p>
+                                      <br>
+                                      <p>The secondary structure analysis shows that the wild-type
+                                        cspA has a secondary structure rather similar to our cspA secondary structure
+                                        from cluster 1. Therefore, the lowest energy structure from the first cluster
+                                        could be a good docking template for the S1 binding protein. This docking is
+                                        presented in the next section.</p>
+                                        <h3>cspA 5’UTR - S1 domain 3 docking</h3>
+                                        <p>Based on our previous cspA 5’UTR results, we wished to
+                                          study the docking procedure of the csPA 5’UTR on its natural ligand. To do so,
+                                          we extensively researched the possible ligand on the ribosome<sup>7</sup>.</p>
+                                          <p>Our research lead us to consider the ribosomal protein
+                                            subunit 1 (S1), and more specifically its domain 3 (d3).</p>
+                                            <p>Through modeling, we used several modeling servers, step
+                                              by step, to obtain a trustworthy docking structure. We used the phyre2<sup>8</sup>
+                                              server to have a homology model (based on template selection, followed by
+                                              MAFFT-L-INSI<sup>9</sup> (to check the template-target alignment)and I-Tasser<sup>10</sup>
+                                              (to generate the final model, based on previous information). All parameters
+                                              inputted were defaults, except for manually indicating MAFFT the L-INSI
+                                              algorythm.</p>
+                                              <figure>
+                                                <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/8/8d/Ionisparis-modeling-RNA_folding_simulation-10-11.png" width="100%" height="auto"></img>
+                                                <figcaption class = "centered marged">Figure 10: S1 modeled protein structure  with (left) and without (right) Sticks</figcaption>
+                                                <br>
+                                              </figure>
+                                              <p>On this structure, we observed a specific motif with
+                                                conserved residues, that we will call “valley” from now onwards. This valley
+                                                seemed to be an accessible site, being located on the exterior side of S1_d3,
+                                                while having two strands of highly conserved residues bordering it. As such, we
+                                                considered it a very likely docking site for our cspA 5’UTR structure.</p>
+                                                <p>To determine whether this was due solely to the modeling
+                                                  process, we compared it to a reference sequence found in the PROTEIN DATABASE
+                                                  (PDB). This sequence, referred as the code 4v9r on the PDB, consisted of S1_d3
+                                                  bound to single stranded RNA (ssRNA)<sup>12</sup>. We applied the same steps
+                                                  used for our S1_d3, resulting in the following model.</p>
+                                                  <figure>
+                                                    <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/2/28/Ionisparis-modeling-RNA_folding_simulation-12-13.png" width="100%" height="auto"></img>
+                                                    <figcaption class = "centered marged">Figure 11: S1 reference protein structure  with (left) and without (right) Sticks</figcaption>
+                                                    <br>
+                                                  </figure>
+                                                  <p>On this structure, we also observe the same valley motif
+                                                    with highly conserved residues, reinforcing our previous hypothesis.</p>
+                                                    <p>From the previous models, we decided to study more
+                                                      precisely the conservation of residues to determine the best docking site possible
+                                                      and test our valley hypothesis. This was done using the Consurf web server for
+                                                      both S1-d3 and 4v9r<sup>13</sup></p>
+                                                      <figure>
+                                                        <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/d/d6/Ionisparis-modeling-RNA_folding_simulation-14-15.png" width="100%" height="auto"></img>
+                                                        <figcaption class = "centered marged">Figure 12:  S1 protein residue conservation : S1_d3 (left) and 4v9r (right)</figcaption>
+                                                        <br>
+                                                      </figure>
+                                                      <p>As we suspected, Consurf reaffirmed the existence of the valley presenting many highly conserved residues (darker coloration). This confirmed our previous hypothesis concerning the docking site. </p>
+                                                      <p>Now that we had the ligand, the receptor and the likely
+                                                        RNA binding site, we had all we needed to launch an actual docking simulation.
+                                                        To do so, we used the PatchDock server<sup>13</sup>, setting the receptor as S1_d3, the
+                                                        ligand as our 5’UTR (SimRNA cluster 1 result) and using default settings (4
+                                                        REMC, Default complex type).</p>
+                                                        <p>Contrary to what we initially expected, we did not get on
+                                                          clear docking position (the ssRNA part), but several groups of docking
+                                                          positions, as shown below.</p>
+                                                          <figure>
+                                                            <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/1/16/Ionisparis-modeling-RNA_folding_simulation-16.png" width="100%" height="auto"></img>
+                                                            <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/4/41/Ionisparis-modeling-RNA_folding_simulation-17.png" width="100%" height="auto"></img>
+                                                            <figcaption class = "centered marged">Figure 13 &amp; 14 : S1 + cspA 5'UTR docking snapshots/results.</figcaption>
+                                                            <figcaption class = "centered marged">“Many of the resulting poses show the the
+                                                              conserved binding site interacting with the RNA. We are still analyzing these
+                                                              results.”</figcaption>
+                                                              <br>
+                                                            </figure>
+                                                            <p>Although we obtained several positions, we still notice
+                                                              that many of them correspond to the conserved binding sites interacting with
+                                                              the RNA. We are still analyzing these results to determine the most likely
+                                                              docking structure.</p>
+                                                              <h2>Conclusion</h2>
+                                                              <p>The SimRNA approach offers a good way to obtain a pool of
+                                                                structures with Replica Exchange Monte Carlo. The clustering allowed the
+                                                                selection and the discrimination of structures by energy value, and RMSD, and
+                                                                fold topology. We have isolated 3 structures sets from 6 clusters which
+                                                                represent more than 90% of the isolated structures from the clustering process,
+                                                                thanks to the contact maps analysis. Now we work on one defined structure, and
+                                                                the analysis on the docking protein/RNA is in progress.</p>
+
+                                                                <hr>
+                                                                <br>
+                                                                <p><b><u>References</u></b>:</p>
+                                                                <ol style='margin-top:0cm' start=1 type=1>
+                                                                  <li>Yang, L., Zhou, D., Liu, X., Han, H., Zhan, L., Guo, Z., Zhang, L., Qin, C., Wong, H. and Yang, R. (2009).
+                                                                    Cold-induced gene expression profiles of Vibrio parahaemolyticus: a
+                                                                    time-course analysis. <i>FEMS Microbiology Letters</i>, 291(1), pp.50-58.</li>
+                                                                    <li>Xia, B., Ke, H., Jiang, W. and Inouye, M. (2001). The Cold Box Stem-loop Proximal to the 5&#8242;-End of
+                                                                      theEscherichia coli cspAGene Stabilizes Its mRNA at Low Temperature. <i>Journal
+                                                                        of Biological Chemistry</i>, 277(8), pp.6005-6011.</li>
+                                                                        <li>Michal J. Boniecki, Grzegorz Lach, Wayne K. Dawson, Konrad Tomala, Pawel Lukasz,
+                                                                          Tomasz Soltysinski, Kristian M. Rother, Janusz M. Bujnicki; SimRNA: a
+                                                                          coarse-grained method for RNA folding simulations and 3D structure
+                                                                          prediction, <i>Nucleic Acids Research</i>, Volume 44, Issue 7, 20 April
+                                                                          2016, Pages e63, <a style='color:#1155CC' href="https://doi.org/10.1093/nar/gkv1479">doi.org/10.1093/nar/gkv1479</a></li>
+                                                                          <li>Giuliodori, Anna &amp; Di Pietro, Fabio &amp; Marzi, Stefano &amp; Masquida, Benoît &amp; Wagner, Rolf &amp;
+                                                                            Romby, Pascale &amp; Gualerzi, Claudio &amp; L Pon, Cynthia. (2010). The
+                                                                            cspA mRNA Is a Thermosensor that Modulates Translation of the Cold-Shock
+                                                                            Protein CspA. Molecular cell. 37. 21-33. 10.1016/j.molcel.2009.11.033</li>
+                                                                            <li>GROningen MAchine for Chemical Simulations, <a style='color:#1155CC' href="http://www.gromacs.org/">gromacs.org</a></li>
+                                                                            <li>Pietal, M. J., Szostak, N.,
+                                                                              Rother, K. M., &amp; Bujnicki, J. M. (2012). RNAmap2D–calculation,
+                                                                              visualization and analysis of contact and distance maps for RNA and
+                                                                              protein-RNA complex structures. BMC bioinformatics, 13(1), 333.</li>
+                                                                              <li>Duval, M., Korepanov, A., Fuchsbauer, O., Fechter, P., Haller, A., Fabbretti, A., … Marzi, S. (2013).
+                                                                                Escherichia coli Ribosomal Protein S1 Unfolds Structured mRNAs Onto the
+                                                                                Ribosome for Active Translation Initiation. PLoS Biology, 11(12),
+                                                                                e1001731, <a style='color:#1155CC' href="http://doi.org/10.1371/journal.pbio.1001731">doi.org/10.1371/journal.pbio.1001731</a></li>
+                                                                                <li>Protein Homology/analogy Recognition Engine V 2.0, <a style='color:#1155CC' href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre 2</a></li>
+                                                                                <li>Multiple alignment program for amino acid or nucleotide sequences, <a style='color:#1155CC' href="https://mafft.cbrc.jp/alignment/server/">mafft.cbrc.jp/alignment/server/</span></a></span></li>
+                                                                                <li class=MsoNormalCxSpMiddle style='line-height:normal'>Iterative Threading ASSEmbly
+                                                                                  Refinement, <a style='color:#1155CC' href="https://zhanglab.ccmb.med.umich.edu/I-TASSER/">I-TASSER/</span></a></li>
+                                                                                  <li><a  style='color:#1155CC' href="http://www.rcsb.org/pdb/explore.do?structureId=4v9r">Protein 4v9r</a></li>
+                                                                                  <li><a  style='color:#1155CC' href="http://consurf.tau.ac.il/2016/">ConSurf Server</a></li>
+                                                                                  <li>PATCHDOCK  Molecular Docking Algorithm Based on Shape Complementarity Principles, <a  style='color:#1155CC' href="http://bioinfo3d.cs.tau.ac.il/PatchDock/index.html">PATCHDOCK</a></li>
+                                                                                </ol>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </body>
+                                                                      </html>
