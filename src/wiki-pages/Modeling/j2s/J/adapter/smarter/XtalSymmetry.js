@@ -27,7 +27,6 @@ this.rmaxx = 0;
 this.rmaxy = 0;
 this.rmaxz = 0;
 this.ptOffset = null;
-this.unitCellOffset = null;
 this.minXYZ = null;
 this.maxXYZ = null;
 this.minXYZ0 = null;
@@ -100,7 +99,6 @@ JU.Logger.info ("Using supercell \n" + this.matSupercell);
 Clazz.defineMethod (c$, "setUnitCell", 
  function (info, matUnitCellOrientation, unitCellOffset) {
 this.unitCellParams =  Clazz.newFloatArray (info.length, 0);
-this.unitCellOffset = unitCellOffset;
 for (var i = 0; i < info.length; i++) this.unitCellParams[i] = info[i];
 
 this.asc.haveUnitCell = true;

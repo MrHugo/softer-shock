@@ -38,7 +38,7 @@ if (m.bsSlabDisplay != null && (m.polygonCount0 != 0 || m.vertexCount0 != 0)) {
 m.pc = m.polygonCount0;
 m.vc = m.vertexCount0;
 m.polygonCount0 = m.vertexCount0 = 0;
-m.normixCount = (m.isTriangleSet ? m.pc : m.vc);
+m.normixCount = (m.isDrawPolygon ? m.pc : m.vc);
 m.bsSlabDisplay.setBits (0, (m.pc == 0 ? m.vc : m.pc));
 m.slabOptions =  new JU.SB ().append (m.meshType + " slab none");
 m.bsSlabGhost = null;
@@ -177,8 +177,10 @@ this.wPlane = 0;
 if (tokType == 3 && bsSource != null) {
 if (m.vertexSource == null) return;
 fData =  Clazz.newFloatArray (m.vc, 0);
-for (var i = 0; i < m.vc; i++) if ((fData[i] = m.vertexSource[i]) == -1) System.out.println ("meshsurface hmm");
-
+for (var i = 0; i < m.vc; i++) {
+fData[i] = m.vertexSource[i];
+if (fData[i] == -1) System.out.println ("meshsurface hmm");
+}
 } else {
 fData = m.vvs;
 }}if (m.pc == 0) {
