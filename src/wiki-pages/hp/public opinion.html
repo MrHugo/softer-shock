@@ -6,12 +6,44 @@
   <link rel="stylesheet" href="../../css/template.css">
   <title>Public opinion</title>
 </head>
+
+<style media="screen">
+
+.map-left, .map-right {
+  display: block;
+  position: fixed;
+  top: 0px;
+  height: 100%;
+  width: 15px;
+  z-index: -1;
+}
+
+.map-left {
+  background: url('http://2017.igem.org/wiki/images/b/bc/Ionis-paris-2017-HP_WORLD_ORANGE.png') repeat-y;
+}
+
+.map-right {
+  background: url('http://2017.igem.org/wiki/images/0/0c/Ionis-paris-2017-HP_WORLD_BLEU.png') repeat-y;
+}
+
+.map-left {
+  left: 12%;
+}
+
+.map-right {
+  right: 11%;  
+}
+
+</style>
+
 <body>
   <h1 class="centered">
     <img class="logo-vigne" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg"></img>
     Public opinion <img class="logo-vigne" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg"></img></h1>
   <div class="parallax-bandeau marged" style="background-image: url('http://2017.igem.org/wiki/images/2/25/Ionis-paris-hp-banniere.png')"></div>
   <div class="igem-container">
+    <div class="map-left"></div>
+    <div class="map-right"></div>
     <div class="row">
       <div class="col-md-12">
         <div class="centered">

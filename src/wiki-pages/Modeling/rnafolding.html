@@ -56,6 +56,34 @@
   filter: hue-rotate(145deg) brightness(78%);
 }
 
+.cacahuete[role="button"] {
+  color: #fff;
+  padding: .7em;
+  background-color: #0495C4;
+  border: solid 1px #357ebd;
+  line-height:2.2em;
+  text-decoration: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.cacahuete[role="button"]:hover, [role="button"].bouton:focus {
+  color: #000000;
+  background-color: #F59D36;
+  border: solid 1px #285e8e;
+  text-decoration: none;
+}
+
+.cacahuete[role="button"]:active {
+  color: #fff;
+  background-color: #0495C4;
+  border: solid 1px #12314c;
+}
+
 </style>
 <body>
   <h1 class="centered">
@@ -148,7 +176,12 @@
 
                           <p style='margin-left:36.0pt;line-height:normal'><u>Graphics</u>: NVIDIA GeForce GTX 1070 - 8Go</p>
                           <br>
-
+                            <hr>
+                          <center>
+                            <p><b>We know that it could be hard to launch yourself in these kind of work. To help you with that, we wrote a handbook to introduce you to the RNA simulation. We hope it will help all the teams to get involve with the computational approach.</b></p>
+                          <a class ="cacahuete" role="button" targert="_blank"href="http://2017.igem.org/wiki/images/4/4b/Ionis-Paris-2017-Modelling-handbook.pdf">Download Modeling Handbook</a>
+                        </center>
+                          <hr>
                           <h2>Results</h2>
                           <p>We chose to take
                             the top 1% of the lowest energy structures and separated them with a threshold
