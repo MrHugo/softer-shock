@@ -35,6 +35,7 @@ this.pt3 =  new JU.P3 ();
 });
 Clazz.overrideMethod (c$, "render", 
 function () {
+this.isPrecision = true;
 this.needTranslucent = false;
 this.imageFontScaling = this.vwr.imageFontScaling;
 var cgo = this.shape;
@@ -294,6 +295,6 @@ return;
 }, "~N,JU.P3,JU.P3i");
 Clazz.defineMethod (c$, "fillTriangle", 
  function () {
-this.g3d.fillTriangle3CNBits (this.pt0, this.colix0, this.normix0, this.pt1, this.colix1, this.normix1, this.pt2, this.colix2, this.normix2, true);
+this.g3d.fillTriangle3CNBits (this.pt0, this.colix0, this.normix0, this.pt1, this.colix1, this.normix1, this.pt2, this.colix2, this.normix2);
 });
 });

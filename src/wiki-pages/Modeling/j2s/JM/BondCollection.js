@@ -29,6 +29,11 @@ this.bo = null;
 this.freeBonds = null;
 this.releaseModelSetAC ();
 });
+Clazz.defineMethod (c$, "resetMolecules", 
+function () {
+this.molecules = null;
+this.moleculeCount = 0;
+});
 Clazz.defineMethod (c$, "getBondIteratorForType", 
 function (bondType, bsAtoms) {
 return  new JM.BondIteratorSelected (this.bo, this.bondCount, bondType, bsAtoms, this.vwr.getBoolean (603979812));
@@ -200,7 +205,7 @@ Clazz.defineMethod (c$, "dBb",
 function (bsBond, isFullModel) {
 var iDst = bsBond.nextSetBit (0);
 if (iDst < 0) return;
-(this).resetMolecules ();
+this.resetMolecules ();
 var modelIndexLast = -1;
 var n = bsBond.cardinality ();
 for (var iSrc = iDst; iSrc < this.bondCount; ++iSrc) {

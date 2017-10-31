@@ -70,7 +70,7 @@ System.arraycopy (this.getBufIfOpen (), this.pos, b, off, cnt);
 this.pos += cnt;
 return cnt;
 }, "~A,~N,~N");
-Clazz.defineMethod (c$, "read", 
+Clazz.overrideMethod (c$, "read", 
 function (b, off, len) {
 this.getBufIfOpen ();
 if ((off | len | (off + len) | (b.length - (off + len))) < 0) {

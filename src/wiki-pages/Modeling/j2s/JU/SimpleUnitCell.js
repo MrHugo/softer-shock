@@ -207,9 +207,9 @@ m.mul (this.matrixFractionalToCartesian);
 m.mul2 (this.matrixCartesianToFractional, m);
 }, "JU.M4");
 Clazz.defineMethod (c$, "toFractional", 
-function (pt, ignoreOffset) {
+function (pt, isAbsolute) {
 if (this.matrixCartesianToFractional == null) return;
-(ignoreOffset ? this.matrixCtoFANoOffset : this.matrixCartesianToFractional).rotTrans (pt);
+(isAbsolute ? this.matrixCtoFANoOffset : this.matrixCartesianToFractional).rotTrans (pt);
 }, "JU.T3,~B");
 Clazz.defineMethod (c$, "isPolymer", 
 function () {

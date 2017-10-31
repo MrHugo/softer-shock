@@ -10,7 +10,6 @@ this.omega = NaN;
 this.straightness = NaN;
 this.mu = NaN;
 this.theta = NaN;
-this.backboneBlockVis = false;
 Clazz.instantialize (this, arguments);
 }, JM, "Monomer", JM.Group);
 Clazz.makeConstructor (c$, 

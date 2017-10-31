@@ -33,6 +33,7 @@ this.warned = null;
 this.coeffs = null;
 this.map = null;
 this.lastGaussianPtr = -1;
+this.integration = 0;
 this.isSquaredLinear = false;
 Clazz.instantialize (this, arguments);
 }, J.quantum, "MOCalculation", J.quantum.QuantumCalculation);
@@ -65,7 +66,7 @@ this.voxelData = volumeData.getVoxelData ();
 this.voxelDataTemp = (isSquaredLinear ?  Clazz.newFloatArray (this.nX, this.nY, this.nZ, 0) : this.voxelData);
 this.setupCoordinates (volumeData.getOriginFloat (), volumeData.getVolumetricVectorLengths (), bsSelected, xyz, atoms, points, false);
 this.doDebug = (JU.Logger.debugging);
-return !bsSelected.isEmpty () && (slaters != null || this.checkCalculationType ());
+return (slaters != null || this.checkCalculationType ());
 }, "J.jvxl.data.VolumeData,JU.BS,~S,~A,~A,~N,JU.Lst,~A,~A,~O,~A,~A,~B,~A,~B,~A");
 Clazz.overrideMethod (c$, "initialize", 
 function (nX, nY, nZ, points) {
@@ -905,7 +906,6 @@ return (i < 0 || i >= J.quantum.MOCalculation.shellOrder.length ? null : J.quant
 Clazz.defineMethod (c$, "calculateElectronDensity", 
 function () {
 if (this.points != null) return;
-this.integration = 0;
 for (var ix = this.nX; --ix >= 0; ) for (var iy = this.nY; --iy >= 0; ) for (var iz = this.nZ; --iz >= 0; ) {
 var x = this.voxelData[ix][iy][iz];
 this.integration += x * x;

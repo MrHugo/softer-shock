@@ -1,7 +1,7 @@
 Clazz.declarePackage ("javajs.awt");
 Clazz.load (null, "javajs.awt.Component", ["JU.CU"], function () {
 c$ = Clazz.decorateAsClass (function () {
-this._visible = false;
+this.visible = false;
 this.enabled = true;
 this.text = null;
 this.name = null;
@@ -79,11 +79,11 @@ SwingController.setEnabled(this);
 }}, "~B");
 Clazz.defineMethod (c$, "isVisible", 
 function () {
-return this._visible;
+return this.visible;
 });
 Clazz.defineMethod (c$, "setVisible", 
 function (visible) {
-this._visible = visible;
+this.visible = visible;
 {
 SwingController.setVisible(this);
 }}, "~B");

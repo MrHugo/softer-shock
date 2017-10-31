@@ -70,7 +70,7 @@ return false;
 Clazz.defineMethod (c$, "deleteIntegral", 
  function () {
 if (!this.checkSelectedIntegral ()) return;
-this.xyData.removeItemAt (this.iSelected);
+this.xyData.remove (this.iSelected);
 this.iSelected = -1;
 this.iRowColSelected = -1;
 this.applyFromFields ();

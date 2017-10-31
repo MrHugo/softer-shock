@@ -50,9 +50,9 @@ this.isSlabEnabled = this.tm.slabEnabled;
 this.minScreenDimension = Math.min (this.screenWidth, this.screenHeight);
 });
 Clazz.overrideMethod (c$, "drawAtom", 
-function (atom, radius) {
+function (atom) {
 this.outputSphere (atom.sX, atom.sY, atom.sZ, atom.sD / 2, atom.colixAtom);
-}, "JM.Atom,~N");
+}, "JM.Atom");
 Clazz.overrideMethod (c$, "drawCircle", 
 function (x, y, z, diameter, colix, doFill) {
 var radius = diameter / 2;

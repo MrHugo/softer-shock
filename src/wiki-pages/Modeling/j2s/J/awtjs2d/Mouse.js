@@ -25,9 +25,9 @@ function () {
 });
 Clazz.overrideMethod (c$, "processEvent", 
 function (id, x, y, modifiers, time) {
-if (id != 507) modifiers = J.awtjs2d.Mouse.applyLeftMouse (modifiers);
+if (id != -1) modifiers = J.awtjs2d.Mouse.applyLeftMouse (modifiers);
 switch (id) {
-case 507:
+case -1:
 this.wheeled (time, x, modifiers);
 break;
 case 501:

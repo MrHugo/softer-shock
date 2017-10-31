@@ -23,7 +23,7 @@ if (this.pos < this.buf.length) {
 return this.buf[this.pos++] & 0xff;
 }return this.$in.readByteAsInt ();
 });
-Clazz.defineMethod (c$, "read", 
+Clazz.overrideMethod (c$, "read", 
 function (b, off, len) {
 this.ensureOpen ();
 if (b == null) {

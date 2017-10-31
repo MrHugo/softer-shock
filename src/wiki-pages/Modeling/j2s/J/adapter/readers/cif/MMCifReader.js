@@ -23,7 +23,6 @@ this.structConnMap = null;
 this.structConnList = "";
 this.doSetBonds = false;
 this.modelStrings = "";
-this.done = false;
 Clazz.instantialize (this, arguments);
 }, J.adapter.readers.cif, "MMCifReader", J.adapter.readers.cif.CifReader);
 Clazz.overrideMethod (c$, "initSubclass", 
@@ -345,18 +344,18 @@ Clazz.defineMethod (c$, "processChemCompLoopBlock",
 this.parseLoopParameters (J.adapter.readers.cif.MMCifReader.chemCompFields);
 var groupName;
 var hetName;
-while (this.parser.getData ()) if (!this.isNull (groupName = this.getField (0)) && !this.isNull (hetName = this.getField (1))) this.addHetero (groupName, hetName, true, true);
+while (this.parser.getData ()) if (!this.isNull (groupName = this.getField (0)) && !this.isNull (hetName = this.getField (1))) this.addHetero (groupName, hetName, true);
 
 return true;
 });
 Clazz.defineMethod (c$, "addHetero", 
-function (groupName, hetName, doCheck, addNote) {
-if (doCheck && !this.vwr.getJBR ().isHetero (groupName)) return;
+function (groupName, hetName, addNote) {
+if (!this.vwr.getJBR ().isHetero (groupName)) return;
 if (this.htHetero == null) this.htHetero =  new java.util.Hashtable ();
-if (doCheck && this.htHetero.containsKey (groupName)) return;
+if (this.htHetero.containsKey (groupName)) return;
 this.htHetero.put (groupName, hetName);
 if (addNote) this.appendLoadNote (groupName + " = " + hetName);
-}, "~S,~S,~B,~B");
+}, "~S,~S,~B");
 Clazz.defineMethod (c$, "processStructConfLoopBlock", 
  function () {
 if (this.ignoreStructure) {
@@ -611,11 +610,9 @@ this.requiresSorting = true;
 } else {
 this.modelStrings += key;
 }}if (this.iHaveDesiredModel && this.asc.atomSetCount > 0 && !isAssembly) {
-this.done = true;
-if (this.parser != null) {
 this.parser.skipLoop (false);
 this.skipping = false;
-}this.continuing = true;
+this.continuing = true;
 return -2147483648;
 }var modelNumberToUse = (this.useFileModelNumbers ? modelNo : ++this.modelIndex);
 this.setHetero ();

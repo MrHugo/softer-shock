@@ -3,104 +3,106 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/template.css">
+  <link rel="stylesheet" href="./../css/template.css">
 
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
 
   <title>Softer Shock - IGEM IONIS 2017</title>
 </head>
-
-<style media="screen">
-
-/* Vrac */
-
-hr {
-  opacity: 1 !important;
-  margin: 0 !important;
-}
-
-/* First page */
-
-.first-page {
-  width: 100vw;
-  height: 100vh;
-  background: url('http://2017.igem.org/wiki/images/d/d9/Ionis-paris-feuille.png') no-repeat center center fixed;
-  background-size: contain;
-}
-
-.first-page {
-  color: #fff;
-  text-align: center;
-  background-size: cover;
-}
-
-.logo-softer-shock {
-  display: block;
-  width: 180px;
-  text-align: center;
-  margin:auto;
-  padding-top: 20%;
-  margin-bottom: 70px;
-}
-
-/* Second page */
-
-.softer-shock-gif {
-  width: 100%;
-  filter: brightness(102%);
-}
-
-/* Third page */
-
-.grape {
-  display: block;
-  width: 65%;
-  height: auto;
-  margin: auto;
-  padding: 5%;
-}
-
-/* Fourth page */
-
-.arbre {
-  width: 60%;
-  margin-left: 10%;
-  padding: 5%;
-}
-
-</style>
-
 <body>
-  <div class="index-container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="first-page">
-          <img class="logo-softer-shock" src="http://2017.igem.org/wiki/images/thumb/8/89/Ionis-paris-softer-shock-logo.png/300px-Ionis-paris-softer-shock-logo.png" alt="logo softer shock">
-          <div class="header-citation">
-            <h1>
-              <span class="orange-text">Biological thermo-responsive solution,</span>
-              <span class="blue-text">that reduces the plant’s thermal stresses</span>
-            </h1>
-          </div>
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-container" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="http://2017.igem.org/Team:IONIS-PARIS">
+            <img src="http://2017.igem.org/wiki/images/0/02/Softer-shock-logo.gif" alt="theme logo" class="navbar-logo">
+          </a>
         </div>
-        <div class="second-page">
-          <img class="softer-shock-gif centered" src="http://2017.igem.org/wiki/images/7/7f/Ionis-paris-index-gif.gif">
-        </div>
-        <hr>
-        <div class="third-page centered">
-          <img class="grape" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg">
-        </div>
-        <hr>
-        <div class="fourth-page">
-          <img class="arbre" src="http://2017.igem.org/wiki/images/5/58/Ionis-paris-arbre.png">
+
+        <div class="collapse navbar-collapse" id="menu-container">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROJECT<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">DESCRIPTION</a></li>
+                <li><a href="#">DEFINITIONS</a></li>
+                <li><a href="#">APPLIED DESIGN</a></li>
+                <li><a href="#">BRAINSTORMING PROCESS</a></li>
+              </ul>
+            </li>
+            <li><a href="#" class="menu-item">LABORATORY WORK</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MODELING<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="./Modeling/DS BOX + AmilCP.html">DS BOX + AmilCP</a></li>
+                <li><a href="">RNA FOLDING SIMULATION</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">APPLIED DESIGN<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="./Applied Design\Foliar_Application\Foliar_application.html">APPLYING THE PRODUCT</a></li>
+                <li><a href="./Applied Design\Chassis_Selection\Chassis_selection.html">CHASSIS SELECTION</a></li>
+                <li><a href="./Applied Design\Risk_Avoidance\Avoidance.html">RISK AVOIDANCE: BIOSAFETY STRATEGIES</a></li>
+                <li><a href="#">RISK ASSESSMENT: TOXICITY & ECOTOXICITY STUDIES</a></li>
+                <li><a href="./Applied Design\Frostban\Frostban.html">CASE STUDY: FROSTBAN</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HP<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">OVERVIEW</a></li>
+                <li><a href="#">PUBLIC OUTREACH</a></li>
+                <li><a href="#">SOCIETY, LAW, & GMOs</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ENTREPRENEURSHIP<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="./Entrepreneurship/Fundraising_and_com.html">Fundraising and Communication</a></li>
+                <li><a href="./Entrepreneurship/Market Study.html">Market Study</a></li>
+                <li><a href="./Entrepreneurship/Sponsors">Sponsors</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle menu-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TEAM<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">ATTRIBUTIONS</a></li>
+                <li><a href="#">COLLABORATIONS</a></li>
+                <li><a href="#">MEMBERS</a></li>
+                <li><a href="#">JUDGING</a></li>
+                <li><a href="#">ACHIEVEMENTS</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
+    <div class="header-logo-holder">
+      <img src="http://2017.igem.org/wiki/images/8/89/Ionis-paris-softer-shock-logo.png" alt="logo softer shock" class="header-logo">
     </div>
-  </div>
+    <div class="header-picture-holder">
+      <div class="white-picture-layer"></div>
+      <img src="http://2017.igem.org/wiki/images/a/ad/Ionis-paris-team.jpg" alt="team header" class="header-picture">
+      <div class="header-text">
+        Climatic disorders lead to the appearance of extreme temperature events, whether frost or dryness, negatively impacting crops production and the global agriculture sector economy.
+        In 2016, 60% of the French vineyard cultures were destroyed due to frosts. To solve this, we aim at creating a thermosensitive biological tool named Softer Shock, providing an
+        agro-environmental remedy for farmers. The bacteria retained in our solution will specifically produce a biological protectant designed to prevent the dryness phenomena above 37°C
+        and frost damages below 15°C. The duality of this “2 in 1” biological function finds its properties activated in response to meteorological events, and a capacity of definitive
+        bacterial auto-destruction after activation. These biological qualities fall within the respect of French and European regulatory requirements towards their potential impact
+        on biodiversity.
+      </div>
+    </div>
+    <div class="">
+      Here some text again
+    </div>
+  </header>
 </body>
-
-<script type="text/javascript" src="http://2017.igem.org/Template:Ionis-paris-javascript-template?
-action=raw&ctype=text/javascript"></script>
-
 </html>

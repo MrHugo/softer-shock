@@ -10,7 +10,6 @@ Clazz.makeConstructor (c$,
 });
 c$.add = Clazz.defineMethod (c$, "add", 
 function (info, g1, g2) {
-if (g1 == null || g2 == null) return null;
 var bp =  new JM.BasePair ();
 bp.info = info;
 (bp.g1 = g1).addBasePair (bp);

@@ -597,15 +597,15 @@ var i = e[0][h] + e[2][h] / 2;
 this.volume = 0;
 switch (h) {
 case 0:
-for (var j = b; --j >= 0; ) if (this.get (j).x >= i) d.addLast (this.removeItemAt (j));
+for (var j = b; --j >= 0; ) if (this.get (j).x >= i) d.addLast (this.remove (j));
 
 break;
 case 1:
-for (var k = b; --k >= 0; ) if (this.get (k).y >= i) d.addLast (this.removeItemAt (k));
+for (var k = b; --k >= 0; ) if (this.get (k).y >= i) d.addLast (this.remove (k));
 
 break;
 case 2:
-for (var l = this.size (); --l >= 0; ) if (this.get (l).z >= i) d.addLast (this.removeItemAt (l));
+for (var l = this.size (); --l >= 0; ) if (this.get (l).z >= i) d.addLast (this.remove (l));
 
 break;
 }

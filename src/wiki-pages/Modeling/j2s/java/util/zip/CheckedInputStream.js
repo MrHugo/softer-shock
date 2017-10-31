@@ -17,7 +17,7 @@ if (b != -1) {
 this.cksum.updateByteAsInt (b);
 }return b;
 });
-Clazz.defineMethod (c$, "read", 
+Clazz.overrideMethod (c$, "read", 
 function (buf, off, len) {
 len = this.$in.read (buf, off, len);
 if (len != -1) {

@@ -19,6 +19,7 @@ this.antialias = false;
 this.haveBsDisplay = false;
 this.selectedPolyOnly = false;
 this.isGhostPass = false;
+this.isPrecision = false;
 this.thePlane = null;
 this.latticeOffset = null;
 this.pt1f = null;
@@ -57,7 +58,7 @@ this.latticeOffset.set (0, 0, 0);
 if (mesh.modelIndex < 0 || mesh.lattice == null && mesh.symops == null) {
 for (var i = this.vertexCount; --i >= 0; ) if (this.vertices[i] != null) this.tm.transformPtScr (this.vertices[i], this.screens[i]);
 
-for (var i = this.vertexCount; --i >= 0; ) if (this.vertices[i] != null) this.tm.transformPtScrT3 (this.vertices[i], this.p3Screens[i]);
+if (this.isPrecision) for (var i = this.vertexCount; --i >= 0; ) if (this.vertices[i] != null) this.tm.transformPtScrT3 (this.vertices[i], this.p3Screens[i]);
 
 this.render2 (this.isExport);
 } else {
@@ -113,7 +114,6 @@ return true;
 Clazz.defineMethod (c$, "setVariables", 
  function () {
 if (this.mesh.visibilityFlags == 0) return false;
-this.forceShowTriangles = this.vwr.getBoolean (603979964);
 this.showTriangles = this.forceShowTriangles || this.mesh.showTriangles;
 if (this.mesh.bsSlabGhost != null) this.g3d.setC (this.mesh.slabColix);
 if (this.mesh.colorsExplicit) this.g3d.setC (2047);
@@ -140,7 +140,7 @@ var allowFrontOnly = (!this.mesh.isTwoSided && !this.selectedPolyOnly && (this.m
 this.frontOnly = this.renderLow || this.mesh.frontOnly && !this.tm.slabEnabled && allowFrontOnly;
 this.isShell = this.mesh.isShell && allowFrontOnly;
 this.screens = this.vwr.allocTempScreens (this.vertexCount);
-this.p3Screens = this.vwr.allocTempPoints (this.vertexCount);
+if (this.isPrecision) this.p3Screens = this.vwr.allocTempPoints (this.vertexCount);
 if (this.frontOnly || this.isShell) this.transformedVectors = this.vwr.gdata.getTransformedVertexVectors ();
 if (this.transformedVectors == null) this.frontOnly = this.isShell = false;
 }return true;
@@ -170,7 +170,7 @@ if (!this.renderLow && this.mesh.pc > 0 && (this.isGhostPass ? this.mesh.slabMes
 }, "~B");
 Clazz.defineMethod (c$, "renderPoints", 
 function () {
-if (!this.mesh.isDrawPolygon || this.mesh.pc < 0) {
+if (!this.mesh.isTriangleSet || this.mesh.pc < 0) {
 for (var i = this.vertexCount; --i >= 0; ) if (!this.frontOnly || this.normixes == null || this.isVisibleNormix (this.normixes[i])) this.drawPoint (i, false);
 
 return;
@@ -227,11 +227,12 @@ if (iB == iC) {
 this.drawEdge (iA, iB, fill, this.vertices[iA], this.vertices[iB], this.screens[iA], this.screens[iB]);
 continue;
 }var check;
-if (this.mesh.isDrawPolygon) {
+if (this.mesh.isTriangleSet) {
 var normix = this.normixes[i];
 if (this.frontOnly && !this.isVisibleNormix (normix)) continue;
 if (fill) {
-this.g3d.fillTriangle3CNBits (this.p3Screens[iA], this.colix, normix, this.p3Screens[iB], this.colix, normix, this.p3Screens[iC], this.colix, normix, true);
+if (this.isPrecision) this.g3d.fillTriangle3CNBits (this.p3Screens[iA], this.colix, normix, this.p3Screens[iB], this.colix, normix, this.p3Screens[iC], this.colix, normix);
+ else this.g3d.fillTriangle3CN (this.screens[iA], this.colix, normix, this.screens[iB], this.colix, normix, this.screens[iC], this.colix, normix);
 continue;
 }check = polygon[3];
 if (iShowTriangles) check = 7;
@@ -250,9 +251,11 @@ if (fill) {
 if (generateSet) {
 this.bsPolygonsToExport.set (i);
 continue;
-}this.g3d.fillTriangle3CNBits (this.p3Screens[iA], this.colix, nA, this.p3Screens[iB], this.colix, nB, this.p3Screens[iC], this.colix, nC, false);
+}if (this.isPrecision) this.g3d.fillTriangle3CNBits (this.p3Screens[iA], this.colix, nA, this.p3Screens[iB], this.colix, nB, this.p3Screens[iC], this.colix, nC);
+ else this.g3d.fillTriangle3CN (this.screens[iA], this.colix, nA, this.screens[iB], this.colix, nB, this.screens[iC], this.colix, nC);
 continue;
-}this.drawTriangleBits (this.p3Screens[iA], this.colix, this.p3Screens[iB], this.colix, this.p3Screens[iC], this.colix, check, 1);
+}if (this.isPrecision) this.drawTriangleBits (this.p3Screens[iA], this.colix, this.p3Screens[iB], this.colix, this.p3Screens[iC], this.colix, check, 1);
+ else this.drawTriangle (this.screens[iA], this.colix, this.screens[iB], this.colix, this.screens[iC], this.colix, check, 1);
 continue;
 case 4:
 var iD = polygon[3];
@@ -262,9 +265,13 @@ if (fill) {
 if (generateSet) {
 this.bsPolygonsToExport.set (i);
 continue;
-}this.g3d.fillTriangle3CNBits (this.p3Screens[iA], this.colix, nA, this.p3Screens[iB], this.colix, nB, this.p3Screens[iC], this.colix, nC, false);
-this.g3d.fillTriangle3CNBits (this.p3Screens[iA], this.colix, nA, this.p3Screens[iC], this.colix, nC, this.p3Screens[iD], this.colix, nD, false);
-continue;
+}if (this.isPrecision) {
+this.g3d.fillTriangle3CNBits (this.p3Screens[iA], this.colix, nA, this.p3Screens[iB], this.colix, nB, this.p3Screens[iC], this.colix, nC);
+this.g3d.fillTriangle3CNBits (this.p3Screens[iA], this.colix, nA, this.p3Screens[iC], this.colix, nC, this.p3Screens[iD], this.colix, nD);
+} else {
+this.g3d.fillTriangle3CN (this.screens[iA], this.colix, nA, this.screens[iB], this.colix, nB, this.screens[iC], this.colix, nC);
+this.g3d.fillTriangle3CN (this.screens[iA], this.colix, nA, this.screens[iC], this.colix, nC, this.screens[iD], this.colix, nD);
+}continue;
 }this.vwr.gdata.drawQuadrilateralBits (this.g3d, this.colix, this.p3Screens[iA], this.p3Screens[iB], this.p3Screens[iC], this.p3Screens[iD]);
 }
 }
@@ -311,8 +318,14 @@ if (this.exportType == 1) {
 this.pt1f.ave (vA, vB);
 this.tm.transformPtScr (this.pt1f, this.pt1i);
 }if (iA == iB) {
+if (this.isPrecision) {
 this.pt1f.set (sA.x, sA.y, sA.z);
 this.g3d.fillSphereBits (this.diameter, this.pt1f);
+} else {
+this.g3d.fillSphereI (this.diameter, this.pt1i);
+}return;
+}if (!this.isPrecision) {
+this.g3d.fillCylinder (endCap, this.diameter, sA, sB);
 return;
 }} else {
 this.pt1f.ave (vA, vB);
