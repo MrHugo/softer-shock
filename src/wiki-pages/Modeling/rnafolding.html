@@ -77,12 +77,14 @@
           <li>In complement to the folding simulation, we used RNA-protein docking to study the interaction with a ribosomal protein.</li>
         </div>
         <h2>Introduction</h2>
+        <hr>
         <p>In this project we developed a genetic sequence that allows bacteria to produce amilCP when it undergoes cold shock. To achieve this, we chose to use the cspA promoter that is activated during cold shock in several bacteria such as wild type (WT) Escherichia coli. Also, based on the literature we choose to include the UP element of the cspA promoter, the cspA 5’UTR, and the DownStream Box (DSBox) in our final construction. These temperature sensing sequence motifs are upstream of our reporter protein (amilCP), with the exception of the DSBox (see Fig.1). Our bibliographic review indicates that these components are required to see the conditional expression of amilCP only at low temperature<sup>1,2</sup> (under 15°C, approximately).</p>
         <br>
         <figure>
           <img class = "centered" src="http://2017.igem.org/wiki/images/2/2d/Ionisparis-modeling-RNA_folding_simulation-1.png" width="100%" height="auto">
           <figcaption class = "centered marged">Figure 1: Schema of sequence 7 construction.</figcaption>
         </figure>
+        <hr>
 
         <br>
 
@@ -96,6 +98,7 @@
           Our results suggest that several short distinct sequence motifs classically identified as important for ribosome binding actually participate together in the formation of a secondary structure motif that is recognized in a generally non base-pair specific manner by ribosomal accessory proteins in the formation of the pre-initiation complex at low temperatures.
           <br></p>
           <h2>Materials and Methods</h2>
+          <hr>
           <h3 style = "text-decoration: underline;">Software</h3>
           <p>SimRNA models RNA with a coarse grained 3D model subjected to a statistical potential derived from a set of experimentally determined RNA structures, and  uses a Monte Carlo method for conformational sampling.
             <br>
@@ -152,8 +155,9 @@
                             of 18.7 Ångström (per the published clustering guideline of allowing 0.1
                             Ångström/nucleotide).</p>
                             <figure>
-                              <img class = "centered" src="http://2017.igem.org/wiki/images/0/00/Ionisparis-modeling-RNA_folding_simulation-2.png" width="100%" height="auto">
+                              <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/0/00/Ionisparis-modeling-RNA_folding_simulation-2.png" width="100%" height="auto">
                               <figcaption class = "centered marged">Figure 2: Percentage of structures in each cluster.</figcaption>
+                              <hr>
                               <br>
                             </figure>
                             <p>For our simulation
@@ -161,7 +165,7 @@
                               they represent more than 90% of the clustered structures, as displayed in the
                               clustering log file</p>
 
-                              <p><b><u>3D representative structures viewer</u></b>:</p>
+                              <p class="marged"><b><u>3D representative structures viewer</u></b>:</p>
                               <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/u6a24aphotg6m48/Igem_cspA_187_cluster_01.spt?dl=1&&link=Cluster 1"></script></li>
                               <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/ygjc49sebnoj60d/Igem_cspA_187_cluster_02.spt?dl=1&&link=Cluster 2"></script></li>
                               <li><script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jmol.php?source=https://www.dropbox.com/s/2373u76ru3nzmvh/Igem_cspA_187_cluster_03.spt?dl=1&&link=Cluster 3"></script></li>
@@ -174,9 +178,10 @@
                                 the trajectory file we obtained the 3D model of each lowest energy structure of
                                 each cluster and also the energy value.</p>
                                 <figure>
-                                  <img class = "centered" src="http://2017.igem.org/wiki/images/6/66/Ionisparis-modeling-RNA_folding_simulation-3-2.png" width="100%" height="auto">
+                                  <img class = "centered marged" src="http://2017.igem.org/wiki/images/6/66/Ionisparis-modeling-RNA_folding_simulation-3-2.png" width="100%" height="auto">
                                   <figcaption class = "centered marged">Figure 3: representative structures of
                                     each cluster with the DS box in yellow.</figcaption>
+                                    <hr>
                                     <br>
                                   </figure>
                                   <table class=centered border=1 cellspacing=0 cellpadding=0 width=392 style='border-collapse:
@@ -253,6 +258,7 @@
                     <figure>
                       <img class="centered" src="http://2017.igem.org/wiki/images/7/72/Ionisparis-modeling-RNA_folding_simulation-4.png" width="100%" height="auto">
                       <figcaption class = "centered marged">Figure 4: REMC cloud of the cspA 5’UTR simulation. 40 000 data points were plot with
+                        <hr>
                         GNUplot.
                       </figcaption>
                     </figure>
@@ -282,6 +288,7 @@
                     <figure>
                       <img class = "centered" src="http://2017.igem.org/wiki/images/c/c2/Ionisparis-modeling-RNA_folding_simulation-5.png" width="100%" height="auto"></img>
                       <figcaption class = "centered marged">Figure 5: Contact map of each cluster.</figcaption>
+                      <hr>
                       <br>
                     </figure>
                     <p>The intramolecular contact map, generated with RNAmap2D<sup>6</sup>
@@ -309,6 +316,7 @@
                               On each figure, one cluster is at the left bottom side, and the other at the right
                               top side. The common nucleic acid interactions are colored in blue and unique
                               nucleic acid interactions in red.</figcaption>
+                              <hr>
                               <br>
                             </figure>
                             <p>We saw that the cluster 1, 3, 4, and 6 have some close
@@ -333,6 +341,7 @@
                                     <br>
                                     <img class = "centered" src="http://2017.igem.org/wiki/images/8/84/Ionisparis-modeling-RNA_folding_simulation-7.png" width="75%" height="auto"></img>
                                     <figcaption class = "centered marged">Figure 7: Comparison between Cluster 1 and the article’s figure</figcaption>
+                                    <hr>
                                     <br>
                                   </figure>
                                   <p>The first similarity between the two structures is the
@@ -346,6 +355,7 @@
                                   <figure>
                                     <img class = "centered" src="http://2017.igem.org/wiki/images/5/52/Ionisparis-modeling-RNA_folding_simulation-8.png" width="75%" height="auto"></img>
                                     <figcaption class = "centered marged">Figure 8: Comparison between Cluster 2 and the article’s figure</figcaption>
+                                    <hr>
                                     <br>
                                   </figure>
                                   <p>The cluster 2 presents no real similarities to the
@@ -354,6 +364,7 @@
                                     <figure>
                                       <img class = "centered" src="http://2017.igem.org/wiki/images/a/a1/Ionisparis-modeling-RNA_folding_simulation-9.png" width="75%" height="auto"></img>
                                       <figcaption class = "centered marged">Figure 9: Comparison between Cluster 5 and the article’s figure</figcaption>
+                                      <hr>
                                       <br>
                                     </figure>
                                     <p>When we first look at the general structure of the two
@@ -383,6 +394,7 @@
                                               <figure>
                                                 <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/8/8d/Ionisparis-modeling-RNA_folding_simulation-10-11.png" width="100%" height="auto"></img>
                                                 <figcaption class = "centered marged">Figure 10: S1 modeled protein structure  with (left) and without (right) Sticks</figcaption>
+                                                <hr>
                                                 <br>
                                               </figure>
                                               <p>On this structure, we observed a specific motif with
@@ -398,6 +410,7 @@
                                                   <figure>
                                                     <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/2/28/Ionisparis-modeling-RNA_folding_simulation-12-13.png" width="100%" height="auto"></img>
                                                     <figcaption class = "centered marged">Figure 11: S1 reference protein structure  with (left) and without (right) Sticks</figcaption>
+                                                    <hr>
                                                     <br>
                                                   </figure>
                                                   <p>On this structure, we also observe the same valley motif
@@ -409,6 +422,7 @@
                                                       <figure>
                                                         <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/d/d6/Ionisparis-modeling-RNA_folding_simulation-14-15.png" width="100%" height="auto"></img>
                                                         <figcaption class = "centered marged">Figure 12:  S1 protein residue conservation : S1_d3 (left) and 4v9r (right)</figcaption>
+                                                        <hr>
                                                         <br>
                                                       </figure>
                                                       <p>As we suspected, Consurf reaffirmed the existence of the valley presenting many highly conserved residues (darker coloration). This confirmed our previous hypothesis concerning the docking site. </p>
@@ -424,6 +438,7 @@
                                                             <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/1/16/Ionisparis-modeling-RNA_folding_simulation-16.png" width="100%" height="auto"></img>
                                                             <img class = "centered no-shadow" src="http://2017.igem.org/wiki/images/4/41/Ionisparis-modeling-RNA_folding_simulation-17.png" width="100%" height="auto"></img>
                                                             <figcaption class = "centered marged">Figure 13 &amp; 14 : S1 + cspA 5'UTR docking snapshots/results.</figcaption>
+                                                            <hr>
                                                             <figcaption class = "centered marged">“Many of the resulting poses show the the
                                                               conserved binding site interacting with the RNA. We are still analyzing these
                                                               results.”</figcaption>
