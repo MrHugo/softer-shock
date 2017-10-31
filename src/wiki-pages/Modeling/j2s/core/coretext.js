@@ -134,13 +134,13 @@ this.pymolOffset = null;
 this.valign = 3;
 }, "~N");
 Clazz_makeConstructor (c$, 
-function () {
+ function (vwr) {
+this.vwr = vwr;
 this.boxXY =  Clazz_newFloatArray (5, 0);
-});
+}, "JV.Viewer");
 c$.newLabel = Clazz_defineMethod (c$, "newLabel", 
 function (vwr, font, text, colix, bgcolix, align, scalePixelsPerMicron) {
-var t =  new JM.Text ();
-t.vwr = vwr;
+var t =  new JM.Text (vwr);
 t.set (font, colix, align, true, scalePixelsPerMicron);
 t.setText (text);
 t.bgcolix = bgcolix;
@@ -148,8 +148,7 @@ return t;
 }, "JV.Viewer,javajs.awt.Font,~S,~N,~N,~N,~N");
 c$.newEcho = Clazz_defineMethod (c$, "newEcho", 
 function (vwr, font, target, colix, valign, align, scalePixelsPerMicron) {
-var t =  new JM.Text ();
-t.vwr = vwr;
+var t =  new JM.Text (vwr);
 t.isEcho = true;
 t.set (font, colix, align, false, scalePixelsPerMicron);
 t.target = target;
@@ -250,10 +249,10 @@ this.recalc ();
 var dy = this.offsetY * imageFontScaling;
 this.xAdj = (this.fontScale >= 2 ? 8 : 4);
 this.yAdj = this.ascent - this.lineHeight + this.xAdj;
-if (this.isLabelOrHover || this.pymolOffset != null) {
+if (this.isLabelOrHover) {
 boxXY[0] = this.movableX;
 boxXY[1] = this.movableY;
-if (this.pymolOffset != null && this.pymolOffset[0] != 2 && this.pymolOffset[0] != 3) {
+if (this.pymolOffset != null) {
 var pixelsPerAngstrom = this.vwr.tm.scaleToScreen (this.z, 1000);
 var pz = this.pymolOffset[3];
 var dz = (pz < 0 ? -1 : 1) * Math.max (0, Math.abs (pz) - 1) * pixelsPerAngstrom;
@@ -272,17 +271,7 @@ isAbsolute = true;
 this.boxYoff2 = -2;
 } else {
 this.boxYoff2 = 0;
-}if (this.pymolOffset == null) switch (this.align) {
-case 8:
-dy = 0;
-dx = 0;
-break;
-case 12:
-boxXY[0] -= this.boxWidth;
-case 4:
-dy = 0;
-}
-JM.Text.setBoxXY (this.boxWidth, this.boxHeight, dx, dy, boxXY, isAbsolute);
+}JM.Text.setBoxXY (this.boxWidth, this.boxHeight, dx, dy, boxXY, isAbsolute);
 } else {
 this.setPos (this.fontScale);
 }this.boxX = boxXY[0];
@@ -523,16 +512,11 @@ y <<= 1;
 }, "~B,~N,~N,JU.BS");
 Clazz_defineMethod (c$, "getPymolScreenOffset", 
 function (atomPt, screen, zSlab, pTemp, sppm) {
-var mode = this.pymolOffset[0];
-if (atomPt != null && (Math.abs (mode) % 2) == 1) pTemp.setT (atomPt);
+if (atomPt != null && Math.abs (this.pymolOffset[0]) == 1) pTemp.setT (atomPt);
  else pTemp.set (0, 0, 0);
 pTemp.add3 (this.pymolOffset[4], this.pymolOffset[5], this.pymolOffset[6]);
 this.vwr.tm.transformPtScr (pTemp, screen);
-if (mode == 2 || mode == 3) {
-screen.x += this.pymolOffset[1];
-screen.y += this.pymolOffset[2];
-screen.z += this.pymolOffset[3];
-}this.setXYZs (screen.x, screen.y, screen.z, zSlab);
+this.setXYZs (screen.x, screen.y, screen.z, zSlab);
 this.setScalePixelsPerMicron (sppm);
 }, "JU.P3,JU.P3i,~N,JU.P3,~N");
 });
@@ -967,7 +951,6 @@ Clazz_defineMethod (c$, "setPymolLabels",
  function (labels, bsSelected) {
 this.setScaling ();
 var n = this.checkStringLength (this.ac);
-this.checkColixLength (-1, n);
 for (var i = bsSelected.nextSetBit (0); i >= 0 && i < n; i = bsSelected.nextSetBit (i + 1)) this.setPymolLabel (i, labels.get (Integer.$valueOf (i)), null);
 
 }, "java.util.Map,JU.BS");
@@ -1479,10 +1462,7 @@ Clazz_defineMethod (c$, "toggleOn",
 this.radiusData = null;
 this.htMin = null;
 this.bsSelected =  new JU.BS ();
-var m =  new JM.Measurement ().setPoints (this.ms, indices, null, this.defaultTickInfo);
-this.defineAll (-2147483648, m, false, true, true);
-var i = this.find (m);
-if (i >= 0) this.bsSelected.set (i);
+this.defineAll (-2147483648,  new JM.Measurement ().setPoints (this.ms, indices, null, this.defaultTickInfo), false, true, true);
 this.setIndices ();
 this.reformatDistances ();
 }, "~A");
@@ -1580,7 +1560,7 @@ Clazz_defineMethod (c$, "deleteI",
  function (i) {
 if (i >= this.measurements.size () || i < 0) return;
 var msg = J.shape.Measures.getMessage (this.measurements.get (i), true);
-this.measurements.removeItemAt (i);
+this.measurements.remove (i);
 this.measurementCount--;
 this.vwr.setStatusMeasuring ("measureDeleted", i, msg, 0);
 }, "~N");
@@ -1596,7 +1576,7 @@ m.mad = md.mad;
 break;
 case 12291:
 var msg = J.shape.Measures.getMessage (this.measurements.get (i), true);
-this.measurements.removeItemAt (i);
+this.measurements.remove (i);
 this.measurementCount--;
 this.vwr.setStatusMeasuring ("measureDeleted", i, msg, 0);
 break;
@@ -2097,7 +2077,6 @@ text.atomZ = this.zSlab;
 text.setXYZs (this.atomPt.sX, this.atomPt.sY, this.zBox, this.zSlab);
 newText = true;
 }if (text.pymolOffset == null) {
-if (text.font == null) text.setFontFromFid (this.font3d.fid);
 text.setOffset (this.offset);
 if (this.textAlign != 0) text.setAlignment (this.textAlign);
 }text.pointer = this.pointer;

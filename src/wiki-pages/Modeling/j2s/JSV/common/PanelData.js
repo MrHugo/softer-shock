@@ -45,12 +45,10 @@ this.isLinked = false;
 this.printJobTitle = null;
 this.spectra = null;
 this.taintedAll = true;
-this.testingJavaScript = false;
 this.currentFont = null;
 this.mouseState = null;
 this.gridOn = false;
 this.titleOn = false;
-this.peakTabsOn = false;
 this.mouseX = 0;
 this.mouseY = 0;
 this.linking = false;
@@ -123,18 +121,12 @@ var info =  new java.util.Hashtable ();
 var sets = null;
 if (selectedOnly) return this.currentGraphSet.getInfo (key, this.getCurrentSpectrumIndex ());
 var entries = this.options.entrySet ();
-if ("".equals (key)) {
-var val = "type title nSets ";
-for (var entry, $entry = entries.iterator (); $entry.hasNext () && ((entry = $entry.next ()) || true);) val += entry.getKey ().name () + " ";
-
-info.put ("KEYS", val);
-} else {
 for (var entry, $entry = entries.iterator (); $entry.hasNext () && ((entry = $entry.next ()) || true);) JSV.common.Parameters.putInfo (key, info, entry.getKey ().name (), entry.getValue ());
 
 JSV.common.Parameters.putInfo (key, info, "type", this.getSpectrumAt (0).getDataType ());
 JSV.common.Parameters.putInfo (key, info, "title", this.title);
 JSV.common.Parameters.putInfo (key, info, "nSets", Integer.$valueOf (this.graphSets.size ()));
-}sets =  new JU.Lst ();
+sets =  new JU.Lst ();
 for (var i = this.graphSets.size (); --i >= 0; ) sets.addLast (this.graphSets.get (i).getInfo (key, -1));
 
 info.put ("sets", sets);
@@ -151,7 +143,7 @@ return;
 }, "JSV.common.Parameters,JSV.common.ScriptToken");
 Clazz.defineMethod (c$, "setBoolean", 
 function (st, isTrue) {
-this.setTaintedAll ();
+this.taintedAll = true;
 if (st === JSV.common.ScriptToken.REVERSEPLOT) {
 this.currentGraphSet.setReversePlot (isTrue);
 return;
@@ -185,10 +177,6 @@ if (fontName != null) this.options.put (st, fontName);
 Clazz.defineMethod (c$, "getDisplay1D", 
 function () {
 return this.display1D;
-});
-Clazz.defineMethod (c$, "setTaintedAll", 
-function () {
-this.taintedAll = true;
 });
 Clazz.defineMethod (c$, "initOne", 
 function (spectrum) {
@@ -289,7 +277,7 @@ this.display1D = !this.isLinked && this.getBoolean (JSV.common.ScriptToken.DISPL
 var top = 40;
 var bottom = 50;
 var isResized = (this.isPrinting || this.doReset || this.thisWidth != width || this.thisHeight != height);
-if (isResized) this.setTaintedAll ();
+if (isResized) this.taintedAll = true;
 if (this.taintedAll) this.g2d.fillBackground (gRear, this.bgcolor);
 if (gFront !== gMain) {
 this.g2d.fillBackground (gFront, null);
@@ -305,7 +293,6 @@ this.scalingFactor = 1;
 withCoords = this.getBoolean (JSV.common.ScriptToken.COORDINATESON);
 this.titleOn = this.getBoolean (JSV.common.ScriptToken.TITLEON);
 this.gridOn = this.getBoolean (JSV.common.ScriptToken.GRIDON);
-this.peakTabsOn = this.getBoolean (JSV.common.ScriptToken.PEAKTABSON);
 }this.doReset = false;
 this.titleDrawn = false;
 this.thisWidth = width;
@@ -320,13 +307,12 @@ if (s != null) {
 this.printFilePath (gMain, this.left, height, s);
 }}if (this.isPrinting) {
 this.printVersion (gMain, height);
-}if (!this.testingJavaScript && (this.isPrinting || gMain === gFront)) this.setTaintedAll ();
- else this.taintedAll = false;
+}this.taintedAll = (this.isPrinting || gMain === gFront);
 }, "~O,~O,~O,~N,~N,~B");
 Clazz.defineMethod (c$, "drawCoordinates", 
 function (g, top, x, y) {
 this.g2d.setGraphicsColor (g, this.coordinatesColor);
-var font = this.setFont (g, this.jsvp.getWidth (), 1, 14, true);
+var font = this.setFont (g, this.jsvp.getWidth (), 0, 12, true);
 this.g2d.drawString (g, this.coordStr, x - font.stringWidth (this.coordStr), y);
 }, "~O,~N,~N,~N");
 Clazz.defineMethod (c$, "setFont", 
@@ -400,7 +386,7 @@ for (var i = this.graphSets.size (); --i >= 0; ) this.graphSets.get (i).scaleSel
 
 }, "~N");
 Clazz.defineMethod (c$, "setCurrentGraphSet", 
- function (gs, yPixel) {
+ function (gs, yPixel, clickCount) {
 var splitPoint = (gs.nSplit > 1 ? gs.getSplitPoint (yPixel) : gs.getCurrentSpectrumIndex ());
 var isNewSet = (this.currentGraphSet !== gs);
 var isNewSplitPoint = (isNewSet || this.currentSplitPoint != splitPoint);
@@ -408,13 +394,12 @@ this.currentGraphSet = gs;
 this.currentSplitPoint = splitPoint;
 if (isNewSet || gs.nSplit > 1 && isNewSplitPoint) this.setSpectrum (splitPoint, true);
 if (!isNewSet) {
-isNewSet = gs.checkSpectrumClickedEvent (this.mouseX, this.mouseY, this.clickCount);
-if (!isNewSet) return false;
+isNewSet = gs.checkSpectrumClickedEvent (this.mouseX, this.mouseY, clickCount);
+if (!isNewSet) return;
 this.currentSplitPoint = splitPoint = gs.getCurrentSpectrumIndex ();
 this.setSpectrum (splitPoint, true);
 }this.jumpToSpectrumIndex (splitPoint, isNewSet || gs.nSplit > 1 && isNewSplitPoint);
-return isNewSet;
-}, "JSV.common.GraphSet,~N");
+}, "JSV.common.GraphSet,~N,~N");
 Clazz.defineMethod (c$, "jumpToSpectrum", 
 function (spec) {
 var index = this.currentGraphSet.getSpectrumIndex (spec);
@@ -430,7 +415,7 @@ this.notifySubSpectrumChange (spec.getSubIndex (), spec);
 }, "~N,~B");
 Clazz.defineMethod (c$, "splitStack", 
 function (doSplit) {
-this.currentGraphSet.splitStack (doSplit);
+this.currentGraphSet.splitStack (this.graphSets, doSplit);
 }, "~B");
 Clazz.defineMethod (c$, "getNumberOfSpectraInCurrentSet", 
 function () {
@@ -438,8 +423,7 @@ return this.currentGraphSet.nSpectra;
 });
 Clazz.defineMethod (c$, "getSourceID", 
 function () {
-var id = this.getSpectrum ().sourceID;
-return (id == null ? this.getSpectrumAt (0).sourceID : id);
+return this.getSpectrumAt (0).sourceID;
 });
 Clazz.defineMethod (c$, "getStartingPointIndex", 
 function (index) {
@@ -475,7 +459,7 @@ return this.currentGraphSet.getSpectrum ();
 });
 Clazz.defineMethod (c$, "setSpecForIRMode", 
 function (spec) {
-this.setTaintedAll ();
+this.taintedAll = true;
 var spec0 = this.currentGraphSet.getSpectrum ();
 this.currentGraphSet.setSpectrumJDX (spec);
 for (var i = 0; i < this.spectra.size (); i++) if (this.spectra.get (i) === spec0) this.spectra.set (i, spec);
@@ -510,7 +494,7 @@ Clazz.defineMethod (c$, "setZoom",
 function (x1, y1, x2, y2) {
 this.currentGraphSet.setZoom (x1, y1, x2, y2);
 this.doReset = true;
-this.setTaintedAll ();
+this.taintedAll = true;
 this.notifyListeners ( new JSV.common.ZoomEvent ());
 }, "~N,~N,~N,~N");
 Clazz.defineMethod (c$, "resetView", 
@@ -554,9 +538,9 @@ function (coord, actualCoord) {
 return JSV.common.Coordinate.getPickedCoordinates (this.coordsClicked, this.coordClicked, coord, actualCoord);
 }, "JSV.common.Coordinate,JSV.common.Coordinate");
 Clazz.defineMethod (c$, "shiftSpectrum", 
-function (mode, xOld, xNew) {
-return this.currentGraphSet.shiftSpectrum (mode, xOld, xNew);
-}, "~N,~N,~N");
+function (dx, x1) {
+return this.currentGraphSet.shiftSpectrum (dx, x1);
+}, "~N,~N");
 Clazz.defineMethod (c$, "findX", 
 function (spec, d) {
 this.currentGraphSet.setXPointer (spec, d);
@@ -638,16 +622,16 @@ function (xPixel, yPixel) {
 this.mouseState = JSV.common.PanelData.Mouse.DOWN;
 var gs = JSV.common.GraphSet.findGraphSet (this.graphSets, xPixel, yPixel);
 if (gs == null) return;
-this.setCurrentGraphSet (gs, yPixel);
+this.setCurrentGraphSet (gs, yPixel, 0);
 this.clickCount = (++this.clickCount % 3);
-this.currentGraphSet.mousePressedEvent (xPixel, yPixel, this.clickCount);
+gs.checkWidgetEvent (xPixel, yPixel, true);
 }, "~N,~N");
 Clazz.defineMethod (c$, "doMouseDragged", 
 function (xPixel, yPixel) {
 this.isIntegralDrag = new Boolean (this.isIntegralDrag | this.ctrlPressed).valueOf ();
 this.mouseState = JSV.common.PanelData.Mouse.DOWN;
 if (JSV.common.GraphSet.findGraphSet (this.graphSets, xPixel, yPixel) !== this.currentGraphSet) return;
-if (this.currentGraphSet.checkWidgetEvent (xPixel, yPixel, false)) this.setTaintedAll ();
+this.currentGraphSet.checkWidgetEvent (xPixel, yPixel, false);
 this.currentGraphSet.mouseMovedEvent (xPixel, yPixel);
 }, "~N,~N");
 Clazz.defineMethod (c$, "doMouseReleased", 
@@ -663,9 +647,8 @@ Clazz.defineMethod (c$, "doMouseClicked",
 function (xPixel, yPixel, isControlDown) {
 var gs = JSV.common.GraphSet.findGraphSet (this.graphSets, xPixel, yPixel);
 if (gs == null) return;
-this.setCurrentGraphSet (gs, yPixel);
+this.setCurrentGraphSet (gs, yPixel, this.clickCount);
 gs.mouseClickedEvent (xPixel, yPixel, this.clickCount, isControlDown);
-this.setTaintedAll ();
 this.repaint ();
 }, "~N,~N,~B");
 Clazz.defineMethod (c$, "hasCurrentMeasurements", 
@@ -687,7 +670,7 @@ this.currentGraphSet.setPeakListing (tfToggle);
 }, "JSV.common.Parameters,Boolean");
 Clazz.defineMethod (c$, "checkIntegral", 
 function (parameters, value) {
-this.currentGraphSet.checkIntegralParams (parameters, value);
+this.currentGraphSet.checkIntegral (parameters, value);
 }, "JSV.common.Parameters,~S");
 Clazz.defineMethod (c$, "setIntegrationRatios", 
 function (value) {
@@ -808,52 +791,60 @@ Clazz.defineMethod (c$, "setColor",
 function (st, color) {
 if (color != null) this.options.put (st, JU.CU.toRGBHexString (color));
 switch (st) {
-case JSV.common.ScriptToken.COORDINATESCOLOR:
-this.coordinatesColor = color;
-return;
-case JSV.common.ScriptToken.HIGHLIGHTCOLOR:
-this.highlightColor = color;
-if (this.highlightColor.getOpacity255 () == 255) this.highlightColor.setOpacity255 (150);
-return;
-case JSV.common.ScriptToken.ZOOMBOXCOLOR:
-this.zoomBoxColor = color;
-return;
-case JSV.common.ScriptToken.ZOOMBOXCOLOR2:
-this.zoomBoxColor2 = color;
-return;
 case JSV.common.ScriptToken.BACKGROUNDCOLOR:
 this.jsvp.setBackgroundColor (this.bgcolor = color);
+this.taintedAll = true;
+break;
+case JSV.common.ScriptToken.COORDINATESCOLOR:
+this.coordinatesColor = color;
 break;
 case JSV.common.ScriptToken.GRIDCOLOR:
 this.gridColor = color;
+this.taintedAll = true;
+break;
+case JSV.common.ScriptToken.HIGHLIGHTCOLOR:
+this.highlightColor = color;
+if (this.highlightColor.getOpacity255 () == 255) this.highlightColor.setOpacity255 (150);
 break;
 case JSV.common.ScriptToken.INTEGRALPLOTCOLOR:
 this.integralPlotColor = color;
+this.taintedAll = true;
 break;
 case JSV.common.ScriptToken.PEAKTABCOLOR:
 this.peakTabColor = color;
+this.taintedAll = true;
 break;
 case JSV.common.ScriptToken.PLOTCOLOR:
 for (var i = this.graphSets.size (); --i >= 0; ) this.graphSets.get (i).setPlotColor0 (color);
 
+this.taintedAll = true;
 break;
 case JSV.common.ScriptToken.PLOTAREACOLOR:
 this.plotAreaColor = color;
+this.taintedAll = true;
 break;
 case JSV.common.ScriptToken.SCALECOLOR:
 this.scaleColor = color;
+this.taintedAll = true;
 break;
 case JSV.common.ScriptToken.TITLECOLOR:
 this.titleColor = color;
+this.taintedAll = true;
 break;
 case JSV.common.ScriptToken.UNITSCOLOR:
 this.unitsColor = color;
+this.taintedAll = true;
+break;
+case JSV.common.ScriptToken.ZOOMBOXCOLOR:
+this.zoomBoxColor = color;
+break;
+case JSV.common.ScriptToken.ZOOMBOXCOLOR2:
+this.zoomBoxColor2 = color;
 break;
 default:
 JU.Logger.warn ("AwtPanel --- unrecognized color: " + st);
-return;
+break;
 }
-this.taintedAll = true;
 }, "JSV.common.ScriptToken,javajs.api.GenericColor");
 Clazz.defineMethod (c$, "getColor", 
 function (whatColor) {
@@ -944,13 +935,6 @@ this.setBoolean (JSV.common.ScriptToken.XUNITSON, pl.showXScale);
 this.setBoolean (JSV.common.ScriptToken.YSCALEON, pl.showYScale);
 this.setBoolean (JSV.common.ScriptToken.YUNITSON, pl.showYScale);
 }, "JSV.common.PrintLayout,~S");
-Clazz.defineMethod (c$, "setDefaultPrintOptions", 
-function (pl) {
-pl.showGrid = this.gridOn;
-pl.showXScale = this.getBoolean (JSV.common.ScriptToken.XSCALEON);
-pl.showYScale = this.getBoolean (JSV.common.ScriptToken.YSCALEON);
-pl.showTitle = this.titleOn;
-}, "JSV.common.PrintLayout");
 Clazz.defineMethod (c$, "showDialog", 
 function (type) {
 var ad = this.getDialog (type);
@@ -1003,7 +987,7 @@ width = 450;
 y = Clazz.doubleToInt (Clazz.doubleToInt (paperWidth - 280) / 2);
 x = Clazz.doubleToInt (Clazz.doubleToInt (paperHeight - 450) / 2);
 }}this.g2d.translateScale (g, x, y, 0.1);
-this.setTaintedAll ();
+this.taintedAll = true;
 this.drawGraph (g, g, g, Clazz.doubleToInt (width), Clazz.doubleToInt (height), addFilePath);
 this.isPrinting = false;
 return 0;
@@ -1020,7 +1004,6 @@ case 127:
 case 8:
 this.escapeKeyPressed (code != 27);
 this.isIntegralDrag = false;
-this.setTaintedAll ();
 this.repaint ();
 return true;
 }
@@ -1046,7 +1029,6 @@ if (this.getSpectrumAt (0).getSubSpectra () == null) {
 this.notifySubSpectrumChange (dir, null);
 } else {
 this.advanceSubSpectrum (dir);
-this.setTaintedAll ();
 this.repaint ();
 }doConsume = true;
 break;
@@ -1068,7 +1050,6 @@ break;
 }
 }if (scaleFactor != 0) {
 this.scaleYBy (scaleFactor);
-this.setTaintedAll ();
 this.repaint ();
 }return doConsume;
 }, "~N,~N");
@@ -1088,13 +1069,11 @@ return true;
 case 26:
 if (mods != 2) break;
 this.previousView ();
-this.setTaintedAll ();
 this.repaint ();
 return true;
 case 25:
 if (mods != 2) break;
 this.nextView ();
-this.setTaintedAll ();
 this.repaint ();
 return true;
 }
@@ -1110,7 +1089,6 @@ this.doMousePressed (x, y);
 break;
 case 5:
 this.doMouseReleased (x, y, this.checkMod (buttonMods, 16));
-this.setTaintedAll ();
 this.repaint ();
 break;
 case 1:
@@ -1189,12 +1167,6 @@ function (mode, type) {
 for (var i = this.graphSets.size (); --i >= 0; ) this.graphSets.get (i).setIRMode (mode, type);
 
 }, "JSV.common.Spectrum.IRMode,~S");
-Clazz.defineMethod (c$, "closeSpectrum", 
-function () {
-this.vwr.close ("views");
-this.vwr.close (this.getSourceID ());
-this.vwr.execView ("*", true);
-});
 Clazz.pu$h(self.c$);
 c$ = Clazz.declareType (JSV.common.PanelData, "LinkMode", Enum);
 c$.getMode = Clazz.defineMethod (c$, "getMode", 

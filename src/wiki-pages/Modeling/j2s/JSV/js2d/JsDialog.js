@@ -17,6 +17,7 @@ this.tableCellAlignLeft = false;
 this.haveTwoPanels = true;
 this.buttonInsets = null;
 this.panelInsets = null;
+this.$defaultHeight = 350;
 this.selectedRow = -1;
 Clazz.instantialize (this, arguments);
 }, JSV.js2d, "JsDialog", javajs.swing.JDialog, JSV.api.PlatformDialog);
@@ -27,7 +28,6 @@ this.panelInsets =  new javajs.swing.Insets (0, 0, 2, 2);
 Clazz.makeConstructor (c$, 
 function (manager, jsvDialog, registryKey) {
 Clazz.superConstructor (this, JSV.js2d.JsDialog);
-this.defaultHeight = 350;
 this.manager = manager;
 this.registryKey = registryKey;
 this.optionKey = jsvDialog.optionKey;
@@ -35,17 +35,22 @@ this.type = jsvDialog.getAType ();
 this.options = jsvDialog.options;
 if (this.options == null) this.options =  new java.util.Hashtable ();
 this.getContentPane ().setBackground (javajs.awt.Color.get3 (230, 230, 230));
-this.toFront ();
+this.setFront ();
 }, "JSV.dialog.DialogManager,JSV.dialog.JSVDialog,~S");
 Clazz.defineMethod (c$, "onFocus", 
 function () {
-this.toFront ();
+this.setFront ();
 });
 Clazz.overrideMethod (c$, "setFocus", 
 function (tf) {
 if (tf) {
-this.toFront ();
+this.setFront ();
 }}, "~B");
+Clazz.defineMethod (c$, "setFront", 
+ function () {
+{
+SwingController.setFront(this);
+}});
 Clazz.overrideMethod (c$, "addButton", 
 function (name, text) {
 var btn =  new javajs.swing.JButton ();
@@ -108,7 +113,7 @@ this.addPanelLine (name, label, obj, units);
 Clazz.overrideMethod (c$, "createTable", 
 function (data, header, widths) {
 try {
-var scrollPane =  new javajs.swing.JScrollPane (this.dataTable = this.getDataTable (data, header, widths, (this.leftPanel == null ? this.defaultHeight : this.leftPanel.getHeight () - 50)));
+var scrollPane =  new javajs.swing.JScrollPane (this.dataTable = this.getDataTable (data, header, widths, (this.leftPanel == null ? this.$defaultHeight : this.leftPanel.getHeight () - 50)));
 if (this.mainSplitPane == null) {
 this.getContentPane ().add (scrollPane);
 } else {

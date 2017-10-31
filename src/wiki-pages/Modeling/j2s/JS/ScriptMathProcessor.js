@@ -70,7 +70,7 @@ var result =  new JU.Lst ();
 for (var i = 0; i <= this.xPt; i++) result.addLast (this.isSpecialAssignment ? this.xStack[i] : JS.SV.selectItemVar (this.xStack[i]));
 
 if (this.lastAssignedString != null) {
-result.removeItemAt (0);
+result.remove (0);
 result.add (0, this.lastAssignedString);
 this.lastAssignedString.intValue = this.xStack[0].intValue;
 }return JS.SV.newV (135198, result);
@@ -798,11 +798,6 @@ case 268435862:
 return this.addXBool (JS.SV.isLike (x1, x2));
 case 268435617:
 switch (x1.tok) {
-case 6:
-var ht =  new java.util.Hashtable (x1.value);
-var map = x2.getMap ();
-if (map != null) ht.putAll (map);
-return this.addX (JS.SV.getVariableMap (ht));
 case 2:
 if (!this.isDecimal (x2)) return this.addXInt (x1.intValue + x2.asInt ());
 break;
@@ -1235,14 +1230,14 @@ case 1111492631:
 return this.addXFloat ((x2.value).z);
 case 1145047050:
 var pt = JU.P3.newP (x2.value);
-this.vwr.toCartesian (pt, false);
+this.vwr.toCartesian (pt, true);
 return this.addXPt (pt);
 case 1111492612:
 case 1111492613:
 case 1111492614:
 case 1145047051:
 var ptf = JU.P3.newP (x2.value);
-this.vwr.toFractional (ptf, false);
+this.vwr.toFractional (ptf, true);
 return (op.intValue == 1145047051 ? this.addXPt (ptf) : this.addXFloat (op.intValue == 1111492612 ? ptf.x : op.intValue == 1111492613 ? ptf.y : ptf.z));
 case 1111492615:
 case 1111492616:

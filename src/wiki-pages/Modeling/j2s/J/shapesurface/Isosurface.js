@@ -518,10 +518,7 @@ var ret = this.getPropMC (property, index);
 if (ret != null) return ret;
 if (property === "message") {
 var s = "";
-if (!this.jvxlData.isValid) return "invalid! (no atoms selected?)";
-if (!Float.isNaN (this.jvxlData.integration)) s += "integration " + this.jvxlData.integration;
-if (this.shapeID == 24 || this.shapeID == 27 || this.shapeID == 28) s += " with cutoff=" + this.jvxlData.cutoff;
-if (this.shapeID == 27 || this.shapeID == 28) return s;
+if (this.shapeID == 24) s += " with cutoff=" + this.jvxlData.cutoff;
 if (this.jvxlData.dataMin != 3.4028235E38) s += " min=" + this.jvxlData.dataMin + " max=" + this.jvxlData.dataMax;
 s += "; " + JV.JC.shapeClassBases[this.shapeID].toLowerCase () + " count: " + this.getPropMC ("count", index);
 return s + this.getPropI ("dataRangeStr", index) + this.jvxlData.msg;
@@ -539,7 +536,6 @@ if (property === "cutoff") return Float.$valueOf (this.jvxlData.cutoff);
 if (property === "minMaxInfo") return  Clazz.newFloatArray (-1, [this.jvxlData.dataMin, this.jvxlData.dataMax]);
 if (property === "plane") return this.jvxlData.jvxlPlane;
 if (property === "contours") return thisMesh.getContours ();
-if (property === "pmesh" || property === "pmeshbin") return thisMesh.getPmeshData (property === "pmeshbin");
 if (property === "jvxlDataXml" || property === "jvxlMeshXml") {
 var meshData = null;
 this.jvxlData.slabInfo = null;
@@ -564,8 +560,7 @@ for (var i = list.size (); --i >= 0; ) this.getMeshCommand (sb, i);
 return sb.toString ();
 }if (property === "atoms") {
 return thisMesh.surfaceAtoms;
-}if (property === "colorEncoder") return thisMesh.colorEncoder;
-return null;
+}return null;
 }, "~S,~N");
 Clazz.defineMethod (c$, "getDataRange", 
  function (mesh) {
@@ -955,7 +950,7 @@ this.thisMesh.fixLattice ();
 }return this.thisMesh.setColorsFromJvxlData (this.sg.params.colorRgb);
 }if (!this.sg.params.allowVolumeRender) this.thisMesh.jvxlData.allowVolumeRender = false;
 this.thisMesh.setColorsFromJvxlData (this.sg.params.colorRgb);
-if (this.thisMesh.jvxlData.slabInfo != null) this.vwr.runScriptCautiously ("isosurface " + this.thisMesh.jvxlData.slabInfo);
+if (this.thisMesh.jvxlData.slabInfo != null) this.vwr.runScript ("isosurface " + this.thisMesh.jvxlData.slabInfo);
 if (this.sg.params.psi_monteCarloCount > 0) this.thisMesh.diameter = -1;
 return false;
 });

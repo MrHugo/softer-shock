@@ -60,9 +60,6 @@ v.scale (scale);
 pts[i].add2 (center, v);
 }
 }, "~A,~N");
-Clazz.defineMethod (c$, "setBoundBoxFromOXYZ", 
-function (o, vx, vy, vz) {
-}, "JU.P3,JU.P3,JU.P3,JU.P3");
 c$.getUnitCellPoints = Clazz.defineMethod (c$, "getUnitCellPoints", 
 function (bbVertices, offset) {
 var center = JU.P3.newP (bbVertices[0]);

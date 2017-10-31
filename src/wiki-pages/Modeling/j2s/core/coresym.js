@@ -93,6 +93,7 @@ this.rmaxx = 0;
 this.rmaxy = 0;
 this.rmaxz = 0;
 this.ptOffset = null;
+this.unitCellOffset = null;
 this.minXYZ = null;
 this.maxXYZ = null;
 this.minXYZ0 = null;
@@ -165,6 +166,7 @@ JU.Logger.info ("Using supercell \n" + this.matSupercell);
 Clazz_defineMethod (c$, "setUnitCell", 
  function (info, matUnitCellOrientation, unitCellOffset) {
 this.unitCellParams =  Clazz_newFloatArray (info.length, 0);
+this.unitCellOffset = unitCellOffset;
 for (var i = 0; i < info.length; i++) this.unitCellParams[i] = info[i];
 
 this.asc.haveUnitCell = true;
@@ -940,7 +942,6 @@ this.symmetryInfo = null;
 this.unitCell = null;
 this.$isBio = false;
 this.desc = null;
-this.cip = null;
 Clazz_instantialize (this, arguments);
 }, JS, "Symmetry", null, J.api.SymmetryInterface);
 Clazz_overrideMethod (c$, "isBio", 
@@ -1175,8 +1176,8 @@ function (fpt) {
 return this.unitCell.toSupercell (fpt);
 }, "JU.P3");
 Clazz_defineMethod (c$, "toFractional", 
-function (pt, ignoreOffset) {
-if (!this.$isBio) this.unitCell.toFractional (pt, ignoreOffset);
+function (pt, isAbsolute) {
+if (!this.$isBio) this.unitCell.toFractional (pt, isAbsolute);
 }, "JU.T3,~B");
 Clazz_overrideMethod (c$, "toFractionalM", 
 function (m) {
@@ -1322,10 +1323,7 @@ return this.getDesc (modelSet).getSymopInfo (iatom, xyz, op, pt, pt2, id, type, 
 }, "JM.ModelSet,~N,~S,~N,JU.P3,JU.P3,~S,~N,~N,~N");
 Clazz_overrideMethod (c$, "getSpaceGroupInfo", 
 function (modelSet, sgName, modelIndex) {
-if (sgName == null) {
-var info = modelSet.getModelAuxiliaryInfo (modelSet.vwr.am.cmi);
-if (info != null) sgName = info.get ("spaceGroup");
-}return this.getDesc (modelSet).getSpaceGroupInfo (this, modelIndex, sgName, 0, null, null, null, 0, -1);
+return this.getDesc (modelSet).getSpaceGroupInfo (this, modelIndex, sgName, 0, null, null, null, 0, -1);
 }, "JM.ModelSet,~S,~N");
 Clazz_overrideMethod (c$, "fcoord", 
 function (p) {
@@ -1416,31 +1414,6 @@ for (var j = lst.size (); --j >= 0; ) this.unitCell.toCartesian (lst.get (j), tr
 
 }return lst;
 }, "JU.P3");
-Clazz_overrideMethod (c$, "calculateCIPChiralityForAtoms", 
-function (vwr, bsAtoms) {
-vwr.setCursor (3);
-var cip = this.getCIPChirality (vwr);
-var bsAtropisomer = null;
-var bsHelixM = null;
-var bsHelixP = null;
-var setAuxiliary = vwr.getBoolean (603979960);
-try {
-bsAtropisomer = vwr.getSmartsMatch ("[!H](.t1:-20,20)a{a(.t2:-20,20)-a}a[!H]", bsAtoms);
-bsHelixM = vwr.getSmartsMatch ("A{a}(.t:-10,-40)a(.t:-10,-40)aaa", bsAtoms);
-bsHelixP = vwr.getSmartsMatch ("A{a}(.t:10,40)a(.t:10,40)aaa", bsAtoms);
-} catch (e) {
-if (Clazz_exceptionOf (e, Exception)) {
-} else {
-throw e;
-}
-}
-cip.getChiralityForAtoms (vwr.ms.at, bsAtoms, bsAtropisomer, bsHelixM, bsHelixP, setAuxiliary);
-vwr.setCursor (0);
-}, "JV.Viewer,JU.BS");
-Clazz_defineMethod (c$, "getCIPChirality", 
- function (vwr) {
-return (this.cip == null ? (this.cip = (J.api.Interface.getInterface ("JS.CIPChirality", vwr, "script"))) : this.cip);
-}, "JV.Viewer");
 });
 Clazz_declarePackage ("JS");
 Clazz_load (["JU.V3"], "JS.PointGroup", ["java.lang.Float", "java.util.Hashtable", "JU.Lst", "$.P3", "$.PT", "$.Quat", "$.SB", "J.bspt.Bspt", "JU.BSUtil", "$.Escape", "$.Logger", "$.Node", "$.Point3fi"], function () {
@@ -1470,7 +1443,6 @@ this.haveInversionCenter = false;
 this.center = null;
 this.points = null;
 this.elements = null;
-this.atomMap = null;
 this.bsAtoms = null;
 this.haveVibration = false;
 this.localEnvOnly = false;
@@ -1554,7 +1526,6 @@ var nPlanes = 0;
 this.findCAxes ();
 nPlanes = this.findPlanes ();
 this.findAdditionalAxes (nPlanes);
-try {
 var n = this.getHighestOrder ();
 if (this.nAxes[17] > 1) {
 if (this.nAxes[19] > 1) {
@@ -1613,15 +1584,7 @@ this.principalPlane = this.axes[0][0];
 if (n < 14) n /= 2;
  else n -= 14;
 this.name = "C" + n + "h";
-}}} catch (e) {
-if (Clazz_exceptionOf (e, Exception)) {
-this.name = "??";
-} else {
-throw e;
-}
-}
-JU.Logger.info ("Point group found: " + this.name);
-return true;
+}}return true;
 }, "JS.PointGroup,~A");
 Clazz_defineMethod (c$, "setPrincipalAxis", 
  function (n, nPlanes) {
@@ -1660,12 +1623,6 @@ if (this.isAtoms && ac > 100) return false;
 this.points =  new Array (ac);
 this.elements =  Clazz_newIntArray (ac, 0);
 if (ac == 0) return true;
-var atomIndexMax = 0;
-for (var i = this.bsAtoms.nextSetBit (0); i >= 0; i = this.bsAtoms.nextSetBit (i + 1)) {
-var p = atomset[i];
-if (Clazz_instanceOf (p, JU.Node)) atomIndexMax = Math.max (atomIndexMax, (p).i);
-}
-this.atomMap =  Clazz_newIntArray (atomIndexMax + 1, 0);
 this.nAtoms = 0;
 var needCenter = (this.center == null);
 if (needCenter) this.center =  new JU.P3 ();
@@ -1675,7 +1632,6 @@ var p = this.points[this.nAtoms] = atomset[i];
 if (Clazz_instanceOf (p, JU.Node)) {
 var bondIndex = (this.localEnvOnly ? 1 : 1 + Math.max (3, (p).getCovalentBondCount ()));
 this.elements[this.nAtoms] = (p).getElementNumber () * bondIndex;
-this.atomMap[(p).i] = this.nAtoms + 1;
 } else if (Clazz_instanceOf (p, JU.Point3fi)) {
 this.elements[this.nAtoms] = Math.max (0, (p).sD);
 } else {
@@ -1694,11 +1650,7 @@ if (this.isAtoms && r2 < this.distanceTolerance2) this.centerAtomIndex = i;
 this.radius = Math.max (this.radius, r2);
 }
 this.radius = Math.sqrt (this.radius);
-if (this.radius < 1.5 && this.distanceTolerance > 0.15) {
-this.distanceTolerance = this.radius / 10;
-this.distanceTolerance2 = this.distanceTolerance * this.distanceTolerance;
-System.out.println ("PointGroup calculation adjusting distanceTolerance to " + this.distanceTolerance);
-}return true;
+return true;
 }, "~A");
 Clazz_defineMethod (c$, "findInversionCenter", 
  function () {
@@ -1731,20 +1683,15 @@ continue;
 while (this.iter.hasMoreElements ()) {
 var a2 = this.iter.nextElement ();
 if (a2 === a1) continue;
-var j = this.getPointIndex ((a2).i);
+var j = (a2).i;
 if (this.centerAtomIndex >= 0 && j == this.centerAtomIndex || this.elements[j] != e1) continue;
 if (pt.distanceSquared (a2) < this.distanceTolerance2) {
-nFound++;
 continue out;
 }}
 return false;
 }
 return true;
 }, "JU.Quat,JU.T3,~N");
-Clazz_defineMethod (c$, "getPointIndex", 
- function (j) {
-return this.atomMap[j] > 0 ? this.atomMap[j] - 1 : j;
-}, "~N");
 Clazz_defineMethod (c$, "isLinear", 
  function (atoms) {
 var v1 = null;
@@ -2280,7 +2227,7 @@ return sg;
 }, "~N,~S,~O");
 c$.createSGFromList = Clazz_defineMethod (c$, "createSGFromList", 
  function (name, data) {
-var sg =  new JS.SpaceGroup (-1, "0;0;--;--;--", true);
+var sg =  new JS.SpaceGroup (-1, "0;--;--;--", true);
 sg.doNormalize = false;
 sg.name = name;
 var n = data.size ();

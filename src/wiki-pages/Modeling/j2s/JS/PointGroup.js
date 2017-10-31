@@ -26,7 +26,6 @@ this.haveInversionCenter = false;
 this.center = null;
 this.points = null;
 this.elements = null;
-this.atomMap = null;
 this.bsAtoms = null;
 this.haveVibration = false;
 this.localEnvOnly = false;
@@ -110,7 +109,6 @@ var nPlanes = 0;
 this.findCAxes ();
 nPlanes = this.findPlanes ();
 this.findAdditionalAxes (nPlanes);
-try {
 var n = this.getHighestOrder ();
 if (this.nAxes[17] > 1) {
 if (this.nAxes[19] > 1) {
@@ -169,15 +167,7 @@ this.principalPlane = this.axes[0][0];
 if (n < 14) n /= 2;
  else n -= 14;
 this.name = "C" + n + "h";
-}}} catch (e) {
-if (Clazz.exceptionOf (e, Exception)) {
-this.name = "??";
-} else {
-throw e;
-}
-}
-JU.Logger.info ("Point group found: " + this.name);
-return true;
+}}return true;
 }, "JS.PointGroup,~A");
 Clazz.defineMethod (c$, "setPrincipalAxis", 
  function (n, nPlanes) {
@@ -216,12 +206,6 @@ if (this.isAtoms && ac > 100) return false;
 this.points =  new Array (ac);
 this.elements =  Clazz.newIntArray (ac, 0);
 if (ac == 0) return true;
-var atomIndexMax = 0;
-for (var i = this.bsAtoms.nextSetBit (0); i >= 0; i = this.bsAtoms.nextSetBit (i + 1)) {
-var p = atomset[i];
-if (Clazz.instanceOf (p, JU.Node)) atomIndexMax = Math.max (atomIndexMax, (p).i);
-}
-this.atomMap =  Clazz.newIntArray (atomIndexMax + 1, 0);
 this.nAtoms = 0;
 var needCenter = (this.center == null);
 if (needCenter) this.center =  new JU.P3 ();
@@ -231,7 +215,6 @@ var p = this.points[this.nAtoms] = atomset[i];
 if (Clazz.instanceOf (p, JU.Node)) {
 var bondIndex = (this.localEnvOnly ? 1 : 1 + Math.max (3, (p).getCovalentBondCount ()));
 this.elements[this.nAtoms] = (p).getElementNumber () * bondIndex;
-this.atomMap[(p).i] = this.nAtoms + 1;
 } else if (Clazz.instanceOf (p, JU.Point3fi)) {
 this.elements[this.nAtoms] = Math.max (0, (p).sD);
 } else {
@@ -250,11 +233,7 @@ if (this.isAtoms && r2 < this.distanceTolerance2) this.centerAtomIndex = i;
 this.radius = Math.max (this.radius, r2);
 }
 this.radius = Math.sqrt (this.radius);
-if (this.radius < 1.5 && this.distanceTolerance > 0.15) {
-this.distanceTolerance = this.radius / 10;
-this.distanceTolerance2 = this.distanceTolerance * this.distanceTolerance;
-System.out.println ("PointGroup calculation adjusting distanceTolerance to " + this.distanceTolerance);
-}return true;
+return true;
 }, "~A");
 Clazz.defineMethod (c$, "findInversionCenter", 
  function () {
@@ -287,20 +266,15 @@ continue;
 while (this.iter.hasMoreElements ()) {
 var a2 = this.iter.nextElement ();
 if (a2 === a1) continue;
-var j = this.getPointIndex ((a2).i);
+var j = (a2).i;
 if (this.centerAtomIndex >= 0 && j == this.centerAtomIndex || this.elements[j] != e1) continue;
 if (pt.distanceSquared (a2) < this.distanceTolerance2) {
-nFound++;
 continue out;
 }}
 return false;
 }
 return true;
 }, "JU.Quat,JU.T3,~N");
-Clazz.defineMethod (c$, "getPointIndex", 
- function (j) {
-return this.atomMap[j] > 0 ? this.atomMap[j] - 1 : j;
-}, "~N");
 Clazz.defineMethod (c$, "isLinear", 
  function (atoms) {
 var v1 = null;

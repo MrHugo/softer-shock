@@ -1,5 +1,5 @@
 Clazz.declarePackage ("J.adapter.readers.pymol");
-Clazz.load (["java.util.Hashtable", "JU.Lst"], "J.adapter.readers.pymol.PickleReader", ["java.lang.Double", "$.Long", "JU.AU", "JU.Logger"], function () {
+Clazz.load (["java.util.Hashtable", "JU.Lst"], "J.adapter.readers.pymol.PickleReader", ["java.lang.Double", "$.Long", "JU.SB", "JU.Logger"], function () {
 c$ = Clazz.decorateAsClass (function () {
 this.vwr = null;
 this.binaryDoc = null;
@@ -18,8 +18,6 @@ this.inNames = false;
 this.thisName = null;
 this.lastMark = 0;
 this.retrieveCount = 0;
-this.ipt = 0;
-this.aTemp = null;
 Clazz.instantialize (this, arguments);
 }, J.adapter.readers.pymol, "PickleReader");
 Clazz.prepareFields (c$, function () {
@@ -27,7 +25,6 @@ this.stack =  new JU.Lst ();
 this.marks =  new JU.Lst ();
 this.build =  new JU.Lst ();
 this.memo =  new java.util.Hashtable ();
-this.aTemp =  Clazz.newByteArray (16, 0);
 });
 Clazz.makeConstructor (c$, 
 function (doc, vwr) {
@@ -42,6 +39,7 @@ this.vwr.log (s + "\0");
 Clazz.defineMethod (c$, "getMap", 
 function (logging) {
 this.logging = logging;
+var s;
 var b;
 var i;
 var mark;
@@ -50,11 +48,9 @@ var o;
 var a;
 var map;
 var l;
-this.ipt = 0;
 var going = true;
 while (going) {
 b = this.binaryDoc.readByte ();
-this.ipt++;
 switch (b) {
 case 125:
 this.push ( new java.util.Hashtable ());
@@ -67,6 +63,7 @@ case 101:
 l = this.getObjects (this.getMark ());
 if (this.inNames && this.markCount == 2) {
 var pt = this.binaryDoc.getPosition ();
+System.out.println (" " + this.thisName + " " + this.filePt + " " + (pt - this.filePt));
 var l2 =  new JU.Lst ();
 l2.addLast (Integer.$valueOf (this.filePt));
 l2.addLast (Integer.$valueOf (pt - this.filePt));
@@ -105,28 +102,35 @@ break;
 case 106:
 i = this.binaryDoc.readIntLE ();
 o = this.getMemo (i);
-this.push (o == null ? "LONG_BINGET" + (++this.id) : o);
-break;
+if (o == null) {
+JU.Logger.error ("did not find memo item for " + i);
+this.push ("LONG_BINGET" + (++this.id));
+} else {
+this.push (o);
+}break;
 case 85:
 i = this.binaryDoc.readByte () & 0xff;
 a =  Clazz.newByteArray (i, 0);
 this.binaryDoc.readByteArray (a, 0, i);
+s =  String.instantialize (a, "UTF-8");
 if (this.inNames && this.markCount == 3 && this.lastMark == this.stack.size ()) {
-this.thisName = this.bytesToString (a);
+this.thisName = s;
 this.filePt = this.emptyListPt;
-}this.push (a);
+}this.push (s);
 break;
 case 84:
 i = this.binaryDoc.readIntLE ();
 a =  Clazz.newByteArray (i, 0);
 this.binaryDoc.readByteArray (a, 0, i);
-this.push (a);
+s =  String.instantialize (a, "UTF-8");
+this.push (s);
 break;
 case 87:
 i = this.binaryDoc.readIntLE ();
 a =  Clazz.newByteArray (i, 0);
 this.binaryDoc.readByteArray (a, 0, i);
-this.push (a);
+s =  String.instantialize (a, "UTF-8");
+this.push (s);
 break;
 case 93:
 this.emptyListPt = this.binaryDoc.getPosition () - 1;
@@ -135,8 +139,8 @@ break;
 case 99:
 l =  new JU.Lst ();
 l.addLast ("global");
-l.addLast (this.readStringAsBytes ());
-l.addLast (this.readStringAsBytes ());
+l.addLast (this.readString ());
+l.addLast (this.readString ());
 this.push (l);
 break;
 case 98:
@@ -154,7 +158,8 @@ this.push (this.getObjects (this.getMark ()));
 break;
 case 115:
 o = this.pop ();
-var s = this.bytesToString (this.pop ());
+if (!(Clazz.instanceOf (this.peek (), String))) JU.Logger.error (this.peek () + " is not a string");
+s = this.pop ();
 (this.peek ()).put (s, o);
 break;
 case 117:
@@ -168,7 +173,8 @@ for (i = 0; i < l.size (); i++) (o).addLast (l.get (i));
 map = o;
 for (i = l.size (); --i >= 0; ) {
 o = l.get (i);
-map.put (this.bytesToString (l.get (--i)), o);
+s = l.get (--i);
+map.put (s, o);
 }
 }break;
 case 46:
@@ -178,7 +184,7 @@ case 116:
 this.push (this.getObjects (this.getMark ()));
 break;
 case 73:
-s = this.bytesToString (this.readStringAsBytes ());
+s = this.readString ();
 try {
 this.push (Integer.$valueOf (Integer.parseInt (s)));
 } catch (e) {
@@ -196,31 +202,18 @@ JU.Logger.error ("Pickle reader error: " + b + " " + this.binaryDoc.getPosition 
 }
 if (logging) this.log ("");
 JU.Logger.info ("PyMOL Pickle reader cached " + this.memo.size () + " tokens; retrieved " + this.retrieveCount);
-map = this.stack.removeItemAt (0);
+this.memo = null;
+map = this.stack.remove (0);
 if (map.size () == 0) for (i = this.stack.size (); --i >= 0; ) {
 o = this.stack.get (i--);
-a = this.stack.get (i);
-map.put (this.bytesToString (a), o);
+s = this.stack.get (i);
+map.put (s, o);
 }
-this.memo = null;
 return map;
 }, "~B");
-Clazz.defineMethod (c$, "bytesToString", 
- function (o) {
-try {
-return (JU.AU.isAB (o) ?  String.instantialize (o, "UTF-8") : o.toString ());
-} catch (e) {
-if (Clazz.exceptionOf (e, java.io.UnsupportedEncodingException)) {
-return "";
-} else {
-throw e;
-}
-}
-}, "~O");
 Clazz.defineMethod (c$, "putMemo", 
  function (i, doCheck) {
 var o = this.peek ();
-if (JU.AU.isAB (o)) o = this.bytesToString (o);
 if (Clazz.instanceOf (o, String)) {
 if (doCheck && this.markCount >= 6 || this.markCount == 3 && this.inMovie) return;
 this.memo.put (Integer.$valueOf (i), o);
@@ -239,21 +232,19 @@ var args =  new JU.Lst ();
 args.ensureCapacity (n);
 for (var i = mark; i < this.stack.size (); ++i) args.addLast (this.stack.get (i));
 
-for (var i = this.stack.size (); --i >= mark; ) this.stack.removeItemAt (i);
+for (var i = this.stack.size (); --i >= mark; ) this.stack.remove (i);
 
 return args;
 }, "~N");
-Clazz.defineMethod (c$, "readStringAsBytes", 
+Clazz.defineMethod (c$, "readString", 
  function () {
-var n = 0;
-var a = this.aTemp;
+var sb =  new JU.SB ();
 while (true) {
 var b = this.binaryDoc.readByte ();
 if (b == 0xA) break;
-if (n >= a.length) a = this.aTemp = JU.AU.arrayCopyByte (a, a.length * 2);
-a[n++] = b;
+sb.appendC (String.fromCharCode (b));
 }
-return JU.AU.arrayCopyByte (a, n);
+return sb.toString ();
 });
 Clazz.defineMethod (c$, "putMark", 
  function (i) {
@@ -262,9 +253,8 @@ this.marks.addLast (Integer.$valueOf (this.lastMark = i));
 this.markCount++;
 switch (this.markCount) {
 case 2:
-var o = this.stack.get (i - 2);
-if (JU.AU.isAB (o)) {
-this.thisSection = this.bytesToString (o);
+this.thisSection = this.stack.get (i - 2);
+if (Clazz.instanceOf (this.thisSection, String)) {
 this.inMovie = "movie".equals (this.thisSection);
 this.inNames = "names".equals (this.thisSection);
 }break;
@@ -274,7 +264,7 @@ break;
 }, "~N");
 Clazz.defineMethod (c$, "getMark", 
  function () {
-return this.marks.removeItemAt (--this.markCount).intValue ();
+return this.marks.remove (--this.markCount).intValue ();
 });
 Clazz.defineMethod (c$, "push", 
  function (o) {
@@ -287,7 +277,7 @@ return this.stack.get (this.stack.size () - 1);
 });
 Clazz.defineMethod (c$, "pop", 
  function () {
-return this.stack.removeItemAt (this.stack.size () - 1);
+return this.stack.remove (this.stack.size () - 1);
 });
 Clazz.defineStatics (c$,
 "APPEND", 97,

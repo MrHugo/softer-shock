@@ -69,7 +69,7 @@ function () {
 this.ensureOpen ();
 return (this.entryEOF ? 0 : 1);
 });
-Clazz.defineMethod (c$, "read", 
+Clazz.overrideMethod (c$, "read", 
 function (b, off, len) {
 this.ensureOpen ();
 if (off < 0 || len < 0 || off > b.length - len) {

@@ -17,7 +17,7 @@ Clazz.overrideMethod (c$, "readByteAsInt",
 function () {
 return (this.pos < this.count) ? (this.buf[this.pos++] & 0xff) : -1;
 });
-Clazz.defineMethod (c$, "read", 
+Clazz.overrideMethod (c$, "read", 
 function (b, off, len) {
 if (b == null) {
 throw  new NullPointerException ();

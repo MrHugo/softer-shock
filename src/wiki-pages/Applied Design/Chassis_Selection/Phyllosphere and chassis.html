@@ -1,129 +1,98 @@
 <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../../../../src/css/template.css">
 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="../../../../src/css/template.css">
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <style>
+      .TITRE,  {text-align: center;}
+      .overview, .img, {margin-left:auto; margin-right: auto;}
+      .foliar {
+        background-image:url("http://2017.igem.org/wiki/images/c/c9/Ionisparis-Applied_design_-_Foliar_application-5.png");
+        display: block;
+        text-align: center;
+        margin: auto;
+        border-width:1px;
+        border-style:solid;
+        border-color:black;
+      }
 
-  <script src="../../js/jquery.min.js"></script>
-  <script src="../../js/bootstrap.min.js"></script>
+    </style>
+    <title>Working with plants : chassis selection in accordance with the phyllosphere</title>
+  </head>
+  <body>
+    <h1 class="TITRE">Working with plants : chassis selection in accordance with the phyllosphere</h1>
 
-  <title>Working with plants : chassis selection in accordance with the phyllosphere</title>
-</head>
+    <p>
+      The plant aerial surface, of which the leaves cover most, is home to many microorganisms (archaea, bacteria, eukaryotes). This microbiota of the plant surface is called the phyllosphere, and it is truly fascinating because of its unique characteristics <sup>1</sup>. The leaves are harsh environments for life and these organisms show interesting adaptive properties. They are also able to interact closely to the host plant, forming what is called a holobiont.
+    </p>
 
-<style>
-.bordered {
-  border: 1px solid #000;
-}
-</style>
+    <figure class=centered>
+        <img class="overview" src="http://2017.igem.org/wiki/images/8/8f/Ionisparis-Applied_design_-_Phyllosphere_and_chassis_selection-_1.png" title="Figure 1"/>
+        <figcaption>Figure 1 : the plant aerial surface, mostly occupied by leaves, is inhabited by diverse microorganisms, forming the phyllosphere</figcaption>
+    </figure><br></br>
 
-<body>
-  <div class="igem-container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="centered">Working with plants : chassis selection in accordance with the phyllosphere</h1>
-        <br></br>
-        <p>
-          The plant aerial surface, of which the leaves cover most, is home to many microorganisms (archaea, bacteria, eukaryotes).
-          This microbiota of the plant surface is called the phyllosphere, and it is truly fascinating because of its unique
-          characteristics<sup>1</sup>. The leaves are harsh environments for life and these organisms show interesting adaptive
-          properties. They are also able to interact closely to the host plant, forming what is called a holobiont.
-        </p>
-        <figure class=centered>
-          <img class="marged no-shadow" src="http://2017.igem.org/wiki/images/8/8f/Ionisparis-Applied_design_-_Phyllosphere_and_chassis_selection-_1.png" width="100%"/>
-          <figcaption>Figure 1 : the plant aerial surface, mostly occupied by leaves, is inhabited by diverse microorganisms, forming the phyllosphere</figcaption>
-        </figure>
-        <br>
-        <br>
-        <hr>
-        <p>
-          Learning about the phyllosphere was important for us because we wanted to know how our organism would survive on
-          the surface of the leaf. We wanted to predict how the leaf will interact with its microbiota. Indeed, just like
-          any other microbiota, the phyllosphere has a fragile balance and perturbing it with our organisms is the last
-          thing we want. While we were studying the phyllosphere, we had the pleasure of an interview with a phyllosphere
-          expert,  Dr. Corinne Vacher (you can find the interview
-          <u><a href="http://2017.igem.org/wiki/images/b/b6/Ionis-paris-2017-HP-achievements-Vacher.pdf">here)</a></u>, who gave
-          us a lot of information and advice.
-        </p>
-        <p>
-          It is important to understand as much as we can about the environment we are going to work on to synergise with it
-          and maximise product efficiency.
-        </p>
-        <p>
-          The phyllosphere can be a harsh environment, particularly with respect to temperature and solar radiation. Such a
-          microclimate is highly heterogeneous and makes our product difficult to engineer and model without field study<sup>2</sup>
-        </p>
-        <figure class=centered>
-          <img class="marged no-shadow" src="http://2017.igem.org/wiki/images/f/f1/Ionisparis-Applied_design_-_Phyllosphere_and_chassis_selection-_2.png" width="100%"/>
-          <figcaption>Figure 2 : Many variables from both internal and external climates of the leaf influence the phyllosphere microbial community and potentially Softer Shock</figcaption>
-        </figure>
-        <br>
-        <br>
-        <hr>
-        <div class="row">
-          <div class="col-md-6">
-            <p>
-              We have also analysed the microbial phylums of the phyllosphere (bacteria, eukaryotes, and archaea), showing a
-              great variety of adaptative properties like methanol metabolism and UV stress resistance. Surviving in the environment
-              of the leaf is difficult and requires some unique strategies, hence the microbial population is not homogeneously
-              located on the leaves but rather on nutrient oases<sup>1,3</sup>.
-              Most available nutrients of the phyllosphere are leached by-products of plant metabolism such as carbohydrates and
-              methanol, so the Phyllosphere Microbial Community (PMC) could almost be compared to scavengers that live with the
-              strict minimum<sup>1</sup>.
-              The phyllosphere organisms can provide stimulation through hormone secretion (like auxin), and protect the host
-              from pathogens by forming a physical barrier, just like our gut microbiota<sup>3</sup>.
-            </p>
-            <p>
-              The population dynamics of phyllosphere organisms will be described, as well as how they interact with their host.
-              These microbial populations are influenced by many parameters and interact with each other in the classical schemes
-              of predation,commensalism,parasitism,mutualism and ammensalism. We also examined the routes of colonisation of the
-              aerial parts of the plant by its microbiota at the origin (rainfall, soil…)<sup>3</sup>.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <p>
-              For Softer Shock we will need a host organism, or chassis. Our strategy is to select as a chassis an organism that
-              lives in the target’s phyllosphere.
-              Therefore, these characteristics are very important because they could enhance the properties and effects of our
-              product on the targeted plant if we choose a chassis that comes from the target’s microbiota. By selecting a bacteria
-              native to the target crop’s phyllosphere we will better be able to predict its behavior and know that it can survive
-              in hard conditions, and provide additional beneficial services for our product.
-            </p>
-            <p>
-              We believe that our chassis selection could be made with metagenomics, the science of genome analysis, that permits
-              to know what organisms are in a given environmental sample and what are their functions. For example, we could sample
-              leaves from a vineyard, then analyse the genome of its microbial inhabitants and try to assess their functions, relying
-              as well on proteomics, metabolomics and many other interesting sciences<sup>4</sup>.
-              The analysis will permit us to select the most interesting organism for any vineyard and maximise efficiency and
-              biosafety. We hypothesise indeed that by selecting a phyllosphere specific organism, we will reduce its impact on
-              other environment such as soil and water, because it will not be adapted to them. We hence will need to analyse the
-              target plant surrounding environment to choose an organism that is specific only to its phyllosphere.
-            </p>
-          </div>
-        </div>
-        <figure class=centered>
-          <img class="marged centered no-shadow" src="http://2017.igem.org/wiki/images/0/06/Ionisparis-Applied_design_-_Phyllosphere_and_chassis_selection-_3.png" width="100%"/>
-          <figcaption>Figure 3 : Our chassis selection strategy relies on metagenomics and the identification of the ideal candidate according to the target’s phyllosphere and environment.</figcaption>
-        </figure>
-        <br>
-        <br>
-        <hr>
-        <p>
-          With such science, and as the phyllosphere varies with species and geographic localisation, we want to prove that we could use personalized treatment for each farmer by selecting a specific chassis for each. That way we will adapt to the farmer rather than he adapts to us. In a time of controversies raised by monopolisation of seed market by big companies, such strategy could help raise confidence from the farmers to GMOs and synthetic biology.
-        </p>
-        <p>Click on the following picture to have more details on the phyllosphere and our chassis:</p>
-        <a href= "http://2017.igem.org/wiki/images/a/a4/Ionisparis2017-Applieddesign-phyllosphere-report.pdf">
-          <img class="no-shadow marged bordered marged centered" src="http://2017.igem.org/wiki/images/b/b2/Ionisparis-Applied_design_-_Phyllosphere_and_chassis_selection-_4.jpg" width="100%"/>
-        </a>
-        <hr>
-        <h2><u>References</u></h2>
-        <p><sup>1</sup>Vacher et al., “The Phyllosphere: Microbial Jungle at the Plant–Climate Interface”, Annu. Rev. Ecol. Evol. Syst. 2016. 47:1–24</br>
-          <sup>2</sup>Chelle M. 2005. Phylloclimate or the climate perceived by individual plant organs: What is it? How to model it? What for? New Phytol. 166:781–90</br>
-          <sup>3</sup>Julia A. Vorholt, “Microbial life in the phyllosphere”, Nature Reviews Microbiology 10, 828-840 (December 2012)</br>
-          <sup>4</sup>Committee on Metagenomics: Challenges and Functional Applications., “The New Science of Metagenomics : Revealing the Secrets of Our Microbial Planet”, Washington (DC): National Academies Press (US); 2007</br>
-        </div>
-      </div>
-    </div>
->>>>>>> develop
+    <p>
+      Learning about the phyllosphere was important for us because we wanted to know how our organism would survive on the surface of the leaf. We wanted to predict how the leaf will interact with its microbiota. Indeed, just like any other microbiota, the phyllosphere has a fragile balance and perturbing it with our organisms is the last thing we want. While we were studying the phyllosphere, we had the pleasure of an interview with a phyllosphere expert,  Dr. Corinne Vacher (you can find the interview <a href="http://2017.igem.org/wiki/images/b/b6/Ionis-paris-2017-HP-achievements-Vacher.pdf">here)</a>, who gave us a lot of information and advice.
+    </p>
+
+    <p>
+      It is important to understand as much as we can about the environment we are going to work on to synergise with it and maximise product efficiency.
+    </p>
+
+    <p>
+      The phyllosphere can be a harsh environment, particularly with respect to temperature and solar radiation. Such a microclimate is highly heterogeneous and makes our product difficult to engineer and model without field study <sup>2</sup>
+    </p>
+
+    <figure class=centered>
+        <img class="overview" src="http://2017.igem.org/wiki/images/f/f1/Ionisparis-Applied_design_-_Phyllosphere_and_chassis_selection-_2.png" title="Figure 2"/>
+        <figcaption>Figure 2 : Many variables from both internal and external climates of the leaf influence the phyllosphere microbial community and potentially Softer Shock</figcaption>
+    </figure><br></br>
+
+    <p>
+  We have also analysed the microbial phylums of the phyllosphere (bacteria, eukaryotes, and archaea), showing a great variety of adaptative properties like methanol metabolism and UV stress resistance. Surviving in the environment of the leaf is difficult and requires some unique strategies, hence the microbial population is not homogeneously located on the leaves but rather on nutrient oases <sup>1 3</sup>.
+  Most available nutrients of the phyllosphere are leached by-products of plant metabolism such as carbohydrates and methanol, so the Phyllosphere Microbial Community (PMC) could almost be compared to scavengers that live with the strict minimum <sup>1</sup>.
+  The phyllosphere organisms can provide stimulation through hormone secretion (like auxin), and protect the host from pathogens by forming a physical barrier, just like our gut microbiota <sup>3</sup>.
+    </p>
+
+    <p>
+      The population dynamics of phyllosphere organisms will be described, as well as how they interact with their host. These microbial populations are influenced by many parameters and interact with each other in the classical schemes of predation,commensalism,parasitism,mutualism and ammensalism. We also examined the routes of colonisation of the aerial parts of the plant by its microbiota at the origin (rainfall, soil…) <sup>3</sup>.
+    </p>
+
+    <p>
+      For Softer Shock we will need a host organism, or chassis. Our strategy is to select as a chassis an organism that lives in the target’s phyllosphere.
+      Therefore, these characteristics are very important because they could enhance the properties and effects of our product on the targeted plant if we choose a chassis that comes from the target’s microbiota. By selecting a bacteria native to the target crop’s phyllosphere we will better be able to predict its behavior and know that it can survive in hard conditions, and provide additional beneficial services for our product
+    </p>
+
+    <p>
+      We believe that our chassis selection could be made with metagenomics, the science of genome analysis, that permits to know what organisms are in a given environmental sample and what are their functions. For example, we could sample leaves from a vineyard, then analyse the genome of its microbial inhabitants and try to assess their functions, relying as well on proteomics, metabolomics and many other interesting sciences <sup>4</sup>.
+      The analysis will permit us to select the most interesting organism for any vineyard and maximise efficiency and biosafety. We hypothesise indeed that by selecting a phyllosphere specific organism, we will reduce its impact on other environment such as soil and water, because it will not be adapted to them. We hence will need to analyse the target plant surrounding environment to choose an organism that is specific only to its phyllosphere
+    </p>
+
+    <figure class=centered>
+        <img class="overview" src="http://2017.igem.org/wiki/images/0/06/Ionisparis-Applied_design_-_Phyllosphere_and_chassis_selection-_3.png" title="Figure 3"/>
+        <figcaption>Figure 3 : Our chassis selection strategy relies on metagenomics and the identification of the ideal candidate according to the target’s phyllosphere and environment.</figcaption>
+    </figure><br></br>
+
+    <p>
+      With such science, and as the phyllosphere varies with species and geographic localisation, we want to prove that we could use personalized treatment for each farmer by selecting a specific chassis for each. That way we will adapt to the farmer rather than he adapts to us. In a time of controversies raised by monopolisation of seed market by big companies, such strategy could help raise confidence from the farmers to GMOs and synthetic biology.
+    </p>
+
+    <center>
+      <p>Click on the following picture to have more details on the phyllosphere and our chassis:</p>
+      </p>
+      <a href= "http://2017.igem.org/wiki/images/a/a4/Ionisparis2017-Applieddesign-phyllosphere-report.pdf">
+        <img class="foliar" src="http://2017.igem.org/wiki/images/b/b2/Ionisparis-Applied_design_-_Phyllosphere_and_chassis_selection-_4.jpg" title="Foliar Application report"/>
+      </a>
+    </center>
+
+    <h2><u>References</u></h2>
+    <p><sup>1</sup>Vacher et al., “The Phyllosphere: Microbial Jungle at the Plant–Climate Interface”, Annu. Rev. Ecol. Evol. Syst. 2016. 47:1–24</br>
+      <sup>2</sup>Chelle M. 2005. Phylloclimate or the climate perceived by individual plant organs: What is it? How to model it? What for? New Phytol. 166:781–90</br>
+      <sup>3</sup>Julia A. Vorholt, “Microbial life in the phyllosphere”, Nature Reviews Microbiology 10, 828-840 (December 2012)</br>
+      <sup>4</sup>Committee on Metagenomics: Challenges and Functional Applications., “The New Science of Metagenomics : Revealing the Secrets of Our Microbial Planet”, Washington (DC): National Academies Press (US); 2007</br>
   </body>

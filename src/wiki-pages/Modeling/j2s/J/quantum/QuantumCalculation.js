@@ -3,7 +3,6 @@ Clazz.load (null, "J.quantum.QuantumCalculation", ["JU.P3", "J.quantum.QMAtom", 
 c$ = Clazz.decorateAsClass (function () {
 this.doDebug = false;
 this.bsExcluded = null;
-this.integration = NaN;
 this.voxelData = null;
 this.voxelDataTemp = null;
 this.vd = null;
@@ -41,10 +40,6 @@ Clazz.instantialize (this, arguments);
 Clazz.prepareFields (c$, function () {
 this.originBohr =  Clazz.newFloatArray (3, 0);
 this.stepBohr =  Clazz.newFloatArray (3, 0);
-});
-Clazz.defineMethod (c$, "getIntegration", 
-function () {
-return this.integration;
 });
 Clazz.defineMethod (c$, "initialize", 
 function (nX, nY, nZ, points) {
@@ -91,7 +86,7 @@ function (pt) {
 this.doDebug = false;
 if (this.points == null || this.nX != 1) this.initializeOnePoint ();
 this.points[0].setT (pt);
-this.voxelData[0][0][0] = this.voxelDataTemp[0][0][0] = 0;
+this.voxelDataTemp[0][0][0] = 0;
 this.setXYZBohr (this.points);
 this.processPoints ();
 return this.voxelData[0][0][0];
