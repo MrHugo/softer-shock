@@ -23,9 +23,9 @@
           <div class="colored-container">
             <p><b>Overview</b>:</p>
             <p>Through various experiments, we characterized our different sequences in order to better understand their mechanism :</p>
-              <li>BBa_K2282006 (Sequence 2)</li>
-              <li>BBa_K2282011 (Sequence 7)</li>
-              <li>BBa_K2282013 (Sequence 9)</li>
+              <li>BBa_K2282006</li>
+              <li>BBa_K2282011</li>
+              <li>BBa_K2282013</li>
             <br>
             <p>These experiments are part of the proof of concept we wanted to make on both our temperature-induced expression mechanisms.</p>
             <p>We chose the red fluorescent protein mRFP for the heat-response and the blue chromoprotein AmilCP for the cold-response as visual color reporters. Our goal was hence to induce AmilCP expression at low temperatures only (around 15°C) with BBa_K2282011 and mRFP expression at high temperatures only (above 30°C) with BBa_K2282013. What follows is the characterisation we did on these parts.</p>
@@ -34,13 +34,12 @@
             <p>Overall our goal was, after the proof of concept, to take the temperature-induced expressions systems, both for cold and heat responses, and replace the color reporters sequences by the protective compounds sequences we want to use to protect grapevines against frost and heat damage (see Protective compound in our applied design part LINK).</p>
           </div>
 
-      <h1>Influence of the DS box on amilCP expression</h1>
         <div id="BBa_K2282006">
-        <h2><a href="http://parts.igem.org/Part:BBa_K2282006">BBa_K2282006</a> modelling prediction and optical density</h2>
+      <h1>Influence of the DS box on amilCP expression</h1>
         </div>
           </br>
 
-          <p><b>Objective</b>: Verify that the DS box inclusion inside the amilCP sequence does not impact the protein expression and properties.</p>
+          <p><b>Objective</b>: Verify that the DS box inclusion inside the amilCP sequence does not impact the protein expression and properties.(<a href="http://parts.igem.org/Part:BBa_K2282006">BBa_K2282006</a>)</p>
           <p>The DS box is a 5 amino acids 16’S ribosomal subunit binder located in the coding sequence of every cold-shock protein. As these proteins are expressed considerably at low temperatures, it has been assessed that the DS box was enhancing the translation of the cold-shock proteins mRNA at low temperature. We hence, for our cold-shock proof of concept, decided to insert the DS box in the AmilCP coding sequence and to test its impact on the protein expression and properties before testing the whole BBa_K2282011 construction.</p>
           <p>We modelled the amilCP protein structure in 3D in order to assess where in its sequence the DS box could be inserted without compromising the protein conformation and function. This modeling work led to the assumption that the amilCP structure would not be changed and that the chromophore would still be expressed despite the presence of the DS box.</p>
 
@@ -124,11 +123,11 @@
             <p>E.coli BL21 were transformed with either BBa_K2282005 coding for native amilCP expression, or BBa_K2282006 coding for the amilCP+DSbox. They were cultivated at 37°C for 60 hours and OD588nm was measured every 10min approximately. We took a wild-type, non-transformed bacteria batch as a negative control. From raw OD588nm values were withdrawn the background noise corresponding to photon deviation instead of photon absorption. This was determine by calculating the linear function linking OD588 as a function of OD800. This latter was taken as a bacterial growth indicator, as the commonly used OD600nm was too close to our wavelength of interest and could therefore interact in the results.</p>
 
             <figure class="centered marged">
-              <img class="no-shadow" src="http://2017.igem.org/wiki/images/6/66/Ionis-paris-2017-seq_2_%C3%A0_37%C2%BAC.png" width = "60%" height = "auto" alt="">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/6/66/Ionis-paris-2017-seq_2_%C3%A0_37%C2%BAC.png" width = "70%" height = "auto" alt="">
             </figure>
 
             <figure class="centered marged">
-              <img class="no-shadow" src="http://2017.igem.org/wiki/images/7/7a/Ionisigem-laboratory-seq2-2.jpeg" width = "60%" height = "auto" alt="">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/7/7a/Ionisigem-laboratory-seq2-2.jpeg" width = "70%" height = "auto" alt="">
             </figure>
             <br></br>
             <p><b>Interpretation</b>:</p>
@@ -140,7 +139,7 @@
             </p>
             <br>
             </ol>
-          <h1>Influence of the DS box on amilCP expression</h1>
+          <h1>Influence of the complete cold-responsive system on amilCP expression</h1>
             <p>The cold-shock plasmid was obtained by ligating the BBa_K2282011 part into the pSB1A3 backbone. We chose not to use the chloramphenicol as a selective antibiotic since it has been suspected to interact with the cold-shock response in Escherichia coli (Jiang W. et al, 1993). We characterized this part in order to check the efficiency of the cold-responsive genetic construction contained into BBa_K2282011 to specifically induce protein expression at low temperatures. To do that, we evaluated the amilCP expression when exposed to different temperatures.</p>
 
             <p>Plasmid construction details: LINK experimental results plasmid construction 3</p>
@@ -220,7 +219,7 @@
             <p><b>Results</b>:</p>
 
             <figure class="centered marged">
-              <img src="http://2017.igem.org/wiki/images/c/cd/Ionis-paris-2017-37%C2%BAC_seq_7.png" width = "50%" height = "auto" alt="">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/c/cd/Ionis-paris-2017-37%C2%BAC_seq_7.png" width = "70%" height = "auto" alt="">
             </figure>
 
             <br>
@@ -245,7 +244,7 @@
             <p><b>Results</b>:</p>
 
             <figure class="centered marged">
-              <img class="no-shadow" src="http://2017.igem.org/wiki/images/2/24/Ionisigem-laboratory-seq7petri.jpeg" width = "50%" height = "auto" alt="">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/5/50/Ionisparis_Boites_nicolas.png" width = "50%" height = "auto" alt="">
             </figure>
 
             <br>
@@ -259,6 +258,10 @@
 
             <br>
 
+            <p>We sent our BBa_K2282011 part to GATC and successfully obtained its full sequence.</p>
+
+            <br>
+
             <p><b>References</b>:</p>
 
             <ul>
@@ -269,7 +272,7 @@
 
             <br></br>
             <div id="BBa_K2282013">
-              <h2><a href="http://parts.igem.org/Part:BBa_K2282013">BBa_K2282013</a> mRFP under pL/cI857 system, heat inducible</h2>
+              <h2><a href="http://parts.igem.org/Part:BBa_K2282013">BBa_K2282013</a> mRFP under the heat inducible pL/cI857 system</h2>
             </div>
             <p><b>Objective</b>:</p>
 
@@ -306,14 +309,14 @@
             <p>Parts BBa_K2282012 / BBa_K2282013 /WT at 37°C</p>
 
             <figure class="centered marged">
-              <img class="no-shadow" src="http://2017.igem.org/wiki/images/a/ac/Ionisigem-laboratory-seq9-2.jpeg" alt="">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/a/ac/Ionisigem-laboratory-seq9-2.jpeg" width = "70%" height = "auto" alt="">
             </figure>
 
             <p>First of all, the blue line corresponds to the ratio Abs500/OD800 from the wild-type DH5α. It is meant to represent the background noise that the Tecan measured. What we can see here is that both BBa_K2282012 and BBa_K2282013 mRFPs are expressed at 37°C, which is consistent. At 37°C the cI857 repressor has been reported to be denatured (switch from dimer to monomer) and no longer binds to the pL promoter, permitting the mRFP expression.</p>
             <p>Parts BBa_K2282012 / BBa_K2282013 /WT at 18°C :</p>
 
             <figure class="centered marged">
-              <img class="no-shadow" src="http://2017.igem.org/wiki/images/c/c2/Ionisigem-laboratory-seq9-3.jpeg" alt="">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/c/c2/Ionisigem-laboratory-seq9-3.jpeg" width = "70%" height = "auto" alt="">
             </figure>
 
             <p>Here several information are to be interpreted. First both BBa_K2282012 and BBa_K2282013 are expressed at 18°C. This is not consistent with what we said previously and confirms the negative visual results we had previously. This shows hence that BBa_K2282013 is not working properly. This could be due to the biobrick construction itself. Indeed, in BBa_K2282013, the reading frame of the cI857 is in the 5’ 3’ orientation, whereas the mRFP reading frame is in the 3’5’ orientation. This had to be done because IDT could not support the double biobrick construction. Both cI857 and mRFP from BBa_K2282013 had therefore to share the same terminator. </p>
