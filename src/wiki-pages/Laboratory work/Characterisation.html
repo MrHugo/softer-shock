@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/template.css">
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <title>Part characterization</title>
+  </head>
+  <body>
+    <h1 class="centered">
+      <img class="logo-vigne no-shadow" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg"></img>
+      Notebook
+      <img class="logo-vigne no-shadow" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg"></img>
+    </h1>
+    <div class="parallax-bandeau marged" style="background-position: 70% 0; background-image: url('http://2017.igem.org/wiki/images/thumb/4/41/Ionisparis-LABORATORY_WORK-COMPLETE_NOTEBOOK-head.jpg/1200px-Ionisparis-LABORATORY_WORK-COMPLETE_NOTEBOOK-head.jpg')"></div>
+    <div class="igem-container">
+      <div class="adn-left"></div>
+      <div class="adn-right"></div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="colored-container">
+            <p><b>Overview</b>:</p>
+            <p>Through various experiments, we characterized our different sequences in order to better understand their mechanism :</p>
+              <li>BBa_K2282006 (Sequence 2)</li>
+              <li>BBa_K2282011 (Sequence 7)</li>
+              <li>BBa_K2282013 (Sequence 9)</li>
+            <p>These experiments are part of the proof of concept we wanted to make on both of our temperature-induced expression mechanisms. We chose mRFP (for the heat-response) and AmilCP (for the cold-response) because they are useful color reporters. Our goal was hence to induce AmiLCP expression at low temperatures (around 15°C) only with BBa_K2282013 and mRFP expression at high temperatures (above 30°C) only with BBa_K2282013. What follows is the characterisation we did on these parts as well as BBa_K2282006.</p>
+            <p>As a reminder the cold-induced AmilCP expression is using a RNA thermometer mechanism based on cold-shock proteins, DNA chaperone that are expressed at low temperatures highly. The heat-induced expression of mRFP is using the system cI857 repressor-pL promoter. The repressor is constitutively expressed and binds to the pL promoter under 30°C in a dimeric form, and does not bind the pL promoter below 30°C (monomeric form).</p>
+            <p>Overall our goal was, after the proof of concept, to take the temperature-induced expressions systems, both for the cold and heat response, and replace the color reporters sequences by the protective compounds sequences we want to use to protect grapevines against frost and heat damage (see Protective compound in our applied design part LINK).</p>
+          </div>
+
+      <h1>Influence of the DS box on amilCP expression</h1>
+
+        <h2><a href="http://parts.igem.org/Part:BBa_K2282006">BBa_K2282006</a> modelling prediction and optical density</h2>
+          </br>
+
+          <p><b>Objective</b>: Verify that the DS box inclusion inside the amilCP sequence does not impact the protein expression and properties.</p>
+          <p>The DS box is a 5 amino acids 16’S ribosomal subunit binder located in the coding sequence of every cold-shock protein. As these proteins are expressed considerably at low temperatures, it has been assessed that the DS box was enhancing the translation of the cold-shock proteins mRNA at low temperature. We hence, for our cold-shock proof of concept, decided to insert the DS box in the AmilCP coding sequence and to test its impact on the protein expression and properties before testing the whole BBa_K2282011 construction.</p>
+          <p>We modeled the amilCP protein structure in 3D in order to assess where in its sequence the DS box could be inserted without compromising the protein conformation and function. This modeling work led to the assumption that the amilCP structure would not be changed and that the chromophore would still be expressed despite the presence of the DS box. </p>
+
+          <figure>
+            <img class="centered no-shadow" style = "background-color:#FFFFFF" width = "80%" height = "auto" src="http://2017.igem.org/wiki/images/3/30/Ionisparis2017-modelling-amilcp-overview.png"></img>
+            <figcaption>Figure 1 : Modelisation of AmilCP with the DS box inserted in N terminal showing no modification of the protein structure and chromophore</figcaption>
+          </figure>
+          </br>
+
+          <p>This helped us to insert the DS box at the right position to avoid any disturbance of the protein beta-sheet and chromophore and modify its function and color. If you want to see more about our modelling work, you can go there LINK page modelling</p>
+          <p>We wanted to confirm this hypothesis by performing laboratory experiments. </p>
+
+          <br>
+
+          <p><b>Method</b>:</p>
+          <p>After having constructed our recombinant plasmid composed of the part BBa_K2282006 ligated into the pSB1C3 backbone, we compared the visual aspect and the expression rate of amilCP in comparison with the same plasmid without the DS box.
+
+          You can find the complete detailed characterization protocols on our dedicated section !
+          </p>
+            [LINK vers les protocoles]
+          <br>
+
+          <p><b>Results</b>:</p>
+          <p>DH5-α E.Coli bacteria were transformed with plasmids containing either part BBa_K2282005 containing native amilCP or part BBa_K2282005 containing amilCP added with the DS box.</p>
+          <br>
+          <ol>
+            <b><li>Impact of the DS box on amilCP visual aspect</li></b>
+            <p>We made a first test by incubating the transformed bacteria on agar LB medium plates, added with chloramphenicol, at 37°C for 3 days. We then compared the visual input to a native amilCP reference.</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/c/c8/Ionisparis2017-laboratorywork-experimentalresults-12agar.png" width = "50%" height = "auto" alt="">
+              <figcaption>Figure 2: DH5-α E.Coli transformed with a. pSB1C3-BBa_K2282005 expressing amilCP+DSbox, b. pSB1C3-BBa_K2282005 expressing native amilCP, and cultivated on LB agar plates supplemented with chloramphenicol at 37°C for 3 days</figcaption>
+            </figure>
+
+            <p>The blue coloration appears similar in both conditions. This first result suggests that the presence of a DS box inside the amilCP sequence does not have any impact on the colour intensity of this protein. This is in accordance with the modeling work, which suggested that the functional structure of the protein was not altered.</p>
+            <p>We then incubated the same transformed bacteria in liquid cultures at 37°C. The results were observed after 7 days.</p>
+
+            <p>Before centrifugation:</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/a/a3/Ionisparis2017-laboratorywork-experimentalresults-liq12.png" width = "30%" height = "auto" alt="">
+              <figcaption >Figure 3: DH5-α E.Coli transformed with a. pSB1C3-BBa_K2282005 expressing amilCP+DSbox, b. pSB1C3-BBa_K2282005 expressing native amilCP, and cultivated on LB liquid medium supplemented with chloramphenicol at 37°C for 7 days</figcaption>
+            </figure>
+
+            <p>Once again, the coloration seems comparable between the two bacterial batches.</p>
+
+            <p>Incubated for either 18h or 42h into liquid cultures, two bacteria samples were collected and pelleted by a 1 min centrifugation at 13000rpm. The resulting pellets were observed and the blue coloration visually compared at 37°C and 15°C.</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://parts.igem.org/wiki/images/c/c8/Ionisparis_seq-2_18h.jpg" width = "60%" height = "auto" alt="">
+            </figure>
+
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://parts.igem.org/wiki/images/c/c8/Ionisparis_seq-2_18h.jpg" width = "60%" height = "auto" alt="">
+            </figure>
+
+            <p>The results tend to show a lighter blue color of the amilCP with the DS box compared to the native protein, irrespective of the incubation temperature or duration. This first suggests that the DS box alone does not have any enhancing activity on the cold protein expression. Moreover, this color difference was not observable on petri dishes and bacterial suspensions. We therefore had to further explore the amilCP properties in both cases to verify that the same absorbance properties were conserved with the BBa_K2282006 part. </p>
+
+            <br>
+
+            <b><li>Impact of the DS box on amilCP absorbance properties</li></b>
+
+            <p>After an overnight bacterial culture at 37°C, the protein content was extracted and the absorbance spectrum of the obtained solution was measured. We corrected the values obtained with a blank consisting of wild-type culture extracted proteins. The results are presented in the following graphs:</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://parts.igem.org/wiki/images/thumb/e/ea/IMG_20171010_192707.jpg/800px-IMG_20171010_192707.jpg" width = "50%" height = "auto" alt="">
+              <figcaption>Figure 4: Absorption spectrum of the native AmilCP from part BBa_K2282005</figcaption>
+            </figure>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://parts.igem.org/wiki/images/thumb/8/8f/IMG_20171010_192933.jpg/800px-IMG_20171010_192933.jpg" width = "50%" height = "auto" alt="">
+              <figcaption>Figure 5: Absorption spectrum of the DS box-added AmilCP from part BBa_K2282006</figcaption>
+            </figure>
+
+            <p>The native amilCP as well as the amilCP added with the DS box both give the same absorbance peak at 588nm. This is consistent with the existing data (<a href="http://parts.igem.org/Part:BBa_K592009">BBa_K592009</a>), and shows that the DS box does not alter the chromoprotein absorption profile, and therefore its color properties. This is in accordance with the DS box location outside the chromophore domain. We therefore made the hypothesis that the slight color difference observed between pellets might be due to a lower protein expression. This was verified through a kinetics measure of OD588nm, representative of the amilCP expression, at different temperatures. </p>
+
+            <br>
+
+            <b><li>Impact of the DS box on amilCP expression rate</li></b>
+            <p>E.coli BL21 were transformed with either BBa_K2282005 coding for native amilCP expression, or BBa_K2282006 coding for the amilCP+DSbox. They were cultivated at 37°C for 60 hours and OD588nm was measured every 10min approximately. We took a wild-type, non-transformed bacteria batch as a negative control. From raw OD588nm values were withdrawn the background noise corresponding to photon deviation instead of photon absorption. This was determine by calculating the linear function linking OD588 as a function of OD800. This latter was taken as a bacterial growth indicator, as the commonly used OD600nm was too close to our wavelength of interest and could therefore interact in the results.</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/6/66/Ionis-paris-2017-seq_2_%C3%A0_37%C2%BAC.png" width = "60%" height = "auto" alt="">
+            </figure>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/7/7a/Ionisigem-laboratory-seq2-2.jpeg" width = "60%" height = "auto" alt="">
+            </figure>
+            <br></br>
+            <p><b>Interpretation</b>:</p>
+            <p>First of all, both bacterial batches express functional amilCP as the signal at OD588nm shows. This confirm that the presence of the DS box does not impact the protein properties.
+              The same protein expression pattern is observable at both temperatures, with an overall lower expression at 18°C. This predictable result confirms the absence of enhancing properties on cold protein expression from the DS box alone.
+              Despite the presence of the right protein, these curves also show a slightly better amilCP expression without the DS box, the difference being more pronounced at 37°C. This result is in accordance with our hypothesis that the presence of the DS box influences the amilCP expression rate, and may be explained by a perturbation of amilCP mRNA folding.
+              Originally, the DS box is suggested to enhance mRNA translation during cold shocks (Etchegaray J.P. & Inouye M., 1999). However, those results tend to show that without the whole cold-inducing machinery, the DS box does not seem to operate its enhancing action. Further characterization of our complete cold-shock plasmid showed its efficiency through a good protein expression at 15°C and not 37°C. This proves that this lower expression rate possibly induced by the presence of the DS box is not problematic when combined with the CspA promoter and 5’UTR sequence, allowing its activation.
+              Finally, we attempted to sequence this part but did not obtain any satisfying result.
+            </p>
+            <br>
+            </ol>
+          <h1>Influence of the DS box on amilCP expression</h1>
+            <p>The cold-shock plasmid was obtained by ligating the BBa_K2282011 part into the pSB1A3 backbone. We chose not to use the chloramphenicol as a selective antibiotic since it has been suspected to interact with the cold-shock response in Escherichia coli (Jiang W. et al, 1993). We characterized this part in order to check the efficiency of the cold-responsive genetic construction contained into BBa_K2282011 to specifically induce protein expression at low temperatures. To do that, we evaluated the amilCP expression when exposed to different temperatures.</p>
+
+            <p>Plasmid construction details: LINK experimental results plasmid construction 3</p>
+
+            <h2><a href="http://parts.igem.org/Part:BBa_K2282011">BBa_K2282011</a> tests at low and high temperatures - visual observations</h2>
+
+            <br>
+
+            <p><b>Method</b>:</p>
+            <p>Transformed bacteria were pre-incubated at 37°C until the O.D.600nm reached 0.5. Then they were cultured at different temperatures (12°C, 15°C, 20°C, 27°C) with a control at 37°C for different incubation times (18h, 20h, 42h) (LINK protocol).</p>
+
+            <br>
+
+            <p><b>Results</b>:</p>
+            <p>After centrifuging bacteria for 1 min at 13000 rpm, the pellet of bacteria transformed with BBa K2282011 appeared blue at 15°C but not at 37°C. These results were in accordance with the hypothesis that the 5’UTR coupled with the up element and the DS box allow protein translation only at low temperature and stop translation at high temperature.</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://parts.igem.org/wiki/images/8/82/Ionisparis_seq7_15C_18h.png" width = "50%" height = "auto" alt="">
+              <figcaption>Figure 6: pellets of bacteria transformed with BBa K2282011, after incubation 18h at 37°C (on the left) and 18h at 15°C (on the right).</figcaption>
+            </figure>
+
+            <p>We tried a longer incubation time of 42h to see any change in intensity but it seemed that there was no difference. Further experiments were only carried out for 20h, and the same protocols have been followed.</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/e/e3/Ionisparis_seq7_15C_42h.jpg" width = "50%" height = "auto" alt="">
+              <figcaption>Figure 7: pellets of bacteria transformed with BBa K2282011, after incubation 42h at 37°C (on the left) and 42h at 15°C (on the right).</figcaption>
+            </figure>
+
+            <p>At 20°C after 20h, bacteria transformed with BBa K2282011 were also blue compared to the wild type bacteria. This result shows the cold response system doesn’t react at a precise temperature. It’s efficiency likely increases as much as temperature decreases.</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://parts.igem.org/wiki/images/thumb/4/44/Ionisparis_seq7_20C_20h.png/800px-Ionisparis_seq7_20C_20h.png" width = "50%" height = "auto" alt="">
+              <figcaption>Figure 8: pellets of bacteria transformed with BBa K2282011, after incubation 20h at 20°C (on the left) and 20h at 37°C (on the right).</figcaption>
+            </figure>
+
+            <p>We tried to determine if a shift occurs. So the experiment was also carried out at 27°C. Bacteria were slightly blue for 27°C incubation time and almost no blue color for the control. This result show between 20°C and 27°C the activity of the cold response system changes considerably.</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://parts.igem.org/wiki/images/thumb/4/44/Ionisparis_seq7_20C_20h.png/800px-Ionisparis_seq7_20C_20h.png" width = "50%" height = "auto" alt="">
+              <figcaption>Figure 9: pellets of bacteria transformed with BBa K2282011, after incubation 20h at 27°C (on the left) and 20h at 37°C (on the right).</figcaption>
+            </figure>
+
+            <br>
+
+            <p>The cold shock system allow to produce at lower temperature than 15°C as shows our experiment performed at 12°C.</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://parts.igem.org/wiki/images/d/d6/Ionisparis_Seq_7_12C_20h.png" width = "50%" height = "auto" alt="">
+              <figcaption>Figure 10: pellets of bacteria transformed with BBa K2282011, after incubation 20h at 12°C (on the left) and 20h at 37°C (on the right).</figcaption>
+            </figure>
+
+            <br>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/b/b1/Ionisparis_Seq_7_12%2C15%2C20%2C27%2C37C_20h_control.png" width = "50%" height = "auto" alt="">
+              <figcaption>Figure 11: pellets of DH5α transformed with BBaK2282011, after incubation 20h at respectively 12°C, 15°C, 20°C, 27°C and 37°C (on the left), pellets of DH5α transformed with BBaK2282005 after incubation 20h at respectively 15°C and 37°C (middle), and pellets of wild type DH5α (on the right).</figcaption>
+            </figure>
+
+            <br></br>
+
+            <p><b>Interpretation</b>:</p>
+
+            <p>Visual observations confirmed that our part BBa_K2282011 works and allows efficient proteins production only at temperature starting from about 20°C, until low temperature as 12°C. Moreover the cold response system blocks greatly but not completely the protein production at higher temperature above 27°C.</p>
+            <p>Our cold induction system is an RNA thermometer and the production of proteins depends on mRNA folding which is more stable at low temperature than at high temperature. According to our characterisation results the stability seems to increase progressively as the same time the temperature is decreasing. No shift is appeared, consequently the stability of mRNA seems to be not increased at a precise temperature.</p>
+            <p>Considering the material that was available in our lab, amilCP was a useful reporter gene for observing the results with the naked eye. But it was complicated to perform OD measurements without extract proteins because amilCP has its maximum of absorbance at 588nm near to 600nm, the wavelength used to measure the concentration of bacteria.</p>
+            <br></br>
+            <h2><a href="http://parts.igem.org/Part:BBa_K2282011">BBa_K2282011</a> tests at high temperature - OD measurements</h2>
+
+            <br>
+
+            <p><b>Method</b>:</p>
+
+            <p>Results were obtained using the same protocol as previously but only 37°C incubation was performed because the microplate reader was not able to cool down the temperature below room temperature. O.D.588 measurements were done every 10mn. We compared AmilCP expression between wild type E. Coli, transformed with cold shock plasmid and transformed with constitutive AmilCP inducing plasmid.</p>
+
+            <br>
+
+            <p><b>Results</b>:</p>
+
+            <figure class="centered marged">
+              <img src="http://2017.igem.org/wiki/images/c/cd/Ionis-paris-2017-37%C2%BAC_seq_7.png" width = "50%" height = "auto" alt="">
+            </figure>
+
+            <br>
+
+            <p><b>Interpretation</b>:</p>
+
+            <p>The results show that the cold shock plasmid (BL21 seq7 abs588/OD800) induces lower expression at 37°C compared to the constitutive one (BL21 seq1 abs588/OD800). It is in accordance with the CspA construction and the previous picture.</p>
+            <p>Note: O.D.800 has been used as 588 was too much close to O.D.600. For more details you can check our laboratory work in the <a href="http://2017.igem.org/Team:IONIS-PARIS">wiki</a></p>
+
+            <br>
+
+            <h2>Complementary characterisation - tests of K12, Bl21 and DH5ɑ E.coli strains and visual observations on solid medium</h2>
+
+            <br>
+
+            <p><b>Method</b>:</p>
+
+            <p>Our advisor, Nicolas Cornille, had the opportunity to test our sequences with another protocol than ours. He incubated colonies transformed with the   BBa_K2282005 (constitutive AmilCP), BBa_K2282006 (constitutive AmilCP+DsBox), BBa_K2282011 (final cold-response construction). He used three E.coli strains : K12, DH5α and BL21. He incubated the strains at 37°C, then switched to cold-incubation at 6°C in a fridge.</p>
+
+            <br>
+
+            <p><b>Results</b>:</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/2/24/Ionisigem-laboratory-seq7petri.jpeg" width = "50%" height = "auto" alt="">
+            </figure>
+
+            <br>
+
+            <p><b>Interpretation</b>:</p>
+
+            <p>The direct comparison shows interesting results that are in accordance with what we showed in our cold-response characterisation in erlenmeyers. It complements our results because it shows that the cold response is triggered in solid phase culture as well.</p>
+            <p>We can see the permanent expression of AmilCP for BBa_K2282005 and BBa_K2282006. However AmilCP from BBa_K2282011 is not expressed after the 37°C temperature, but light blue color is visible in the dishes after 3-4 days in the fridge at 6°C.
+              It also displays interesting variations according to the E.coli strains we used. Indeed, , BBa_K2282011  transformed BL21, which are protein-expression specialised E .coli, are more colored than K12 and DH5α. DH5α are usually used to produce plasmids in great quantity but note for proteins, and K12 are bacteria very close to the original WT E.coli. This shows that for our project we could have used BL21 for our cold-response characterisation, because it could have made the characterisation easier.
+            </p>
+
+            <br>
+
+            <p><b>References</b>:</p>
+
+            <ul>
+              <li>Phadtare S, Severinov K. Extended −10 Motif Is Critical for Activity of the cspA Promoter but Does Not Contribute to Low-Temperature Transcription. Journal of Bacteriology. 2005;187(18):6584-6589. doi:10.1128/JB.187.18.6584-6589.2005.</li>
+              <li>Masanori Mitta et al, Deletion analysis of cspA of Escherichia coli requirement of the AT-rich UP element for cspA transcription and the downstream box in the coding region for its cold shock induction, Molecular Microbiology (1997) 26(2), 321–335</li>
+              <li>C. Barria et al, “Bacterial adaptation to cold”, Microbiology (2013), 159, 2437–2443</li>
+            </ul>
+
+            <br></br>
+
+            <h2><a href="http://parts.igem.org/Part:BBa_K2282013">BBa_K2282013</a> mRFP under pL/cI857 system, heat inducible</h2>
+
+            <p><b>Objective</b>:</p>
+
+            <p>We wanted to study if our part BBa_K2282013 worked as predicted. This was the second step of our proof of concept : expressing a specific compound (here the chromoprotein mRFP) at high temperatures only (above 30°C).</p>
+            <p>We decided to sequence the biobrick BBa_K2282013 by GATC in order to testifiy the presence of the whole integrity of the sequence. The results were successful, the part BBa_K2282013 was well sequenced. See the results on the registry <a href="http://parts.igem.org/Part:BBa_K2282013">here</a>.</p>
+            <p>Characterisation of BBa_K2282013 (pL-mRFP regulated by cI857 repressor) was done with the control  BBa_K2282012 (pL-mRFP constitutive)</p>
+
+            <br>
+
+            <p><b><u>Characterisation of  BBa_K2282013 in overnight culture of LB medium with chloramphenicol at 27°C and 37°C</u></b></p>
+            <p>We first characterized our part by doing a culture of transformed E.coli DH5ɑ with BBa_K2282013 (pL-mRFP regulated by cI857 repressor) and BBa_K2282012 (constitutive pL-mRFP) at 37ºC. The culture was done in erlenmeyers of 50ml of LB chloramphenicol.</p>
+            <p>We waited until OD600 reached 0,5. After that we split each culture into two erlenmeyers of 20ml. One was incubated at 27ºC and the second one was incubated at 37ºC. The system is supposed to be completely shut down at 30°C so we assumed that 27°C was a great temperature to test.</p>
+            <p>One important detail was that mRFP expression was already observed before spliting the cultures into two. However the expression was low enough for us to make a difference 20h later and assess whether or not more mRFP had been expressed.</p>
+            <p>After 20h00 incubation the results were not successful, both colonies were red at 27°C and 37ºC. The BBa_K2282013 transformed culture actually displayed more mRFP expression than the BBa_K2282012 control culture. This was hence a negative result.</p>
+
+            <br>
+
+            <p><b><u>Characterisation of BBa_K2282013 on chloramphenicol-coated petri dishes at 25 and 37°C</u></b></p>
+            <p>We tried to change the characterization protocol by making our bacterial transformation with the parts BBa_K2282013 and BBa_K2282012 and incubate them at 25ºC in petri dishes with chloramphenicol. The transformation succeeded and we obtained white colonies, we left them at 25°C and observed the results the next day :</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/thumb/8/81/Ionis-paris-2017-R%26D_characterization_seq_9.jpeg/450px-Ionis-paris-2017-R%26D_characterization_seq_9.jpeg" alt="">
+              <figcaption>Figure 12: BBa_K2282013 and BBa_K2282012 growth and mRFP expression at 25ºC </figcaption>
+            </figure>
+
+            <p>Again the results proved that the BBa_K2282013 transformed colonies displayed as much color as the BBa_K2282012 transformed colonies, showing again that our construct did not work.</p>
+
+            <br>
+
+            <p><b><u>Kinetic of mRFP expression in E.coli transformed with BBa_K2282013 and BBa_K2282012 at 37°C and 18°C.</u></b></p>
+            <p>We tried again to characterise the sequence with yet another protocol and the help of our advisor Nicolas Cornille, who permitted us to make a kinetic of mRFP expression for both BBa_K2282013 and BBa_K2282012 at 18 and 37°C this time (to lower even more the temperature).</p>
+            <p>As a reminder, The BBa_K2282012 mRFP is supposed to be expressed at any temperatures whereas the BBa_K2282013 mRFP expression is meant to be regulated by the cI857 repressor and expressed above 30°C.</p>
+            <p>We did a kinetic of mRFP expression for both BBa_K2282013 and BBa_K2282012 at 18°C and 37°C to know if our system worked. We needed these data because of the negative visual results we had previously in our lab. Our advisor Nicolas Cornille used a Tecan microplate reader. We could not use the fluorescence measurement  because the device did not have the module to do so. The absorbance measurement was hence did at 500 nm for the mRFP and the bacterial concentration was assessed with OD800. The device did measurements every 12 minutes during 60 hours. Here are the results :</p>
+            <p>Parts BBa_K2282012 / BBa_K2282013 /WT at 37°C</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/a/ac/Ionisigem-laboratory-seq9-2.jpeg" alt="">
+            </figure>
+
+            <p>First of all, the blue line corresponds to the ratio Abs500/OD800 from the wild-type DH5α. It is meant to represent the background noise that the Tecan measured. What we can see here is that both BBa_K2282012 and BBa_K2282013 mRFPs are expressed at 37°C, which is consistent. At 37°C the cI857 repressor has been reported to be denatured (switch from dimer to monomer) and no longer binds to the pL promoter, permitting the mRFP expression.</p>
+            <p>Parts BBa_K2282012 / BBa_K2282013 /WT at 18°C :</p>
+
+            <figure class="centered marged">
+              <img class="no-shadow" src="http://2017.igem.org/wiki/images/c/c2/Ionisigem-laboratory-seq9-3.jpeg" alt="">
+            </figure>
+
+            <p>Here several information are to be interpreted. First both BBa_K2282012 and BBa_K2282013 are expressed at 18°C. This is not consistent with what we said previously and confirms the negative visual results we had previously. This shows hence that BBa_K2282013 is not working properly. This could be due to the biobrick construction itself. Indeed, in BBa_K2282013, the reading frame of the cI857 is in the 5’ 3’ orientation, whereas the mRFP reading frame is in the 3’5’ orientation. This had to be done because IDT could not support the double biobrick construction. Both cI857 and mRFP from BBa_K2282013 had therefore to share the same terminator. </p>
+            <p>Maybe the transcription of the mRFP induced a conformational change in the double terminator we used (BBa_B0015), preventing the transcription of cI857 or considerably lowering it to a point where the repressor can’t act anymore. This is unlikely however. The system with CI857 has been tested by other iGEM teams but with another promoter called the pR promoter. The system seems to work with the pR promoter. It is possible that the pL promoter does not have the same affinity for cI857 as the pR promoter.</p>
+            <p>We can see in any case that BBa_K2282012 works fine at both 37°C and 18°C. Another information is that both mRFP from BBa_K2282012 and BBa_K2282013 are less expressed at 18°C than at 37°C, which is consistent judging that E.coli growth and protein expression is not optimal at 18°C. The considerable standard deviation and the apparent lowering of the DH5ɑ WT curve is due to little evaporation of the culture medium.</p>
+
+            <br>
+
+            <p><b><u>Conclusion of the characterisation :</u></b></p>
+            <p>The part BBa_K2282013 does not work as intended. The protein mRFP is expressed at both low and high temperatures.
+               We do not recommend any iGEM team to use BBa_K2282013 for its initial purpose. BBa_K2282012 can however be used as a control without problem.
+               This potentially invalidate our 2 in 1 system but we still have faith in a heat-activated system. </p>
+            <p>For instance the part<a href="http://parts.igem.org/Part:BBa_K608351"> BBa_K608351</a> has been characterised and proved to work well. The promoter used in this part was pR and not pL. We could have used this part for our project and it should have worked well, hence Softer Shock is not endangered by our negative results with BBa_K2282013. </p>
+            <p>Seeing that BBa_K2282013 did not work properly, we thought about a potential reconversion of the part given that the red color displayed by the BBa_K2282013 transformed colonies was very easily distinguishable. The cI857 repressor is a valuable gene and in the future iGEM teams might want to characterize its expression. We hence thought of BBa_K2282013 as a cI857 gene reporter. Indeed, in the construction, both genes are linked, hence when one is expressed, that means that the whole biobrick is in the expressing organism, hence that the other linked sequence is in the organism. Effectively this will permit teams willing to work on cI857 to select quickly their BBa_K2282013 transformed bacteria on plates, without the need of a protein tag for cI857. The red colonies on plates will hence mandatorily have the ci857 gene, permitting to skip the long and costly PCR colony step. he system has of course its limit.</p>
+            <p>Expression of mRFP does not guarantee expression of cI857, as contrarily to a protein tag. We nevertheless thought it could be a great reconversion for this part. We used a lot color reporters in our lab experiments this summer and we found them very useful, so this can be seen as an improvement of the cI857 part <a href="http://parts.igem.org/wiki/index.php/Part:BBa_C0051">BBa_C0051</a>.</p>
+
+            <br>
+
+            <p><b>References</b>:</p>
+            <ul>
+              <li>Winstanley et al., “Differential regulation of lambda pL and pR promoters by a cI repressor in a broad-host-range thermoregulated plasmid marker system”, Appl Environ Microbiol. 1989 Apr; 55(4): 771–777</li>
+              <li>Valdez-Cruz et al., “Production of recombinant proteins in E. coli by the heat inducible expression system based on the phage lambda pL and/or pR promoters”, Microb Cell Fact. 2010; 9: 18.</li>
+              <li>Jiang W. et al, Chloramphenicol induces the transcription of the major cold shock gene of Escherichia coli, cspA, Journal of Bacteriology 175(18): pp. 5824-5828, 1993</li>
+              <li>Etchegaray J.P. & Inouye M., A sequence downstream of the initiation codon is essential for cold shock induction of cspB of Escherichia coli, Journal of Bacteriology 181(18), pp. 5852-5854, 1999</li>
+
+            </ul>
+
+            <hr>
+            <br>
+  </body>
+</html>
