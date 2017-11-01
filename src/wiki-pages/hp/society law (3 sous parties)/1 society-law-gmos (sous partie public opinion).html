@@ -9,6 +9,21 @@
 
 <style>
 
+/* Sommaire */
+
+.table-of-contents {
+  font-size: 20px;
+}
+
+.table-of-contents a {
+  color: #000 !important;
+}
+
+.colored-border {
+  padding: 15px;
+  border: 3px solid #f59d36;
+}
+
 /* Part 1 */
 
 .tile-marged {
@@ -42,12 +57,18 @@ video{
   <div class="parallax-bandeau marged" style="background-image: url('http://2017.igem.org/wiki/images/2/25/Ionis-paris-hp-banniere.png')"></div>
 
   <div class="igem-container">
+    <div class="marged table-of-contents">
+      <div class="colored-border">
+      <ul>
+        <li><p><a href="#po"><u>Public opinion</u></a></p></li>
+        <li><p><a href="#gmo"><u>GMO's Regulation</u></a></p></li>
+        <li><p><a href="#im"><u>Interactive map</u></a></p></li>
+        <li><p><a href="#dwe"><u>Dialogue with experts</u></a></p></li>
+      </ul>
+    </div>
+    </div>
     <div class="row">
-      <div class="sommaire">
-        <!--TODO : sommaire -->
-
-      </div>
-      <h2 class="marged">Public Opinion</h2>
+      <h2 id="po" class="marged"><span class="blue-text"><b>Public Opinion</b></span></h2>
       <div class="col-md-6">
       </div>
       <div class="col-md-6">
@@ -58,7 +79,7 @@ video{
               <img class="no-shadow" style="width: 100px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/1241-200.png" alt="">
             </div>
             <div class="col-md-10">
-              <h2 class= "blue-text">The objectives of the survey</h2>
+              <h3 class= "blue-text">The objectives of the survey</h3>
               <p>These surveys will provide information to complement our
                 <span class="blue-text">Interactive Map</span>. It will help to understand
                 how GMOs are perceived by the general public, but also how people are
@@ -75,7 +96,7 @@ video{
               <img class="no-shadow" style="width: 100px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/1241-200.png" alt="">
             </div>
             <div class="col-md-10">
-              <h2 class= "orange-text">The intended audience</h2>
+              <h3 class= "orange-text">The intended audience</h3>
               <p>
                 Concerning the survey, the target audience is the
                 <span class="orange-text">general population</span> in order to have
@@ -92,7 +113,7 @@ video{
               <img class="no-shadow" style="width: 100px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/1241-200.png" alt="">
             </div>
             <div class="col-md-10">
-              <h2 class= "blue-text">Translation work</h2>
+              <h3 class= "blue-text">Translation work</h3>
               <p>We translated our survey into
                 <span class="blue-text">9 languages</span> to allow a maximum people to
                 answer it. We made versions in : English, Spanish, Portuguese, Italian,
@@ -115,7 +136,7 @@ video{
               <img class="no-shadow" style="width: 100px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/1241-200.png" alt="">
             </div>
             <div class="col-md-10">
-              <h2 class= "orange-text">Distribution of the survey</h2>
+              <h3 class= "orange-text">Distribution of the survey</h3>
               <p>The distribution of the survey was done through
                 <span class="orange-text">iGEM teams</span>. They first had to complete the
                 survey before sending it to their families and friends. Thanks to their help,
@@ -133,7 +154,7 @@ video{
               <img class="no-shadow" style="width: 100px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/1241-200.png" alt="">
             </div>
             <div class="col-md-10">
-              <h2 class= "blue-text">The type of information to produce</h2>
+              <h3 class= "blue-text">The type of information to produce</h3>
               <ul>
                 <li>The opinion of GMOs according to country, age or gender</li>
                 <li>The <span class="blue-text">perception</span> of our product</li>
@@ -150,7 +171,7 @@ video{
               <img class="no-shadow" style="width: 100px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/1241-200.png" alt="">
             </div>
             <div class="col-md-10">
-              <h2 class="orange-text">The conditions of satisfaction</h2>
+              <h3 class="orange-text">The conditions of satisfaction</h3>
               <p>We are looking for information  to answer the major problems found by the
                 already existing websites on GMOs. We want to make our platform active and
                 attractive for young, researchers and curious people.
@@ -172,7 +193,7 @@ video{
               <img class="no-shadow" style="width: 100px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/1241-200.png" alt="">
             </div>
             <div class="col-md-10">
-              <h2 class= "blue-text">The statistical analysis</h2>
+              <h3 class= "blue-text">The statistical analysis</h3>
               <p>As said above, we selected the surveys with around 100 answers. Also, 12
                 out of the 23 questions were analysed to get the population opinion, to make
                 hypothesis whether or not our project could be implemented in the country and
@@ -264,8 +285,8 @@ video{
     </div>
     <div class="row">
       <div class="col-md-12">
-        <h2>GMO's Regulation</h2>
-
+        <h2 id="gmo" class="marged"><span class="blue-text"><b>GMO's Regulation</b></span></h2>
+        <hr>
         <div class="video">
           <p>
             <video class="centered" src="http://2017.igem.org/wiki/images/1/13/Bosquet_video_-_Human_Practices.mp4" controls />
@@ -414,7 +435,8 @@ video{
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <h2>INTERACTIVE MAP </h2>
+                        <h2 id="im" class="marged"><span class="blue-text"><b>Interactive map</b></span></h2>
+                        <hr>
                         <div class="video">
                           <p>
                             <video class="centered" src="http://2017.igem.org/wiki/images/9/98/Human_practices_-_Society%2C_law_and_GMO_-_Website_-Video_milanovic_-.mp4" controls />
@@ -440,7 +462,7 @@ video{
                         </p>
 
                         <br>
-                        <h1 class="centered" style="margin: 0"> How was the interactive map coded ?</h1>
+                        <h3 class="centered" style="margin: 0"> How was the interactive map coded ?</h3>
 
                         <br>
                         <h2>A few words from our computer engineer:</h2>
@@ -466,7 +488,7 @@ video{
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <h1>Dialogue with experts</h1>
+                        <h2 id="dwe" class="marged"><span class="blue-text"><b>Dialogue with experts</b></span></h2>
                         <hr>
                         <h2 class="centered">Integration of Softer Shock in the world of industry</h2>
                         <div class="colored-container">
