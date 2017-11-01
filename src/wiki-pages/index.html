@@ -50,15 +50,83 @@ hr {
   width: 100%;
   filter: brightness(102%);
 }
-
 /* Third page */
 
-.grape {
+.third-page, .third-page .links {
+  position: relative;
+}
+
+.grape-img {
   display: block;
   width: 65%;
   height: auto;
   margin: auto;
   padding: 5%;
+}
+
+.link {
+  position: absolute;
+}
+
+.link a {
+  font-size: 28px;
+  color: #fff;
+}
+
+@media screen and (max-width: 1200px) {
+  .link a {
+    font-size: 18px;
+  }
+}
+
+#link1 {
+  top: 19%;
+  left: 41%;
+}
+
+#link2 {
+  top: 25%;
+  left: 50%;
+}
+
+#link3 {
+  top: 29%;
+  left: 35%;
+}
+
+#link4 {
+  top: 36%;
+  left: 38%;
+}
+
+#link5 {
+  top: 40%;
+  left: 46.5%;
+}
+
+#link6 {
+  top: 43%;
+  left: 56%;
+}
+
+#link7 {
+  top: 53%;
+  left: 33%;
+}
+
+#link8 {
+  top: 56%;
+  left: 48.5%;
+}
+
+#link9 {
+  top: 61%;
+  left: 25%;
+}
+
+#link10 {
+  top: 72%;
+  left: 39.5%;
 }
 
 /* Fourth page */
@@ -67,6 +135,17 @@ hr {
   width: 60%;
   margin-left: 10%;
   padding: 5%;
+}
+
+.grape-link img {
+  position: absolute;
+  width: 64px;
+  height: auto;
+}
+
+#grape1 {
+  top: 10%;
+  left: 50%;
 }
 
 </style>
@@ -85,22 +164,33 @@ hr {
           </div>
         </div>
         <div class="second-page">
-          <img class="softer-shock-gif centered" src="http://2017.igem.org/wiki/images/7/7f/Ionis-paris-index-gif.gif">
+          <img class="softer-shock-gif centered" src="http://2017.igem.org/wiki/images/a/a2/Ionis-paris-softer-shock-gif.gif">
         </div>
         <hr>
         <div class="third-page centered">
-          <img class="grape" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg">
+          <div class="links">
+            <img class="grape-img" src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg">
+            <p id="link1" class="link"><a href="http://2017.igem.org/Team:IONIS-PARIS/applied-design/overview"><b>Aplied Design</b><br>&<br>reports</a></p>
+            <p id="link2" class="link"><a href="http://2017.igem.org/Team:IONIS-PARIS/hp/society-law-gmos">Interactions<br>with<br><b>WINEMAKERS</b></a></p>
+            <p id="link3" class="link"><a href="http://2017.igem.org/Team:IONIS-PARIS/Modeling/dsbox-amilcp"><b>MODEL</b><br>analysis</a></p>
+            <p id="link4" class="link"><a href="https://softer-shock-map.herokuapp.com/index.html"><br><b>GLOBAL<br>GMO</b><br>perception</a></p>
+            <p id="link5" class="link"><a href="http://2017.igem.org/Team:IONIS-PARIS/hp/society-law-gmos">Interplay<br>with<br><b>EXPERTS</b></a></p>
+            <p id="link6" class="link"><a href="http://2017.igem.org/Team:IONIS-PARIS/applied-design/risk-assessment"><b>TOXIC<br>&<br>ECOTOXIC</b><br>studies</a></p>
+            <p id="link7" class="link"><a href="http://2017.igem.org/Team:IONIS-PARIS/hp/public-outreach">Scientific<br><b>VULGARISATION</b></a></p>
+            <p id="link8" class="link"><a href="http://2017.igem.org/Team:IONIS-PARIS/Entrepreneurship/perspectives">Work on a<br><b>CONFINE SYSTEM</b></a></p>
+            <p id="link9" class="link"><a href="http://2017.igem.org/Team:IONIS-PARIS/Entrepreneurship/overview"><b>ENTREPRENEURSHIP<br>approach</b></a></p>
+            <p id="link10" class="link"><a href="">http://2017.igem.org/Team:IONIS-PARIS/applied-design/risk-avoidance<b>SAFETY<br>issues</b></a></p-->
+          </div>
         </div>
         <hr>
         <div class="fourth-page">
           <img class="arbre" src="http://2017.igem.org/wiki/images/5/58/Ionis-paris-arbre.png">
+          <a id="grape1" class="grape-link">
+            <img src="http://2017.igem.org/wiki/images/f/fb/Ionis-paris-hp-team.jpg">
+          </a>
         </div>
       </div>
     </div>
   </div>
 </body>
-
-<script type="text/javascript" src="http://2017.igem.org/Template:Ionis-paris-javascript-template?
-action=raw&ctype=text/javascript"></script>
-
 </html>
